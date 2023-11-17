@@ -1,0 +1,6 @@
+[submodule "libs/libs/libft"]
+	path = libs/libs/libft
+	url = https://github.com/Alienxbe/libft
+[submodule "libs/libft"]
+	path = libs/libft
+	url = https://github.com/Alienxbe/libft
