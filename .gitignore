@@ -36,6 +36,8 @@
 *.x86_64
 *.hex
 
+so_long
+
 # Debug files
 *.dSYM/
 *.su
