@@ -4,3 +4,6 @@
 [submodule "libs/libft"]
 	path = libs/libft
 	url = https://github.com/Alienxbe/libft
+[submodule "libs/SnowFlakeEngine"]
+	path = libs/SnowFlakeEngine
+	url = https://github.com/Alienxbe/SnowFlakeEngine.git
