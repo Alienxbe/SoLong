@@ -6,7 +6,7 @@
 #    By: marykman <marykman@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/17 20:20:08 by marykman          #+#    #+#              #
-#    Updated: 2023/11/17 20:45:23 by marykman         ###   ########.fr        #
+#    Updated: 2023/11/17 21:07:31 by marykman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ endif
 # ---------------------------------Compilation---------------------------------
 
 CC					:=	@gcc
-CFLAGS				:=	-Wall -Wextra -Werror -g
+CFLAGS				:=	-Wall -Wextra -Werror
 
 ifeq ($(detected_OS), Linux)
 	MLXFLAGS		:=	-lXext -lX11 -lm -lz
@@ -50,9 +50,9 @@ INCLUDES			:=	-I ${MLX_FOLDER} \
 						-I ${FT_FOLDER}/includes \
 						-I ${SFE_FOLDER}/includes \
 						-I ./includes
-LIBRARIES			:=	-L./${MLX_FOLDER} -lmlx \
+LIBRARIES			:=	-L./${SFE_FOLDER} -lsfe \
 						-L./${FT_FOLDER} -lft \
-						-L./${SFE_FOLDER} -lsfe
+						-L./${MLX_FOLDER} -lmlx
 
 # --------------------------------Source files---------------------------------
 
@@ -69,7 +69,7 @@ objs/%.o:	srcs/%.c
 	${CC} ${CFLAGS} ${INCLUDES} -c $< -o $@
 
 $(NAME):	${FT} ${MLX} ${SFE} ${OBJS} ${HEADERS}
-	${CC} ${CFLAGS} ${LIBRARIES} ${MLXFLAGS} ${OBJS} -o $@
+	${CC} ${CFLAGS} ${OBJS} ${LIBRARIES} ${MLXFLAGS} -o $@
 
 $(FT):
 	${MAKE_FT}
