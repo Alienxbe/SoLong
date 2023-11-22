@@ -6,15 +6,24 @@
 #    By: marykman <marykman@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/17 20:20:08 by marykman          #+#    #+#              #
-#    Updated: 2023/11/17 21:07:31 by marykman         ###   ########.fr        #
+#    Updated: 2023/11/22 22:41:01 by marykman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+
+# -----------------------------------Colors------------------------------------
+
+RED				:=	[38;5;9m
+GREEN			:=	[38;5;10m
+BLUE			:= 	[38;5;14m
+YELLOW			:=	[38;5;226m
+RESET			:=	[38;5;7m
+PREFIX			=	[${YELLOW}${NAME}${RESET}]		
 
 # ------------------------------------VARS-------------------------------------
 
 CURRENT_FOLDER		:=	$(shell pwd)
 
-ifeq ($(OS),Windows_NT) 
+ifeq ($(OS),Windows_NT)
 	detected_OS := Windows
 else
 	detected_OS := $(shell uname)
@@ -57,19 +66,25 @@ LIBRARIES			:=	-L./${SFE_FOLDER} -lsfe \
 # --------------------------------Source files---------------------------------
 
 NAME				:=	so_long
-FILES				:=	main.c
+FILES				:=	main.c \
+						sc_main.c \
+						sfe_load_sprite_sheet.c
 SRCS				:=	$(addprefix srcs/, ${FILES})
 OBJS				:=	$(addprefix objs/, ${FILES:.c=.o})
-FILES				:=	so_long.h
+FILES				:=	so_long.h \
+						sc_main.h
 HEADERS				:=	$(addprefix includes/, ${FILES});
 
 # -----------------------------------Rules-------------------------------------
 
 objs/%.o:	srcs/%.c
 	${CC} ${CFLAGS} ${INCLUDES} -c $< -o $@
+	@echo "${PREFIX}Compilation of $<..."
+	
 
 $(NAME):	${FT} ${MLX} ${SFE} ${OBJS} ${HEADERS}
 	${CC} ${CFLAGS} ${OBJS} ${LIBRARIES} ${MLXFLAGS} -o $@
+	@echo "${PREFIX}${NAME} compiled!"
 
 $(FT):
 	${MAKE_FT}
