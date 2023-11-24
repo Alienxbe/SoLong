@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 22:33:14 by marykman          #+#    #+#             */
-/*   Updated: 2023/11/23 01:17:03 by marykman         ###   ########.fr       */
+/*   Updated: 2023/11/24 17:15:35 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,25 @@
 #include "sfe_image.h"
 #include "t_sfe.h"
 #include "ft_printf.h"
+#include "sfe_color.h"
+#include "sfe_pixel.h"
+
+static t_img	filter(t_sfe *sfe, t_img img)
+{
+	t_img	new;
+
+	new = sfe_image_resize(sfe->mlx_ptr, img, (t_point){img.size.x * 4, img.size.y * 4});
+	sfe_color_replace(new, 0, 0xFF000000);
+	sfe_image_destroy(sfe->mlx_ptr, img);
+	return (new);
+}
 
 int	sc_main_init(t_sc_main *sc)
 {
 	ft_printf("Init scene main\n");
 	sc->running = true;
-	sfe_scene_setbg(sc->scene, 0xFF0000);
-	sc->assets = sfe_load_sprite_sheet(sc->sfe, "assets/CelestePico8-v1-32x32.xpm", (t_point){16, 16});
+	sfe_scene_setbg(sc->scene, 0x03265f);
+	sc->assets = sfe_load_sprite_sheet(sc->sfe, "assets/CelestePico8-v1-32x32.xpm", (t_point){16, 16}, filter);
 	if (!sc->assets)
 		return (0);
 
@@ -32,21 +44,9 @@ int	sc_main_init(t_sc_main *sc)
 	// 	sfe_image_cpy(sc->assets[i], *sc->scene.img, add_point((t_point){0}, (t_point){i % 16 * 32, i / 16 * 32}));
 	// ft_printf("Il y a %d sprites\n", i);
 
-	t_img	resized_flower;
-	t_img	reversed, flipped, flipped_reverse, cursed;
-	int		i = 48;
-
-	resized_flower = sfe_image_resize(sc->sfe->mlx_ptr, sc->assets[i], (t_point){100, 100});
-	reversed = sfe_image_reverse_x(sc->sfe->mlx_ptr, resized_flower);
-	flipped = sfe_image_reverse_y(sc->sfe->mlx_ptr, resized_flower);
-	flipped_reverse = sfe_image_reverse_x(sc->sfe->mlx_ptr, flipped);
-	cursed = sfe_image_resize(sc->sfe->mlx_ptr, sc->assets[i], (t_point){450, 150});
-	sfe_image_cpy(sc->assets[i], *sc->scene.img, (t_point){0});
-	sfe_image_cpy(resized_flower, *sc->scene.img, (t_point){32, 32});
-	sfe_image_cpy(reversed, *sc->scene.img, (t_point){150, 32});
-	sfe_image_cpy(flipped, *sc->scene.img, (t_point){32, 150});
-	sfe_image_cpy(flipped_reverse, *sc->scene.img, (t_point){150, 150});
-	sfe_image_cpy(cursed, *sc->scene.img, (t_point){275, 50});
+	for (int y = 0; y < sc->map.size.y; y++)
+		for (int x = 0; x < sc->map.size.x; x++)
+			sfe_image_cpy(sc->assets[sc->map.tab[y][x]], *sc->scene.img, (t_point){x * 64, y * 64});
 	return (1);
 }
 

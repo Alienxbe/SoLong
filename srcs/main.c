@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 20:28:58 by marykman          #+#    #+#             */
-/*   Updated: 2023/11/22 23:48:34 by marykman         ###   ########.fr       */
+/*   Updated: 2023/11/24 16:26:09 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,19 @@ int	main(void)
 	t_sfe		*sfe;
 	t_sc_main	sc;
 
+
+	sc = (t_sc_main){0};
+	if (parsing(&sc.map, "maps/map1.ber"))
+		return (1);
 	init_window(&sfe, &sc);
 	sfe_loop(sfe);
+
+	// Printing map
+	for (int y = 0; y < sc.map.size.y; y++)
+	{
+		for (int x = 0; x < sc.map.size.x; x++)
+			ft_printf("%3d ", sc.map.tab[y][x]);
+		ft_printf("\n\n");
+	}
 	return (0);
 }

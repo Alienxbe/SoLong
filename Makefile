@@ -6,7 +6,7 @@
 #    By: marykman <marykman@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/17 20:20:08 by marykman          #+#    #+#              #
-#    Updated: 2023/11/22 22:41:01 by marykman         ###   ########.fr        #
+#    Updated: 2023/11/24 16:09:01 by marykman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -67,6 +67,7 @@ LIBRARIES			:=	-L./${SFE_FOLDER} -lsfe \
 
 NAME				:=	so_long
 FILES				:=	main.c \
+						parsing.c \
 						sc_main.c \
 						sfe_load_sprite_sheet.c
 SRCS				:=	$(addprefix srcs/, ${FILES})
@@ -77,7 +78,7 @@ HEADERS				:=	$(addprefix includes/, ${FILES});
 
 # -----------------------------------Rules-------------------------------------
 
-objs/%.o:	srcs/%.c
+objs/%.o:	srcs/%.c ${HEADERS}
 	${CC} ${CFLAGS} ${INCLUDES} -c $< -o $@
 	@echo "${PREFIX}Compilation of $<..."
 	
