@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 22:33:14 by marykman          #+#    #+#             */
-/*   Updated: 2023/12/12 15:51:13 by marykman         ###   ########.fr       */
+/*   Updated: 2023/12/12 16:27:03 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,6 @@ int	sc_main_init(t_sc_main *sc)
 	sc->assets = sfe_load_sprite_sheet(sc->sfe, F_SPRITE_SHEET, (t_point){16, 16}, filter);
 	if (!sc->assets)
 		return (0);
-
-	sc->player = (t_entity){{10 * 64, 10 * 64}};
 	return (1);
 }
 
@@ -58,16 +56,12 @@ int		sc_main_destroy(t_sc_main *sc)
 
 int	sc_main_update(t_sc_main *sc)
 {
-	static int	n;
-	
-	// Update tout les pixel 2x est trop couteux
-	// sfe_scene_setbg(sc->scene, 0x03265f);
+	sfe_scene_setbg(sc->scene, 0x0);
 	for (int y = 0; y < sc->map.size.y; y++)
 		for (int x = 0; x < sc->map.size.x; x++)
-			sfe_image_cpy(sc->assets[sc->map.tab[y][x]], *sc->scene.img, (t_point){x * 64, y * 64});
-	sfe_pixel_fill(*sc->scene.img, (t_area){{12 * 64, 11 * 64}, {13 * 64, 14 * 64}}, 0);
-	sfe_image_cpy(sc->assets[48], *sc->scene.img, (t_point){12 * 64, 12 * 64 + (sin(n * M_PI / 16)) * 10});
-	n++;
-	// printf("FPS: %d\n", sc->sfe->fps);
+			sfe_image_cpy(sc->assets[sc->map.tab[y][x]], *sc->scene.img, (t_point){x * sc->assets[0].size.x, y * sc->assets[0].size.y});
+	
+	sfe_image_cpy(sc->assets[0xf0], *sc->scene.img, (t_point){sc->map.player_pos.x, sc->map.player_pos.y});
+	printf("FPS: %d\n", sc->sfe->fps);
 	return (sc->running);
 }

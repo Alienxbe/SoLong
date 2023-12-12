@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 20:28:58 by marykman          #+#    #+#             */
-/*   Updated: 2023/12/12 15:51:42 by marykman         ###   ########.fr       */
+/*   Updated: 2023/12/12 16:29:19 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,11 @@
 
 static int	on_key_down(int key, t_sc_main *sc)
 {
-	if (key == 53)
+	ft_printf("%d\n", SFE_KEY_LEFT);
+	if (key == SFE_KEY_ESC)
 		sc->running = false;
+	if (key == SFE_KEY_LEFT)
+		sc->map.player_pos.x--;
 	ft_printf("Key pressed: %d\n", key);
 	return (1);
 }

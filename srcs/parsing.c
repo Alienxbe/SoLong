@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 11:54:08 by marykman          #+#    #+#             */
-/*   Updated: 2023/12/12 15:14:50 by marykman         ###   ########.fr       */
+/*   Updated: 2023/12/12 16:21:53 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,17 +21,32 @@
 #include "so_long.h"
 #include "ft_printf.h"
 
+static t_error	add_player(t_map *map, t_point pos)
+{
+	static int	player_count;
+
+	if (player_count)
+		return (PARSING_MULTIPLE_PLAYER);
+	map->player_pos = (t_point){pos.x * 32, pos.y * 32};
+	player_count++;
+	return (SUCCESS);
+}
+
 static t_error	parse_special_char(t_map *map, char *line, int i)
 {
-	ft_printf("PLAYER PLAYER\n");
+	ft_printf("PLAYER PLAYER %d %d\n", i, map->size.y);
 	if (*++line == 'P')
-		map->player_pos = (t_point){i, map->size.y};
+	{
+		if (add_player(map, (t_point){i, map->size.y}))
+			return (PARSING_MULTIPLE_PLAYER);
+	}
 	else if (*line == 'C')
 		;
 	else if (*line == 'E')
 		;
 	else
 		return (PARSING_WRONG_CHAR);
+	ft_printf("SUCCES\n");
 	return (SUCCESS);
 }
 
@@ -52,7 +67,7 @@ t_error	parse_content(t_map *map, int **tab, char *line)
 		{
 			if (parse_special_char(map, line, i))
 				ret = PARSING_WRONG_CHAR;
-			(*tab)[i++] = 20;
+			(*tab)[i++] = 0;
 		}
 		else
 		{
@@ -77,7 +92,7 @@ t_error	parse_line(t_map *map, t_list **lines, char *line)
 		return (MALLOC_ERROR);
 	if (!map->size.y)
 		map->size.x = ft_strlen(line) / 2;
-	if (map->size.x != (int)ft_strlen(line) / 2 || map->size.x % 2)
+	if (map->size.x != (int)ft_strlen(line) / 2 || map->size.x % 2 || !*line)
 		return (PARSING_WRONG_LINE_LEN);
 	ret = parse_content(map, &content, line);
 	if (ret)
@@ -154,5 +169,6 @@ t_error	parsing(t_map *map, const char *filename)
 	ret = parse_map(map, fd);
 	if (close(fd) < 0)
 		return (MAP_CLOSE_ERROR); // Need to free the map
+	ft_printf("%d\n", ret);
 	return (ret);
 }

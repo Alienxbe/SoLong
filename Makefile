@@ -6,7 +6,7 @@
 #    By: marykman <marykman@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/17 20:20:08 by marykman          #+#    #+#              #
-#    Updated: 2023/11/24 16:09:01 by marykman         ###   ########.fr        #
+#    Updated: 2023/12/12 16:26:16 by marykman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,9 +37,11 @@ CFLAGS				:=	-Wall -Wextra -Werror
 ifeq ($(detected_OS), Linux)
 	MLXFLAGS		:=	-lXext -lX11 -lm -lz
 	MLX_FOLDER		:=	libs/minilibx-linux
+	DFLAGS			:=	-D LINUX
 else ifeq ($(detected_OS), Darwin)
 	MLXFLAGS		:=	-framework OpenGL -framework AppKit
 	MLX_FOLDER		:=	libs/minilibx_opengl
+	DFLAGS			:=	-D MACOS
 endif
 
 # ---------------------------------Librairies----------------------------------
@@ -79,12 +81,12 @@ HEADERS				:=	$(addprefix includes/, ${FILES});
 # -----------------------------------Rules-------------------------------------
 
 objs/%.o:	srcs/%.c ${HEADERS}
-	${CC} ${CFLAGS} ${INCLUDES} -c $< -o $@
+	${CC} ${CFLAGS} ${DFLAGS} ${INCLUDES} -c $< -o $@
 	@echo "${PREFIX}Compilation of $<..."
 	
 
 $(NAME):	${FT} ${MLX} ${SFE} ${OBJS} ${HEADERS}
-	${CC} ${CFLAGS} ${OBJS} ${LIBRARIES} ${MLXFLAGS} -o $@
+	${CC} ${CFLAGS} ${DFLAGS} ${OBJS} ${LIBRARIES} ${MLXFLAGS} -o $@
 	@echo "${PREFIX}${NAME} compiled!"
 
 $(FT):
