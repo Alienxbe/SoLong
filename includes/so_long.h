@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 20:27:42 by marykman          #+#    #+#             */
-/*   Updated: 2023/11/24 16:21:24 by marykman         ###   ########.fr       */
+/*   Updated: 2023/12/12 14:59:25 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,9 @@
 #include "ft_point.h"
 
 # define WIN_NAME		"So long but it's actually too long"
-# define WIN_DIM		16 * 16 * 4, 16 * 16 * 4
+# define WIN_DIM		(16 * 2) * 16, (16 * 2) * 16
 # define MAPFILE_SUFFIX	".ber"
 
-# define PLAYER_CHAR	'P'
-# define COIN_CHAR		'C'
-# define EXIT_CHAR		'E'
 # define SPECIAL_CHAR	"PCE"
 
 
