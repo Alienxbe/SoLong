@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 22:33:14 by marykman          #+#    #+#             */
-/*   Updated: 2023/11/24 17:15:35 by marykman         ###   ########.fr       */
+/*   Updated: 2023/11/29 04:25:13 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,20 +33,11 @@ int	sc_main_init(t_sc_main *sc)
 {
 	ft_printf("Init scene main\n");
 	sc->running = true;
-	sfe_scene_setbg(sc->scene, 0x03265f);
-	sc->assets = sfe_load_sprite_sheet(sc->sfe, "assets/CelestePico8-v1-32x32.xpm", (t_point){16, 16}, filter);
+	sc->assets = sfe_load_sprite_sheet(sc->sfe, F_SPRITE_SHEET, (t_point){16, 16}, filter);
 	if (!sc->assets)
 		return (0);
 
-	// Test des sprites
-	// int i = -1;
-	// while (sc->assets[++i].img)
-	// 	sfe_image_cpy(sc->assets[i], *sc->scene.img, add_point((t_point){0}, (t_point){i % 16 * 32, i / 16 * 32}));
-	// ft_printf("Il y a %d sprites\n", i);
-
-	for (int y = 0; y < sc->map.size.y; y++)
-		for (int x = 0; x < sc->map.size.x; x++)
-			sfe_image_cpy(sc->assets[sc->map.tab[y][x]], *sc->scene.img, (t_point){x * 64, y * 64});
+	sc->player = (t_entity){{10 * 64, 10 * 64}};
 	return (1);
 }
 
@@ -61,7 +52,22 @@ int		sc_main_destroy(t_sc_main *sc)
 	return (0);
 }
 
+#include <stdio.h>
+#include <math.h>
+#include <time.h>
+
 int	sc_main_update(t_sc_main *sc)
 {
+	static int	n;
+	
+	// Update tout les pixel 2x est trop couteux
+	// sfe_scene_setbg(sc->scene, 0x03265f);
+	for (int y = 0; y < sc->map.size.y; y++)
+		for (int x = 0; x < sc->map.size.x; x++)
+			sfe_image_cpy(sc->assets[sc->map.tab[y][x]], *sc->scene.img, (t_point){x * 64, y * 64});
+	sfe_pixel_fill(*sc->scene.img, (t_area){{12 * 64, 11 * 64}, {13 * 64, 14 * 64}}, 0);
+	sfe_image_cpy(sc->assets[48], *sc->scene.img, (t_point){12 * 64, 12 * 64 + (sin(n * M_PI / 16)) * 10});
+	n++;
+	// printf("FPS: %d\n", sc->sfe->fps);
 	return (sc->running);
 }

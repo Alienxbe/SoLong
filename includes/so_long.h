@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 20:27:42 by marykman          #+#    #+#             */
-/*   Updated: 2023/11/24 16:21:24 by marykman         ###   ########.fr       */
+/*   Updated: 2023/11/29 04:20:58 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@
 # define COIN_CHAR		'C'
 # define EXIT_CHAR		'E'
 # define SPECIAL_CHAR	"PCE"
+
+# define F_SPRITE_SHEET	"assets/CelestePico8.xpm"
 
 
 typedef struct s_map

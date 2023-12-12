@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 22:33:26 by marykman          #+#    #+#             */
-/*   Updated: 2023/11/24 17:07:25 by marykman         ###   ########.fr       */
+/*   Updated: 2023/11/25 08:17:58 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,12 @@
 # include "t_scene.h"
 # include "so_long.h"
 
+
+typedef struct s_entity
+{
+	t_point	pos;
+}	t_entity;
+
 typedef struct s_sc_main
 {
 	t_sfe			*sfe;
@@ -23,6 +29,7 @@ typedef struct s_sc_main
 	t_scene			scene;
 	t_img			*assets;
 	t_bool			running;
+	t_entity		player;
 }	t_sc_main;
 
 typedef t_img	(*t_filter)(t_sfe *sfe, t_img img);
