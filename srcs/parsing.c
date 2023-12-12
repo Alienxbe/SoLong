@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 11:54:08 by marykman          #+#    #+#             */
-/*   Updated: 2023/11/24 16:42:16 by marykman         ###   ########.fr       */
+/*   Updated: 2023/12/12 15:14:50 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,28 +17,50 @@
 #include "get_next_line.h"
 #include "ft_ctype.h"
 #include "ft_list.h"
+#include "ft_math.h"
 #include "so_long.h"
+#include "ft_printf.h"
 
-t_error	parse_content(int **tab, char *line)
+static t_error	parse_special_char(t_map *map, char *line, int i)
+{
+	ft_printf("PLAYER PLAYER\n");
+	if (*++line == 'P')
+		map->player_pos = (t_point){i, map->size.y};
+	else if (*line == 'C')
+		;
+	else if (*line == 'E')
+		;
+	else
+		return (PARSING_WRONG_CHAR);
+	return (SUCCESS);
+}
+
+t_error	parse_content(t_map *map, int **tab, char *line)
 {
 	t_error	ret;
-	int		i;
+	size_t	i;
+	char	*endptr;
 
-	*tab = malloc(sizeof(**tab) * ft_strlen(line));
+	*tab = malloc(sizeof(**tab) * (ft_strlen(line) / 2));
 	if (!*tab)
 		return (MALLOC_ERROR);
 	ret = SUCCESS;
-	i = -1;
-	while (line[++i] && !ret)
+	i = 0;
+	while (*line && !ret)
 	{
-		if (ft_isdigit(line[i]))
-			(*tab)[i] = ft_todigit(line[i]);
-		else if (ft_islower(line[i])) // a=10, b=11, ..., z=35
-			(*tab)[i] = line[i] - 'a' + 10;
-		else if (ft_strchr(SPECIAL_CHAR, line[i]))
-			(*tab)[i] = line[i];
+		if (*line == 'x')
+		{
+			if (parse_special_char(map, line, i))
+				ret = PARSING_WRONG_CHAR;
+			(*tab)[i++] = 20;
+		}
 		else
-			ret = PARSING_WRONG_CHAR;
+		{
+			(*tab)[i++] = ft_strtol_l(line, &endptr, BASE_HEXA_L, 2);
+			if (endptr != line + 2)
+				ret = PARSING_WRONG_CHAR;
+		}
+		line += 2;
 	}
 	if (ret)
 		free(*tab);
@@ -54,10 +76,10 @@ t_error	parse_line(t_map *map, t_list **lines, char *line)
 	if (!line)
 		return (MALLOC_ERROR);
 	if (!map->size.y)
-		map->size.x = ft_strlen(line);
-	if (map->size.x != (int)ft_strlen(line))
+		map->size.x = ft_strlen(line) / 2;
+	if (map->size.x != (int)ft_strlen(line) / 2 || map->size.x % 2)
 		return (PARSING_WRONG_LINE_LEN);
-	ret = parse_content(&content, line);
+	ret = parse_content(map, &content, line);
 	if (ret)
 		return (ret);
 	lst = ft_lstnew(content);

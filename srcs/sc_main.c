@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 22:33:14 by marykman          #+#    #+#             */
-/*   Updated: 2023/11/29 04:25:13 by marykman         ###   ########.fr       */
+/*   Updated: 2023/12/12 15:51:13 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static t_img	filter(t_sfe *sfe, t_img img)
 {
 	t_img	new;
 
-	new = sfe_image_resize(sfe->mlx_ptr, img, (t_point){img.size.x * 4, img.size.y * 4});
+	new = sfe_image_resize(sfe->mlx_ptr, img, (t_point){img.size.x * 2, img.size.y * 2});
 	sfe_color_replace(new, 0, 0xFF000000);
 	sfe_image_destroy(sfe->mlx_ptr, img);
 	return (new);

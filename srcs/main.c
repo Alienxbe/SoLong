@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 20:28:58 by marykman          #+#    #+#             */
-/*   Updated: 2023/11/29 04:24:02 by marykman         ###   ########.fr       */
+/*   Updated: 2023/12/12 15:51:42 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static int	on_key_down(int key, t_sc_main *sc)
 static void	init_window(t_sfe **sfe, t_sc_main *sc)
 {
 	*sfe = sfe_init(WIN_NAME, new_point(WIN_DIM));
-	sfe_set_max_fps(*sfe, 60);
+	sfe_set_max_fps(*sfe, 30);
 
 	sc->scene = sfe_new_scene(*sfe, sc);
 	sc->scene.f_init = &sc_main_init;
@@ -46,10 +46,12 @@ int	main(void)
 
 
 	sc = (t_sc_main){0};
-	if (parsing(&sc.map, "maps/map2.ber"))
+	if (parsing(&sc.map, "maps/celeste0.ber"))
 		return (1);
 	init_window(&sfe, &sc);
+	ft_printf("Player pos at: %d / %d\n", sc.map.player_pos.x, sc.map.player_pos.y);
 	sfe_loop(sfe);
+
 
 	// Printing map
 	for (int y = 0; y < sc.map.size.y; y++)
