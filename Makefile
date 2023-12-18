@@ -6,7 +6,7 @@
 #    By: marykman <marykman@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/17 20:20:08 by marykman          #+#    #+#              #
-#    Updated: 2023/12/12 16:26:16 by marykman         ###   ########.fr        #
+#    Updated: 2023/12/18 17:40:25 by marykman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -68,14 +68,28 @@ LIBRARIES			:=	-L./${SFE_FOLDER} -lsfe \
 # --------------------------------Source files---------------------------------
 
 NAME				:=	so_long
-FILES				:=	main.c \
-						parsing.c \
-						sc_main.c \
-						sfe_load_sprite_sheet.c
+
+FILES				:=	main.c
+FILES_EVENTS		:=	events.c
+FILES_MAIN_SCENE	:=	destroy.c \
+						init.c \
+						update.c
+FILES_PARSING		:=	parse_content.c \
+						parse_map.c \
+						parsing.c
+FILES_PLAYER		:=	player.c
+
 SRCS				:=	$(addprefix srcs/, ${FILES})
-OBJS				:=	$(addprefix objs/, ${FILES:.c=.o})
+SRCS				+=	$(addprefix srcs/events/, ${FILES_EVENTS})
+SRCS				+=	$(addprefix srcs/main_scene/, ${FILES_MAIN_SCENE})
+SRCS				+=	$(addprefix srcs/parsing/, ${FILES_PARSING})
+SRCS				+=	$(addprefix srcs/player/, ${FILES_PLAYER})
+OBJS				:=	$(patsubst srcs%.c, objs%.o, ${SRCS})
+
+# header files
 FILES				:=	so_long.h \
-						sc_main.h
+						sc_main.h \
+						player.h
 HEADERS				:=	$(addprefix includes/, ${FILES});
 
 # -----------------------------------Rules-------------------------------------
@@ -100,6 +114,8 @@ $(SFE):
 				MLX_FOLDER=${CURRENT_FOLDER}/${MLX_FOLDER}
 
 all:	${NAME}
+
+bonus:
 
 clean:
 	${MAKE_FT} clean

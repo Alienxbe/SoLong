@@ -1,32 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sc_main.h                                          :+:      :+:    :+:   */
+/*   errors.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/22 22:33:26 by marykman          #+#    #+#             */
-/*   Updated: 2023/12/18 16:20:29 by marykman         ###   ########.fr       */
+/*   Created: 2023/12/18 16:08:01 by marykman          #+#    #+#             */
+/*   Updated: 2023/12/18 16:08:37 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SC_MAIN_H
-# define SC_MAIN_H
+#ifndef ERRORS_H
+# define ERRORS_H
 
-# include "t_scene.h"
-# include "player.h"
-# include "so_long.h"
-
-typedef struct s_sc_main
+typedef enum e_error
 {
-	t_game		*game;
-	t_bool		running;
-	t_scene		scene;		// Where to draw
-	t_sfe		*sfe;
-}	t_sc_main;
-
-int		sc_main_init(t_sc_main *sc);
-int		sc_main_update(t_sc_main *sc);
-int		sc_main_destroy(t_sc_main *sc);
+	SUCCESS,
+	MALLOC_ERROR,
+	MAP_WRONG_EXTENSION,
+	MAP_FILE_NOT_FOUND,
+	MAP_CLOSE_ERROR,
+	PARSING_WRONG_LINE_LEN,
+	PARSING_WRONG_CHAR,
+	PARSING_MULTIPLE_PLAYER,
+	ERROR_LEN
+}	t_error;
 
 #endif

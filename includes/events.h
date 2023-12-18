@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sc_main.h                                          :+:      :+:    :+:   */
+/*   events.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/22 22:33:26 by marykman          #+#    #+#             */
-/*   Updated: 2023/12/18 16:20:29 by marykman         ###   ########.fr       */
+/*   Created: 2023/12/18 17:35:33 by marykman          #+#    #+#             */
+/*   Updated: 2023/12/18 18:00:26 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SC_MAIN_H
-# define SC_MAIN_H
+#ifndef EVENTS_H
+# define EVENTS_H
 
-# include "t_scene.h"
-# include "player.h"
-# include "so_long.h"
-
-typedef struct s_sc_main
+typedef enum e_game_keys
 {
-	t_game		*game;
-	t_bool		running;
-	t_scene		scene;		// Where to draw
-	t_sfe		*sfe;
-}	t_sc_main;
+	GAME_KEY_LEFT,
+	GAME_KEY_RIGHT,
+	GAME_KEY_UP,
+	GAME_KEY_DOWN,
+	GAME_KEY_JUMP,
+	GAME_KEY_DASH,
+	GAME_KEY_LEN
+}	t_game_keys;
 
-int		sc_main_init(t_sc_main *sc);
-int		sc_main_update(t_sc_main *sc);
-int		sc_main_destroy(t_sc_main *sc);
+typedef t_bool	t_keylist[GAME_KEY_LEN];
+
+void	events_init(t_sfe *sfe, t_sc_main *sc);
 
 #endif

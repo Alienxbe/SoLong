@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sc_main.h                                          :+:      :+:    :+:   */
+/*   player.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/22 22:33:26 by marykman          #+#    #+#             */
-/*   Updated: 2023/12/18 16:20:29 by marykman         ###   ########.fr       */
+/*   Created: 2023/12/14 16:37:51 by marykman          #+#    #+#             */
+/*   Updated: 2023/12/18 17:15:06 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SC_MAIN_H
-# define SC_MAIN_H
+#ifndef PLAYER_H
+# define PLAYER_H
 
-# include "t_scene.h"
-# include "player.h"
-# include "so_long.h"
+# include "ft_bool.h"
+# include "ft_point.h"
+# include "sfe_image.h"
 
-typedef struct s_sc_main
+typedef struct s_player
 {
-	t_game		*game;
-	t_bool		running;
-	t_scene		scene;		// Where to draw
-	t_sfe		*sfe;
-}	t_sc_main;
+	t_point	pos;
+	int		frame;
+	int		direction;
+	t_bool	move_left;
+	t_img	*assets;
+}	t_player;
 
-int		sc_main_init(t_sc_main *sc);
-int		sc_main_update(t_sc_main *sc);
-int		sc_main_destroy(t_sc_main *sc);
+int		player_init(t_player *player, t_point pos, t_img *assets);
+void	player_draw(t_player *player, t_img *img);
 
 #endif
