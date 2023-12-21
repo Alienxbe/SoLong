@@ -6,7 +6,7 @@
 #    By: marykman <marykman@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/17 20:20:08 by marykman          #+#    #+#              #
-#    Updated: 2023/12/20 19:52:26 by marykman         ###   ########.fr        #
+#    Updated: 2023/12/21 19:54:04 by marykman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -78,7 +78,9 @@ FILES_MAIN_SCENE	:=	destroy.c \
 FILES_PARSING		:=	parse_content.c \
 						parse_map.c \
 						parsing.c
-FILES_PLAYER		:=	player.c
+FILES_PLAYER		:=	init.c \
+						draw.c \
+						update.c
 
 SRCS				:=	$(addprefix srcs/, ${FILES})
 SRCS				+=	$(addprefix srcs/events/, ${FILES_EVENTS})

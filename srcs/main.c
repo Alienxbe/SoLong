@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 20:28:58 by marykman          #+#    #+#             */
-/*   Updated: 2023/12/20 21:56:35 by marykman         ###   ########.fr       */
+/*   Updated: 2023/12/21 19:38:48 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ int	main(void)
 	t_sfe		*sfe;
 	t_sc_main	sc;
 	t_game		game;
-
 
 	sc = (t_sc_main){0};
 	game = (t_game){0};

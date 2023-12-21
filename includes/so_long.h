@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 20:27:42 by marykman          #+#    #+#             */
-/*   Updated: 2023/12/20 19:17:07 by marykman         ###   ########.fr       */
+/*   Updated: 2023/12/21 20:07:17 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define SO_LONG_H
 
 # include "ft_point.h"
-# include "player.h"
 # include "events.h"
 
 # define WIN_NAME		"So long but it's actually too long"
@@ -32,6 +31,16 @@ typedef struct s_map
 	t_point	player_pos;
 	t_point	size;
 }	t_map;
+
+typedef struct s_player
+{
+	t_point	pos;
+	float	spd;
+	int		frame;
+	int		direction;
+	t_bool	p_jump;
+	t_img	*assets;
+}	t_player;
 
 typedef struct s_game
 {

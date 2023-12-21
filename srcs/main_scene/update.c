@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 16:31:23 by marykman          #+#    #+#             */
-/*   Updated: 2023/12/20 21:22:56 by marykman         ###   ########.fr       */
+/*   Updated: 2023/12/21 19:50:36 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,19 +30,9 @@ void	draw_map(t_sc_main *sc)
 
 int	sc_main_update(t_sc_main *sc)
 {
-	if (sc->game->active_keys[GAME_KEY_LEFT])
-	{
-		sc->game->player.pos.x -= 4;
-		sc->game->player.direction = 1;
-	}
-	if (sc->game->active_keys[GAME_KEY_RIGHT])
-	{
-		sc->game->player.pos.x += 4;
-		sc->game->player.direction = 0;
-	}
-
+	player_update(sc->game);
 	draw_map(sc);
 	player_draw(&sc->game->player, sc->scene.img);
-	ft_printf("FPS: %d\n", sc->sfe->fps);
+	// ft_printf("FPS: %d\n", sc->sfe->fps);
 	return (sc->running);
 }

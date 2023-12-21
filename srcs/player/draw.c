@@ -1,26 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   move.c                                             :+:      :+:    :+:   */
+/*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/21 15:04:27 by marykman          #+#    #+#             */
-/*   Updated: 2023/12/21 19:35:28 by marykman         ###   ########.fr       */
+/*   Created: 2023/12/21 19:54:15 by marykman          #+#    #+#             */
+/*   Updated: 2023/12/21 19:59:31 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "player.h"
 
-t_bool	is_colliding(t_game *game, t_point pos)
+static t_point	flip_x_mod(t_point img_src, t_point i)
 {
-	(void)game;
-	(void)pos;
-	return (false);
+	return ((t_point){img_src.x - i.x - 1, i.y});
 }
 
-void	player_move(t_game *game, t_point pos)
+static t_mod	get_mod_function(t_player *player)
 {
-	(void)game;
-	(void)pos;
+	if (player->direction)
+		return (&flip_x_mod);
+	return (NULL);
+}
+
+void	player_draw(t_player *player, t_img *img)
+{
+	sfe_image_mod_cpy(
+		player->assets[0xf0 + player->frame],
+		*img,
+		player->pos,
+		get_mod_function(player)
+		);
 }
