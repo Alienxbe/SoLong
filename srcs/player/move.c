@@ -1,29 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sc_main.c                                          :+:      :+:    :+:   */
+/*   move.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/22 22:33:14 by marykman          #+#    #+#             */
-/*   Updated: 2023/12/18 16:31:15 by marykman         ###   ########.fr       */
+/*   Created: 2023/12/21 15:04:27 by marykman          #+#    #+#             */
+/*   Updated: 2023/12/21 15:06:27 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
-#include <stdlib.h>
-#include "sc_main.h"
-#include "sfe_scene.h"
-#include "sfe_image.h"
-#include "t_sfe.h"
-#include "ft_printf.h"
-#include "sfe_color.h"
-#include "sfe_pixel.h"
-#include "player.h"
+#include "so_long.h"
 
+static t_bool	is_colliding(t_game *game, t_point pos)
+{
+	if ()
+}
 
-
-
-#include <stdio.h>
-#include <math.h>
-#include <time.h>
+void	player_move(t_game *game, t_point pos)
+{
+	
+}

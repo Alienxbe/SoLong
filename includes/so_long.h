@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 20:27:42 by marykman          #+#    #+#             */
-/*   Updated: 2023/12/18 18:00:38 by marykman         ###   ########.fr       */
+/*   Updated: 2023/12/20 19:17:07 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include "ft_point.h"
 # include "player.h"
-# include "events.h";
+# include "events.h"
 
 # define WIN_NAME		"So long but it's actually too long"
 # define WIN_DIM		(16 * 2) * 16, (16 * 2) * 16

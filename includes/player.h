@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 16:37:51 by marykman          #+#    #+#             */
-/*   Updated: 2023/12/18 17:15:06 by marykman         ###   ########.fr       */
+/*   Updated: 2023/12/20 19:51:37 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ typedef struct s_player
 	t_point	pos;
 	int		frame;
 	int		direction;
-	t_bool	move_left;
 	t_img	*assets;
 }	t_player;
 

@@ -6,7 +6,7 @@
 #    By: marykman <marykman@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/17 20:20:08 by marykman          #+#    #+#              #
-#    Updated: 2023/12/18 17:40:25 by marykman         ###   ########.fr        #
+#    Updated: 2023/12/20 19:52:26 by marykman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -70,7 +70,8 @@ LIBRARIES			:=	-L./${SFE_FOLDER} -lsfe \
 NAME				:=	so_long
 
 FILES				:=	main.c
-FILES_EVENTS		:=	events.c
+FILES_EVENTS		:=	convert.c \
+						events.c
 FILES_MAIN_SCENE	:=	destroy.c \
 						init.c \
 						update.c

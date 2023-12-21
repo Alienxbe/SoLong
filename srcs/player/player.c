@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 16:36:06 by marykman          #+#    #+#             */
-/*   Updated: 2023/12/18 16:26:47 by marykman         ###   ########.fr       */
+/*   Updated: 2023/12/20 21:56:23 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,24 @@ int	player_init(t_player *player, t_point pos, t_img *assets)
 	return (1);
 }
 
+static t_point	flip_x_mod(t_point img_src, t_point i)
+{
+	return ((t_point){img_src.x - i.x - 1, i.y});
+}
+
+static t_mod	get_mod_function(t_player *player)
+{
+	if (player->direction)
+		return (&flip_x_mod);
+	return (NULL);
+}
+
 void	player_draw(t_player *player, t_img *img)
 {
-	sfe_image_cpy(
-		player->assets[0xf0],
+	sfe_image_mod_cpy(
+		player->assets[0xf0 + player->frame],
 		*img,
-		player->pos);
+		player->pos,
+		get_mod_function(player)
+		);
 }
