@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 19:54:15 by marykman          #+#    #+#             */
-/*   Updated: 2023/12/21 19:59:31 by marykman         ###   ########.fr       */
+/*   Updated: 2023/12/22 15:09:31 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	player_draw(t_player *player, t_img *img)
 	sfe_image_mod_cpy(
 		player->assets[0xf0 + player->frame],
 		*img,
-		player->pos,
+		ft_fpoint_to_point(player->pos),
 		get_mod_function(player)
 		);
 }
