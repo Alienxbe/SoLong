@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 16:37:51 by marykman          #+#    #+#             */
-/*   Updated: 2023/12/21 19:58:58 by marykman         ###   ########.fr       */
+/*   Updated: 2023/12/22 15:27:38 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,7 @@
 int		player_init(t_player *player, t_point pos, t_img *assets);
 void	player_update(t_game *game);
 void	player_draw(t_player *player, t_img *img);
+
+void	player_move(t_game *game);
 
 #endif
