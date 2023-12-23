@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 20:27:42 by marykman          #+#    #+#             */
-/*   Updated: 2023/12/22 16:00:43 by marykman         ###   ########.fr       */
+/*   Updated: 2023/12/23 20:25:31 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ typedef struct s_player
 	t_fpoint	pos;
 	t_fpoint	spd;
 	t_area		hitbox;
+	t_bool		on_ground;
+	t_bool		on_wall;
 	int			frame;
 	int			direction;
 	t_bool		p_jump;

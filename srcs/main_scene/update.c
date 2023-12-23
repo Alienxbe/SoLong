@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 16:31:23 by marykman          #+#    #+#             */
-/*   Updated: 2023/12/22 17:51:59 by marykman         ###   ########.fr       */
+/*   Updated: 2023/12/23 19:27:27 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ int	sc_main_update(t_sc_main *sc)
 	player_update(sc->game);
 	draw_map(sc);
 	player_draw(&sc->game->player, sc->scene.img);
-	// ft_printf("FPS: %d\n", sc->sfe->fps);
+	ft_printf("FPS: %d\n", sc->sfe->fps);
+	if (sc->game->player.on_ground)
+		ft_printf("ON GROUND\n");
 	return (sc->running);
 }

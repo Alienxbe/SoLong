@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 15:04:27 by marykman          #+#    #+#             */
-/*   Updated: 2023/12/22 16:55:27 by marykman         ###   ########.fr       */
+/*   Updated: 2023/12/23 20:28:17 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,11 @@ typedef enum e_direction
 	WEST
 }	t_direction;
 
+// static t_point	crd_to_grid(t_fpoint p)
+// {
+// 	return ((t_point){p.x / SPRITE_SIZE, p.y / SPRITE_SIZE});
+// }
+
 t_bool	is_wall(t_game *game, t_fpoint pos)
 {
 	t_point	p_map;
@@ -33,6 +38,14 @@ t_bool	is_wall(t_game *game, t_fpoint pos)
 	return (false);
 }
 
+/*
+
+4 points
+
+if (p1 collide)
+	
+
+*/
 t_bool	is_hitbox_colliding(t_game *game, t_fpoint pos)
 {
 	t_fpoint	points[4];
@@ -46,8 +59,10 @@ t_bool	is_hitbox_colliding(t_game *game, t_fpoint pos)
 	points[3] = (t_fpoint){pos.x + game->player.hitbox.p1.x,
 					pos.y + game->player.hitbox.p2.y};
 	for (int i = 0; i < 4; i++)
+	{
 		if (is_wall(game, points[i]))
 			return (true);
+	}
 	return (false);
 }
 
@@ -68,19 +83,38 @@ void	player_move(t_game *game)
 {
 	t_fpoint	new;
 
-	new = (t_fpoint){game->player.pos.x + game->player.spd.x,
-			game->player.pos.y + game->player.spd.y};
-	if (is_colliding(game, new, WEST) || is_colliding(game, new, EAST))
+	new = (t_fpoint){game->player.pos.x + game->player.spd.x, game->player.pos.y};
+	// if (is_colliding(game, new, WEST) || is_colliding(game, new, EAST))
+	// {
+	// 	new.x = game->player.pos.x;
+	// 	game->player.spd.x = 0;
+	// }
+	// if (is_colliding(game, new, NORTH) || is_colliding(game, new, SOUTH))
+	// {
+	// 	new.y = game->player.pos.y;
+	// 	game->player.spd.y = 0;
+	// }
+
+	if (!is_hitbox_colliding(game, new))
 	{
-		new.x = game->player.pos.x;
-		game->player.spd.x = 0;
+		game->player.pos = new;
+		game->player.on_wall = false;
 	}
-	if (is_colliding(game, new, NORTH) || is_colliding(game, new, SOUTH))
+	else
 	{
-		new.y = game->player.pos.y;
+		game->player.spd.x = 0;
+		game->player.on_wall = true;
+	}
+	new = (t_fpoint){game->player.pos.x, game->player.pos.y + game->player.spd.y};
+	if (!is_hitbox_colliding(game, new))
+	{
+		game->player.pos = new;
+		game->player.on_ground = false;
+	}
+	else
+	{
+		if (game->player.spd.y > 0)
+			game->player.on_ground = true;
 		game->player.spd.y = 0;
 	}
-	if (!is_hitbox_colliding(game, new))
-		game->player.pos = 
-	game->player.pos = new;
 }

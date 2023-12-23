@@ -972,7 +972,7 @@ function init_object(type,x,y)
 	obj.spd = {x=0,y=0}
 	obj.rem = {x=0,y=0}
 
-	obj.is_solid=function(ox,oy)
+	obj.is_solid=function(ox,oy) -- is_solid
 		if oy>0 and not obj.check(platform,ox,0) and obj.check(platform,ox,oy) then
 			return true
 		end
