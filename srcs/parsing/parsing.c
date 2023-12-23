@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 11:54:08 by marykman          #+#    #+#             */
-/*   Updated: 2023/12/18 16:29:20 by marykman         ###   ########.fr       */
+/*   Updated: 2023/12/23 22:03:34 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include <unistd.h>
 #include "ft_string.h"
 #include "parsing.h"
+#include <stdio.h>
 
 /**
  * @brief This function take a file as parameter. Reads and then parses it
@@ -37,5 +38,6 @@ t_error	parsing(t_map *map, const char *filename)
 	ret = parse_map(map, fd);
 	if (close(fd) < 0)
 		return (MAP_CLOSE_ERROR); // Need to free the map
+	printf("%d\n", ret);
 	return (ret);
 }

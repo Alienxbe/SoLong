@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 19:51:03 by marykman          #+#    #+#             */
-/*   Updated: 2023/12/23 20:37:38 by marykman         ###   ########.fr       */
+/*   Updated: 2023/12/23 22:09:42 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	player_update(t_game *game)
 	// 	game->player.spd.y = maxrun * input.y;
 	// printf("speed: %f\n");
 	// game->player.direction = (game->player.spd.x < 0);
-	if (game->player.on_wall && !game->player.on_ground && (game->active_keys[GAME_KEY_RIGHT] || game->active_keys[GAME_KEY_LEFT]) && game->player.spd.y > 0)
+	if (game->player.on_wall && !game->player.on_ground && game->player.spd.y > 0)
 	{
 		game->player.spd.y = 0.7;
 		printf("Slow fall\n");

@@ -6,17 +6,17 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 16:31:23 by marykman          #+#    #+#             */
-/*   Updated: 2023/12/23 19:27:27 by marykman         ###   ########.fr       */
+/*   Updated: 2023/12/23 23:12:37 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "t_sfe.h"
 #include "sc_main.h"
+#include "clouds.h"
 
 void	draw_map(t_sc_main *sc)
 {
-	// sfe_scene_setbg(sc->scene, 0x0);
 	for (int y = 0; y < sc->game->map.size.y; y++)
 		for (int x = 0; x < sc->game->map.size.x; x++)
 			sfe_image_cpy(
@@ -28,9 +28,18 @@ void	draw_map(t_sc_main *sc)
 				);
 }
 
+#include "sfe_pixel.h"
+
 int	sc_main_update(t_sc_main *sc)
 {
+	// sfe_scene_setbg(sc->scene, 0x0);
+	sfe_pixel_fill(*sc->scene.img, (t_area){
+		{sc->game->player.pos.x, sc->game->player.pos.y},
+		{sc->game->player.pos.x + 32, sc->game->player.pos.y + 32}
+	}, 0x0);
 	player_update(sc->game);
+	update_clouds(sc->game, *sc->scene.img);
+	draw_clouds(sc->game, *sc->scene.img);
 	draw_map(sc);
 	player_draw(&sc->game->player, sc->scene.img);
 	ft_printf("FPS: %d\n", sc->sfe->fps);

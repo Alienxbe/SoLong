@@ -6,7 +6,7 @@
 #    By: marykman <marykman@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/17 20:20:08 by marykman          #+#    #+#              #
-#    Updated: 2023/12/22 15:30:19 by marykman         ###   ########.fr        #
+#    Updated: 2023/12/23 23:21:38 by marykman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -82,16 +82,22 @@ FILES_PLAYER		:=	init.c \
 						draw.c \
 						move.c \
 						update.c
+FILES_CLOUDS		:=	init.c \
+						draw.c \
+						random_cloud.c \
+						update.c
 
 SRCS				:=	$(addprefix srcs/, ${FILES})
 SRCS				+=	$(addprefix srcs/events/, ${FILES_EVENTS})
 SRCS				+=	$(addprefix srcs/main_scene/, ${FILES_MAIN_SCENE})
 SRCS				+=	$(addprefix srcs/parsing/, ${FILES_PARSING})
 SRCS				+=	$(addprefix srcs/player/, ${FILES_PLAYER})
+SRCS				+=	$(addprefix srcs/clouds/, ${FILES_CLOUDS})
 OBJS				:=	$(patsubst srcs%.c, objs%.o, ${SRCS})
 
 # header files
-FILES				:=	errors.h \
+FILES				:=	clouds.h \
+						errors.h \
 						events.h \
 						parsing.h \
 						player.h \

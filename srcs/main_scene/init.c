@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 15:18:24 by marykman          #+#    #+#             */
-/*   Updated: 2023/12/18 17:53:21 by marykman         ###   ########.fr       */
+/*   Updated: 2023/12/23 22:46:23 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,15 @@
 #include "sfe_color.h"
 #include "sc_main.h"
 #include "ft_printf.h"
+#include "clouds.h"
 
 static t_img	filter(t_sfe *sfe, t_img img, size_t i)
 {
 	t_img	new;
 
+	(void)i;
 	new = sfe_image_resize(sfe->mlx_ptr, img, (t_point){img.size.x * 2, img.size.y * 2});
-	if (i >= 0xf0)
-	{
-		ft_printf("%d\n", i);
-		sfe_color_replace(new, 0, 0xFF000000);
-	}
-	else
-		sfe_color_replace(new, 0xFF000000, 0);
+	sfe_color_replace(new, 0, 0xFF000000);
 	sfe_image_destroy(sfe->mlx_ptr, img);
 	return (new);
 }
@@ -40,5 +36,6 @@ int	sc_main_init(t_sc_main *sc)
 		return (0);
 	if (!player_init(&sc->game->player, sc->game->map.player_pos, sc->game->assets))
 		return (0);
+	init_clouds(sc->game);
 	return (1);
 }

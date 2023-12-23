@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 20:28:58 by marykman          #+#    #+#             */
-/*   Updated: 2023/12/21 19:38:48 by marykman         ###   ########.fr       */
+/*   Updated: 2023/12/23 23:17:59 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include "sc_main.h"
 #include "events.h"
 #include "parsing.h"
+#include "ft_math.h"
 
 static void	init_window(t_sfe **sfe, t_sc_main *sc)
 {
@@ -43,7 +44,9 @@ int	main(void)
 	sc.game = &game;
 	if (parsing(&game.map, "maps/celeste0.ber"))
 		return (1);
+	ft_printf("OUIOUIOUI\n");
 	init_window(&sfe, &sc);
+	ft_randinit();
 	sfe_loop(sfe);
 	return (0);
 }

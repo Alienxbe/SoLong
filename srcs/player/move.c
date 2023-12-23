@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 15:04:27 by marykman          #+#    #+#             */
-/*   Updated: 2023/12/23 20:28:17 by marykman         ###   ########.fr       */
+/*   Updated: 2023/12/23 22:05:57 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,16 +84,16 @@ void	player_move(t_game *game)
 	t_fpoint	new;
 
 	new = (t_fpoint){game->player.pos.x + game->player.spd.x, game->player.pos.y};
-	// if (is_colliding(game, new, WEST) || is_colliding(game, new, EAST))
-	// {
-	// 	new.x = game->player.pos.x;
-	// 	game->player.spd.x = 0;
-	// }
-	// if (is_colliding(game, new, NORTH) || is_colliding(game, new, SOUTH))
-	// {
-	// 	new.y = game->player.pos.y;
-	// 	game->player.spd.y = 0;
-	// }
+	if (is_colliding(game, new, WEST) || is_colliding(game, new, EAST))
+	{
+		new.x = game->player.pos.x;
+		game->player.spd.x = 0;
+	}
+	if (is_colliding(game, new, NORTH) || is_colliding(game, new, SOUTH))
+	{
+		new.y = game->player.pos.y;
+		game->player.spd.y = 0;
+	}
 
 	if (!is_hitbox_colliding(game, new))
 	{
