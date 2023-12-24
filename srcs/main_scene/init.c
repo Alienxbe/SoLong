@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 15:18:24 by marykman          #+#    #+#             */
-/*   Updated: 2023/12/23 22:46:23 by marykman         ###   ########.fr       */
+/*   Updated: 2023/12/24 14:10:47 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include "sc_main.h"
 #include "ft_printf.h"
 #include "clouds.h"
+#include "snowflakes.h"
 
 static t_img	filter(t_sfe *sfe, t_img img, size_t i)
 {
@@ -37,5 +38,6 @@ int	sc_main_init(t_sc_main *sc)
 	if (!player_init(&sc->game->player, sc->game->map.player_pos, sc->game->assets))
 		return (0);
 	init_clouds(sc->game);
+	snowflakes_init(sc->game);
 	return (1);
 }

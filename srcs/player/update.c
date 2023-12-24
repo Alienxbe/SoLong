@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 19:51:03 by marykman          #+#    #+#             */
-/*   Updated: 2023/12/23 22:09:42 by marykman         ###   ########.fr       */
+/*   Updated: 2023/12/24 14:56:53 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,10 @@ void	player_update(t_game *game)
 	// else if (game->player.spd.y)
 	// 	game->player.spd.y -= decel * ((game->player.spd.y > 0) * 1 + (game->player.spd.y <= 0) * -1);
 
-	if (ft_abs(game->player.spd.x) > maxrun)
+	if (ft_abs(game->player.spd.x) > maxrun && game->player.on_ground)
 		game->player.spd.x = maxrun * input.x;
+	if (ft_abs(game->player.spd.x) > 6 && !game->player.on_ground)
+		game->player.spd.x = 6 * input.x;
 	// if (ft_abs(game->player.spd.y) > maxrun)
 	// 	game->player.spd.y = maxrun * input.y;
 	// printf("speed: %f\n");
@@ -61,7 +63,7 @@ void	player_update(t_game *game)
 		game->player.spd.y = -6;
 	if (game->active_keys[GAME_KEY_JUMP] && game->player.on_wall && !game->player.on_ground)
 	{
-		game->player.spd.x = 3;
+		game->player.spd.x = 6;
 		game->player.spd.y = -6;
 	}
 	player_move(game);

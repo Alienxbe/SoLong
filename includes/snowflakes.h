@@ -1,23 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.c                                             :+:      :+:    :+:   */
+/*   snowflakes.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/24 13:39:52 by marykman          #+#    #+#             */
-/*   Updated: 2023/12/24 14:16:16 by marykman         ###   ########.fr       */
+/*   Created: 2023/12/24 13:19:21 by marykman          #+#    #+#             */
+/*   Updated: 2023/12/24 14:15:48 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_math.h"
-#include "snowflakes.h"
+#ifndef SNOWFLAKES_H
+# define SNOWFLAKES_H
 
-void	snowflakes_init(t_game *game)
-{
-	size_t		i;
+# include "so_long.h"
 
-	i = -1;
-	while (++i < SNOWFLAKE_COUNT)
-		game->snowflakes[i] = random_snowflake(ft_randint(0, WIN_WIDTH));
-}
+void	snowflakes_init(t_game *game);
+void	snowflakes_update(t_game *game, t_img img);
+void	snowflakes_draw(t_game *game, t_img img);
+
+t_snowflake	random_snowflake(int x);
+
+
+#endif

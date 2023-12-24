@@ -6,7 +6,7 @@
 #    By: marykman <marykman@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/17 20:20:08 by marykman          #+#    #+#              #
-#    Updated: 2023/12/23 23:21:38 by marykman         ###   ########.fr        #
+#    Updated: 2023/12/24 14:04:59 by marykman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -86,6 +86,10 @@ FILES_CLOUDS		:=	init.c \
 						draw.c \
 						random_cloud.c \
 						update.c
+FILES_SNOWFLAKES	:=	init.c \
+						draw.c \
+						update.c \
+						random_snowflake.c
 
 SRCS				:=	$(addprefix srcs/, ${FILES})
 SRCS				+=	$(addprefix srcs/events/, ${FILES_EVENTS})
@@ -93,6 +97,7 @@ SRCS				+=	$(addprefix srcs/main_scene/, ${FILES_MAIN_SCENE})
 SRCS				+=	$(addprefix srcs/parsing/, ${FILES_PARSING})
 SRCS				+=	$(addprefix srcs/player/, ${FILES_PLAYER})
 SRCS				+=	$(addprefix srcs/clouds/, ${FILES_CLOUDS})
+SRCS				+=	$(addprefix srcs/snowflakes/, ${FILES_SNOWFLAKES})
 OBJS				:=	$(patsubst srcs%.c, objs%.o, ${SRCS})
 
 # header files
@@ -102,6 +107,7 @@ FILES				:=	clouds.h \
 						parsing.h \
 						player.h \
 						sc_main.h \
+						snowflakes.h \
 						so_long.h
 HEADERS				:=	$(addprefix includes/, ${FILES});
 

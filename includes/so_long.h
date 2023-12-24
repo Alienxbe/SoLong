@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 20:27:42 by marykman          #+#    #+#             */
-/*   Updated: 2023/12/23 23:23:48 by marykman         ###   ########.fr       */
+/*   Updated: 2023/12/24 14:54:23 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@
 # define SPRITE_SIZE	32
 # define MAPFILE_SUFFIX	".ber"
 
-# define CLOUD_COUNT	15
+# define CLOUD_COUNT		15
+# define SNOWFLAKE_COUNT	30
 
 # define SPECIAL_CHAR	"PCE"
 
@@ -58,12 +59,22 @@ typedef struct s_cloud
 	t_point	size;
 }	t_cloud;
 
+typedef struct s_snowflake
+{
+	t_fpoint	pos;
+	size_t		size;
+	size_t		speed;
+	float		frq;
+	size_t		ampl;
+}	t_snowflake;
+
 
 typedef struct s_game
 {
 	t_map		map;
 	t_player	player;
 	t_cloud		clouds[CLOUD_COUNT];
+	t_snowflake	snowflakes[SNOWFLAKE_COUNT];
 	t_img		*assets;
 	t_keylist	active_keys;
 }	t_game;

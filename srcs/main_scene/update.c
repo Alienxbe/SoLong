@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 16:31:23 by marykman          #+#    #+#             */
-/*   Updated: 2023/12/23 23:12:37 by marykman         ###   ########.fr       */
+/*   Updated: 2023/12/24 14:11:20 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "t_sfe.h"
 #include "sc_main.h"
 #include "clouds.h"
+#include "snowflakes.h"
 
 void	draw_map(t_sc_main *sc)
 {
@@ -39,9 +40,11 @@ int	sc_main_update(t_sc_main *sc)
 	}, 0x0);
 	player_update(sc->game);
 	update_clouds(sc->game, *sc->scene.img);
+	snowflakes_update(sc->game, *sc->scene.img);
 	draw_clouds(sc->game, *sc->scene.img);
 	draw_map(sc);
 	player_draw(&sc->game->player, sc->scene.img);
+	snowflakes_draw(sc->game, *sc->scene.img);
 	ft_printf("FPS: %d\n", sc->sfe->fps);
 	if (sc->game->player.on_ground)
 		ft_printf("ON GROUND\n");
