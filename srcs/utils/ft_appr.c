@@ -1,28 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.c                                             :+:      :+:    :+:   */
+/*   ft_appr.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/21 19:52:01 by marykman          #+#    #+#             */
-/*   Updated: 2023/12/30 00:17:55 by marykman         ###   ########.fr       */
+/*   Created: 2023/12/29 23:38:33 by marykman          #+#    #+#             */
+/*   Updated: 2023/12/29 23:58:39 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "player.h"
+#include "ft_math.h"
 
-int	player_init(t_player *player, t_point pos, t_img *assets)
+float	ft_appr(float val, float target, float amount)
 {
-	// ft_printf("pos : %d | %d\n", pos.x, pos.y);
-	if (pos.x == -1 && pos.y == -1)
-		return (0);
-	player->pos = (t_fpoint){
-		pos.x * SPRITE_SIZE,
-		pos.y * SPRITE_SIZE};
-	player->hitbox = (t_area){{0, 12}, {24, 32}};
-	player->direction = 0;
-	player->frame = 0;
-	player->assets = assets;
-	return (1);
+	if (val > target)
+		return (ft_maxfloat(val - amount, target));
+	return (ft_minfloat(val + amount, target));
 }

@@ -5,16 +5,30 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/29 18:56:07 by marykman          #+#    #+#             */
-/*   Updated: 2023/12/29 19:04:26 by marykman         ###   ########.fr       */
+/*   Created: 2023/12/29 22:32:03 by marykman          #+#    #+#             */
+/*   Updated: 2023/12/29 23:56:13 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "utils.h"
 #include "player.h"
 
-void	player_update_gravity(t_game *game)
+static float	wall_slide(t_game *game, int input)
 {
-	game->player.spd.y += GRAVITY;
-	if (game->player.spd.y > FALL_SPEED_MAX)
-		game->player.spd.y = FALL_SPEED_MAX;
+	if (input && game->player.on_wall)
+		return (PLAYER_WALLSLIDE_MAX);
+	return (PLAYER_GRAVITY_MAX);
+}
+
+void	player_update_gravity(t_game *game, int input)
+{
+	float	gravity;
+	float	maxfall;
+
+	gravity = PLAYER_GRAVITY_ACCEL;
+	maxfall = PLAYER_GRAVITY_MAX;
+	if (ft_abs(game->player.spd.y) <= 0.3)
+		gravity *= 0.3;
+	maxfall = wall_slide(game, input);
+	game->player.spd.y = ft_appr(game->player.spd.y, maxfall, gravity);
 }

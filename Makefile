@@ -6,7 +6,7 @@
 #    By: marykman <marykman@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/17 20:20:08 by marykman          #+#    #+#              #
-#    Updated: 2023/12/29 19:15:19 by marykman         ###   ########.fr        #
+#    Updated: 2023/12/30 00:11:03 by marykman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -82,6 +82,8 @@ FILES_PLAYER		:=	init.c \
 						draw.c \
 						update.c \
 						move.c \
+						animation.c \
+						speed.c \
 						gravity.c \
 						jump.c \
 						wall_jump.c
@@ -93,6 +95,8 @@ FILES_SNOWFLAKES	:=	init.c \
 						draw.c \
 						update.c \
 						random_snowflake.c
+FILES_UTILS			:=	ft_appr.c \
+						ft_abs.c
 
 SRCS				:=	$(addprefix srcs/, ${FILES})
 SRCS				+=	$(addprefix srcs/events/, ${FILES_EVENTS})
@@ -101,6 +105,7 @@ SRCS				+=	$(addprefix srcs/parsing/, ${FILES_PARSING})
 SRCS				+=	$(addprefix srcs/player/, ${FILES_PLAYER})
 SRCS				+=	$(addprefix srcs/clouds/, ${FILES_CLOUDS})
 SRCS				+=	$(addprefix srcs/snowflakes/, ${FILES_SNOWFLAKES})
+SRCS				+=	$(addprefix srcs/utils/, ${FILES_UTILS})
 OBJS				:=	$(patsubst srcs%.c, objs%.o, ${SRCS})
 
 # header files
@@ -111,7 +116,8 @@ FILES				:=	clouds.h \
 						player.h \
 						sc_main.h \
 						snowflakes.h \
-						so_long.h
+						so_long.h \
+						utils.h
 HEADERS				:=	$(addprefix includes/, ${FILES});
 
 # -----------------------------------Rules-------------------------------------
