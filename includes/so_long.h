@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 20:27:42 by marykman          #+#    #+#             */
-/*   Updated: 2023/12/26 18:26:57 by marykman         ###   ########.fr       */
+/*   Updated: 2023/12/29 18:29:42 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 # define SPRITE_SIZE	32
 # define MAPFILE_SUFFIX	".ber"
 
-# define CLOUD_COUNT		15
+# define CLOUD_COUNT		16
 # define SNOWFLAKE_COUNT	24
 
 # define SPECIAL_CHAR	"PCE"

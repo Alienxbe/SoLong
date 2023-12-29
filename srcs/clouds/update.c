@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 23:14:16 by marykman          #+#    #+#             */
-/*   Updated: 2023/12/23 23:21:03 by marykman         ###   ########.fr       */
+/*   Updated: 2023/12/24 15:16:07 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,6 @@ void	update_clouds(t_game *game, t_img img)
 		erase_cloud(game, img, i);
 		game->clouds[i].pos.x += game->clouds[i].speed;
 		if (game->clouds[i].pos.x > WIN_WIDTH)
-			game->clouds[i] = random_cloud(-150);
+			game->clouds[i] = random_cloud(-300);
 	}
 }
