@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 19:51:03 by marykman          #+#    #+#             */
-/*   Updated: 2023/12/24 14:56:53 by marykman         ###   ########.fr       */
+/*   Updated: 2023/12/29 19:14:37 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,24 +48,9 @@ void	player_update(t_game *game)
 		game->player.spd.x = maxrun * input.x;
 	if (ft_abs(game->player.spd.x) > 6 && !game->player.on_ground)
 		game->player.spd.x = 6 * input.x;
-	// if (ft_abs(game->player.spd.y) > maxrun)
-	// 	game->player.spd.y = maxrun * input.y;
-	// printf("speed: %f\n");
-	// game->player.direction = (game->player.spd.x < 0);
-	if (game->player.on_wall && !game->player.on_ground && game->player.spd.y > 0)
-	{
-		game->player.spd.y = 0.7;
-		printf("Slow fall\n");
-	}
-	else
-		game->player.spd.y += 0.33;
-	if (game->active_keys[GAME_KEY_JUMP] && game->player.on_ground)
-		game->player.spd.y = -6;
-	if (game->active_keys[GAME_KEY_JUMP] && game->player.on_wall && !game->player.on_ground)
-	{
-		game->player.spd.x = 6;
-		game->player.spd.y = -6;
-	}
+	player_update_gravity(game);
+	player_update_jump(game);
+	player_update_wall_jump(game);
 	player_move(game);
 	// printf("%f\n", game->player.pos.x);
 }

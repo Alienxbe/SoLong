@@ -6,7 +6,7 @@
 #    By: marykman <marykman@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/17 20:20:08 by marykman          #+#    #+#              #
-#    Updated: 2023/12/24 14:04:59 by marykman         ###   ########.fr        #
+#    Updated: 2023/12/29 19:15:19 by marykman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -80,8 +80,11 @@ FILES_PARSING		:=	parse_content.c \
 						parsing.c
 FILES_PLAYER		:=	init.c \
 						draw.c \
+						update.c \
 						move.c \
-						update.c
+						gravity.c \
+						jump.c \
+						wall_jump.c
 FILES_CLOUDS		:=	init.c \
 						draw.c \
 						random_cloud.c \
