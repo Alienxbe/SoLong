@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 19:51:03 by marykman          #+#    #+#             */
-/*   Updated: 2023/12/30 00:10:43 by marykman         ###   ########.fr       */
+/*   Updated: 2023/12/30 01:37:37 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	player_update(t_game *game)
 	player_update_speed(game, input);
 	player_update_gravity(game, input);
 	player_update_jump(game);
-	// player_update_wall_jump(game);
+	player_update_wall_jump(game);
 	player_update_animation(game);
 	player_move(game);
 	// printf("%f\n", game->player.pos.x);

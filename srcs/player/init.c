@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 19:52:01 by marykman          #+#    #+#             */
-/*   Updated: 2023/12/30 00:17:55 by marykman         ###   ########.fr       */
+/*   Updated: 2023/12/30 01:38:09 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	player_init(t_player *player, t_point pos, t_img *assets)
 	player->pos = (t_fpoint){
 		pos.x * SPRITE_SIZE,
 		pos.y * SPRITE_SIZE};
-	player->hitbox = (t_area){{0, 12}, {24, 32}};
+	player->hitbox = (t_area){{8, 12}, {24, 32}};
 	player->direction = 0;
 	player->frame = 0;
 	player->assets = assets;
