@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 16:37:51 by marykman          #+#    #+#             */
-/*   Updated: 2023/12/30 00:10:22 by marykman         ###   ########.fr       */
+/*   Updated: 2023/12/31 00:33:17 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,13 @@
 # define PLAYER_WALLSLIDE_MAX		1.5
 
 # define PLAYER_MOVE_GROUND_ACCEL	2.4
-# define PLAYER_MOVE_AIR_ACCEL		0.4
+# define PLAYER_MOVE_AIR_ACCEL		0.6
 # define PLAYER_MOVE_MAX			4
 
 # define PLAYER_MOVE_DECEL			0.6
 
 # define JUMP_FORCE					8
-# define WALL_JUMP_FORCE			6
+# define WALL_JUMP_FORCE			8
 
 int		player_init(t_player *player, t_point pos, t_img *assets);
 void	player_update(t_game *game);
