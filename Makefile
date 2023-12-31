@@ -6,7 +6,7 @@
 #    By: marykman <marykman@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/17 20:20:08 by marykman          #+#    #+#              #
-#    Updated: 2023/12/30 00:11:03 by marykman         ###   ########.fr        #
+#    Updated: 2023/12/31 12:38:22 by marykman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -83,6 +83,7 @@ FILES_PLAYER		:=	init.c \
 						update.c \
 						move.c \
 						animation.c \
+						collisions.c \
 						speed.c \
 						gravity.c \
 						jump.c \

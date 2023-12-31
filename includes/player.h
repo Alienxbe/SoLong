@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 16:37:51 by marykman          #+#    #+#             */
-/*   Updated: 2023/12/31 00:33:17 by marykman         ###   ########.fr       */
+/*   Updated: 2023/12/31 13:26:35 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,8 @@ void	player_update_wall_jump(t_game *game);
 void	player_update_animation(t_game *game);
 void	player_move(t_game *game);
 
+t_bool	is_wall(t_game *game, t_fpoint pos);
+t_bool	is_hitbox_colliding(t_game *game, t_fpoint pos, t_area hitbox);
+t_bool	player_is_solid(t_game *game, t_fpoint pos);
 
 #endif
