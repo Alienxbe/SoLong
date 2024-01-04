@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 16:37:51 by marykman          #+#    #+#             */
-/*   Updated: 2023/12/31 13:26:35 by marykman         ###   ########.fr       */
+/*   Updated: 2024/01/03 20:34:05 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,19 +31,20 @@
 
 # define JUMP_FORCE					8
 # define WALL_JUMP_FORCE			8
+# define PLAYER_JUMP_BUFFER			6
+# define PLAYER_GRACE				6
 
 int		player_init(t_player *player, t_point pos, t_img *assets);
 void	player_update(t_game *game);
 void	player_draw(t_player *player, t_img *img);
-void	player_update_gravity(t_game *game, int input);
-void	player_update_speed(t_game *game, int input);
+void	player_update_gravity(t_game *game);
+void	player_update_speed(t_game *game);
 void	player_update_jump(t_game *game);
 void	player_update_wall_jump(t_game *game);
 void	player_update_animation(t_game *game);
 void	player_move(t_game *game);
 
-t_bool	is_wall(t_game *game, t_fpoint pos);
-t_bool	is_hitbox_colliding(t_game *game, t_fpoint pos, t_area hitbox);
 t_bool	player_is_solid(t_game *game, t_fpoint pos);
+t_bool	player_is_oob(t_game *game, t_fpoint pos);
 
 #endif

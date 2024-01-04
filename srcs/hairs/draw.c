@@ -5,33 +5,39 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/21 19:54:15 by marykman          #+#    #+#             */
-/*   Updated: 2023/12/31 14:20:37 by marykman         ###   ########.fr       */
+/*   Created: 2023/12/31 15:01:07 by marykman          #+#    #+#             */
+/*   Updated: 2024/01/04 09:31:02 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <math.h>
+#include <stdio.h>
 #include "sfe_pixel.h"
-#include "player.h"
+#include "hairs.h"
 
-
-static t_point	flip_x_mod(t_point img_src, t_point i)
+void	sfe_circfill(t_img img, t_fpoint pos, float r, t_color color)
 {
-	return ((t_point){img_src.x - i.x - 1, i.y});
+	t_fpoint	i;
+	float		rcalc;
+
+	i.y = -r;
+	while (i.y < r)
+	{
+		i.x = -r;
+		while (i.x < r)
+		{
+			rcalc = sqrt(i.x * i.x + i.y * i.y);
+			// printf("%f: %f\n", r, rcalc);
+			if (rcalc <= r)
+				sfe_pixel_put(img, (t_point){i.x + pos.x, i.y + pos.y}, color);
+			i.x++;
+		}
+		i.y++;
+	}
 }
 
-static t_mod	get_mod_function(t_player *player)
+void	hair_draw(t_img img, t_hair hair)
 {
-	if (player->direction)
-		return (&flip_x_mod);
-	return (NULL);
-}
-
-void	player_draw(t_player *player, t_img *img)
-{
-	sfe_image_mod_cpy(
-		player->assets[0xf0 + player->frame],
-		*img,
-		ft_fpoint_to_point(player->pos),
-		get_mod_function(player)
-		);
+	(void)img;
+	(void)hair;
 }

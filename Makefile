@@ -6,7 +6,7 @@
 #    By: marykman <marykman@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/17 20:20:08 by marykman          #+#    #+#              #
-#    Updated: 2023/12/31 12:38:22 by marykman         ###   ########.fr        #
+#    Updated: 2024/01/03 19:02:25 by marykman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -78,6 +78,9 @@ FILES_MAIN_SCENE	:=	destroy.c \
 FILES_PARSING		:=	parse_content.c \
 						parse_map.c \
 						parsing.c
+FILES_COLLISIONS	:=	is_hitbox_colliding.c \
+						is_type.c \
+						is_wall.c
 FILES_PLAYER		:=	init.c \
 						draw.c \
 						update.c \
@@ -88,6 +91,7 @@ FILES_PLAYER		:=	init.c \
 						gravity.c \
 						jump.c \
 						wall_jump.c
+FILES_HAIRS			:=	draw.c
 FILES_CLOUDS		:=	init.c \
 						draw.c \
 						random_cloud.c \
@@ -103,7 +107,9 @@ SRCS				:=	$(addprefix srcs/, ${FILES})
 SRCS				+=	$(addprefix srcs/events/, ${FILES_EVENTS})
 SRCS				+=	$(addprefix srcs/main_scene/, ${FILES_MAIN_SCENE})
 SRCS				+=	$(addprefix srcs/parsing/, ${FILES_PARSING})
+SRCS				+=	$(addprefix srcs/collisions/, ${FILES_COLLISIONS})
 SRCS				+=	$(addprefix srcs/player/, ${FILES_PLAYER})
+SRCS				+=	$(addprefix srcs/hairs/, ${FILES_HAIRS})
 SRCS				+=	$(addprefix srcs/clouds/, ${FILES_CLOUDS})
 SRCS				+=	$(addprefix srcs/snowflakes/, ${FILES_SNOWFLAKES})
 SRCS				+=	$(addprefix srcs/utils/, ${FILES_UTILS})
@@ -111,8 +117,10 @@ OBJS				:=	$(patsubst srcs%.c, objs%.o, ${SRCS})
 
 # header files
 FILES				:=	clouds.h \
+						collisions.h \
 						errors.h \
 						events.h \
+						hairs.h \
 						parsing.h \
 						player.h \
 						sc_main.h \

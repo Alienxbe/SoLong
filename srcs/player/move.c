@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 15:04:27 by marykman          #+#    #+#             */
-/*   Updated: 2023/12/31 13:27:24 by marykman         ###   ########.fr       */
+/*   Updated: 2024/01/03 20:37:45 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ static void	player_move_x(t_game *game, float x)
 	i = 0;
 	while (i < ft_abs(x))
 	{
-		if (!player_is_solid(game, (t_fpoint){step, 0}))
+		if (!player_is_solid(game, (t_fpoint){step, 0})
+			&& !player_is_oob(game, (t_fpoint){step, 0}))
 			game->player.pos.x += step;
 		else
 		{
@@ -44,7 +45,8 @@ static void	player_move_x(t_game *game, float x)
 	i = 0;
 	while (i < ft_abs(y))
 	{
-		if (!player_is_solid(game, (t_fpoint){0, step}))
+		if (!player_is_solid(game, (t_fpoint){0, step})
+			&& !player_is_oob(game, (t_fpoint){0, step}))
 			game->player.pos.y += step;
 		else
 		{

@@ -1,25 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   collisions.h                                       :+:      :+:    :+:   */
+/*   hairs.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/31 13:33:37 by marykman          #+#    #+#             */
-/*   Updated: 2024/01/03 19:15:24 by marykman         ###   ########.fr       */
+/*   Created: 2023/12/31 15:01:24 by marykman          #+#    #+#             */
+/*   Updated: 2023/12/31 15:30:27 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef COLLISIONS_H
-# define COLLISIONS_H
+#ifndef HAIRS_H
+# define HAIRS_H
 
 # include "so_long.h"
 
-typedef t_bool	(*t_ftype)(int);
-
-t_bool	is_type(const t_map *map, t_ftype f, t_fpoint pos);
-t_bool	is_wall(const t_map *map, t_fpoint pos);
-t_bool	is_hitbox_colliding(const t_map *map, t_ftype f, t_fpoint pos,
-	t_area hitbox);
+void	sfe_circfill(t_img img, t_fpoint pos, float r, t_color color);
+void	hair_draw(t_img img, t_hair hair);
 
 #endif

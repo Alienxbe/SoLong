@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/30 00:08:07 by marykman          #+#    #+#             */
-/*   Updated: 2023/12/31 00:23:55 by marykman         ###   ########.fr       */
+/*   Updated: 2023/12/31 13:56:55 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	player_update_animation(t_game *game)
 		game->player.direction = 0;
 	if (!game->player.on_ground)
 	{
-		if (game->player.on_wall)
+		if (player_is_solid(game, (t_fpoint){game->player.input, 0}))
 			game->player.frame = 4;
 		else
 			game->player.frame = 2;

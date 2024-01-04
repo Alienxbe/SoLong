@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/29 21:50:15 by marykman          #+#    #+#             */
-/*   Updated: 2023/12/31 00:30:27 by marykman         ###   ########.fr       */
+/*   Updated: 2023/12/31 13:56:39 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static float	get_player_state_accel(t_game *game)
 	return (PLAYER_MOVE_AIR_ACCEL);
 }
 
-void	player_update_speed(t_game *game, int input)
+void	player_update_speed(t_game *game)
 {
 	if (ft_abs(game->player.spd.x) > PLAYER_MOVE_MAX)
 		game->player.spd.x = ft_appr(
@@ -31,6 +31,6 @@ void	player_update_speed(t_game *game, int input)
 	else
 		game->player.spd.x = ft_appr(
 				game->player.spd.x,
-				input * PLAYER_MOVE_MAX,
+				game->player.input * PLAYER_MOVE_MAX,
 				get_player_state_accel(game));
 }

@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 20:27:42 by marykman          #+#    #+#             */
-/*   Updated: 2023/12/30 01:39:50 by marykman         ###   ########.fr       */
+/*   Updated: 2023/12/31 15:26:06 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,10 @@ typedef struct s_player
 	int			frame;
 	int			direction;
 	t_bool		p_jump;
+	t_bool		jump;
+	int			jbuffer;
+	int			grace;
+	int			input;
 	t_img		*assets;
 }	t_player;
 
@@ -67,6 +71,13 @@ typedef struct s_snowflake
 	float		frq;
 	size_t		ampl;
 }	t_snowflake;
+
+typedef struct s_hair
+{
+	t_fpoint	pos;
+	size_t		radius;
+}	t_hair;
+
 
 
 typedef struct s_game

@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/29 19:07:57 by marykman          #+#    #+#             */
-/*   Updated: 2023/12/29 19:09:20 by marykman         ###   ########.fr       */
+/*   Updated: 2023/12/31 14:09:14 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 
 void	player_update_jump(t_game *game)
 {
-	if (game->active_keys[GAME_KEY_JUMP] && game->player.on_ground)
+	if (game->player.jbuffer && game->player.grace)
+	{
 		game->player.spd.y = -JUMP_FORCE;
+		game->player.jbuffer = 0;
+	}
 }
