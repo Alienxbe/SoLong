@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   random_cloud.c                                     :+:      :+:    :+:   */
+/*   new_random.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 23:13:15 by marykman          #+#    #+#             */
-/*   Updated: 2023/12/24 15:09:24 by marykman         ###   ########.fr       */
+/*   Updated: 2024/01/05 21:16:01 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_math.h"
 #include "clouds.h"
 
-t_cloud	random_cloud(int x)
+t_cloud	clouds_new_random(int x)
 {
 	t_cloud	cloud;
 

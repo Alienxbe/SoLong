@@ -1,23 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   jump.c                                             :+:      :+:    :+:   */
+/*   new_random.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/29 19:07:57 by marykman          #+#    #+#             */
-/*   Updated: 2024/01/05 19:54:36 by marykman         ###   ########.fr       */
+/*   Created: 2023/12/24 13:44:54 by marykman          #+#    #+#             */
+/*   Updated: 2024/01/05 21:17:34 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "player.h"
+#include "ft_math.h"
+#include "snowflakes.h"
 
-void	player_update_jump(t_game *game)
+t_snowflake	snowflake_new_random(int x)
 {
-	if (game->player.jbuffer && game->player.grace)
-	{
-		game->player.spd.y = -JUMP_FORCE;
-		game->player.jbuffer = 0;
-		game->player.grace = 0;
-	}
+	t_snowflake	sf;
+
+	sf = (t_snowflake){0};
+	sf.pos = (t_fpoint){x, ft_randint(-20, WIN_HEIGHT)};
+	sf.size = ft_randint(4, 10);
+	sf.speed = ft_randint(2, 8);
+	sf.frq = (float)ft_randint(2, 6) / 100;
+	sf.ampl = ft_randint(2, 4);
+	return (sf);
 }

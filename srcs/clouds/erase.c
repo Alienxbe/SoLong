@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   random_snowflake.c                                 :+:      :+:    :+:   */
+/*   erase.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/24 13:44:54 by marykman          #+#    #+#             */
-/*   Updated: 2023/12/24 15:00:53 by marykman         ###   ########.fr       */
+/*   Created: 2024/01/05 20:26:16 by marykman          #+#    #+#             */
+/*   Updated: 2024/01/05 21:00:11 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_math.h"
-#include "snowflakes.h"
+#include "sfe_pixel.h"
+#include "clouds.h"
 
-t_snowflake	random_snowflake(int x)
+void	clouds_erase(t_game *game, t_img img)
 {
-	t_snowflake	sf;
+	size_t	i;
 
-	sf = (t_snowflake){0};
-	sf.pos = (t_fpoint){x, ft_randint(-20, WIN_HEIGHT)};
-	sf.size = ft_randint(4, 10);
-	sf.speed = ft_randint(2, 8);
-	sf.frq = (float)ft_randint(2, 6) / 100;
-	sf.ampl = ft_randint(2, 4);
-	return (sf);
+	i = -1;
+	while (++i < CLOUD_COUNT)
+		sfe_pixel_fill(img,
+			(t_area){game->clouds[i].pos, {
+			game->clouds[i].pos.x + game->clouds[i].size.x,
+			game->clouds[i].pos.y + game->clouds[i].size.y}},
+			BACKGROUND_COL);
 }

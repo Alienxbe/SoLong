@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 15:04:27 by marykman          #+#    #+#             */
-/*   Updated: 2024/01/03 20:37:45 by marykman         ###   ########.fr       */
+/*   Updated: 2024/01/05 19:59:49 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static void	player_move_x(t_game *game, float x)
 	}
 }
 
- void	player_move_y(t_game *game, float y)
+static void	player_move_y(t_game *game, float y)
 {
 	int		step;
 	float	i;

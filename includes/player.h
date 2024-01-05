@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 16:37:51 by marykman          #+#    #+#             */
-/*   Updated: 2024/01/03 20:34:05 by marykman         ###   ########.fr       */
+/*   Updated: 2024/01/05 20:57:53 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@
 # define PLAYER_GRACE				6
 
 int		player_init(t_player *player, t_point pos, t_img *assets);
+void	player_erase(t_game *game, t_img img);
 void	player_update(t_game *game);
 void	player_draw(t_player *player, t_img *img);
 void	player_update_gravity(t_game *game);

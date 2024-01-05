@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 13:49:33 by marykman          #+#    #+#             */
-/*   Updated: 2023/12/30 00:01:33 by marykman         ###   ########.fr       */
+/*   Updated: 2024/01/05 20:30:59 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,5 @@ void	snowflakes_draw(t_game *game, t_img img)
 			(t_area){ft_fpoint_to_point(game->snowflakes[i].pos), {
 			game->snowflakes[i].pos.x + game->snowflakes[i].size,
 			game->snowflakes[i].pos.y + game->snowflakes[i].size}},
-			0xFFFFFF);
+			SNOWFLAKE_COL);
 }

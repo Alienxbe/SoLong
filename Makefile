@@ -6,7 +6,7 @@
 #    By: marykman <marykman@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/17 20:20:08 by marykman          #+#    #+#              #
-#    Updated: 2024/01/03 19:02:25 by marykman         ###   ########.fr        #
+#    Updated: 2024/01/05 21:18:52 by marykman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -83,6 +83,7 @@ FILES_COLLISIONS	:=	is_hitbox_colliding.c \
 						is_wall.c
 FILES_PLAYER		:=	init.c \
 						draw.c \
+						erase.c \
 						update.c \
 						move.c \
 						animation.c \
@@ -94,12 +95,14 @@ FILES_PLAYER		:=	init.c \
 FILES_HAIRS			:=	draw.c
 FILES_CLOUDS		:=	init.c \
 						draw.c \
-						random_cloud.c \
-						update.c
+						erase.c \
+						update.c \
+						new_random.c
 FILES_SNOWFLAKES	:=	init.c \
 						draw.c \
+						erase.c \
 						update.c \
-						random_snowflake.c
+						new_random.c
 FILES_UTILS			:=	ft_appr.c \
 						ft_abs.c
 

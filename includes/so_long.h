@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 20:27:42 by marykman          #+#    #+#             */
-/*   Updated: 2023/12/31 15:26:06 by marykman         ###   ########.fr       */
+/*   Updated: 2024/01/05 20:53:04 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 # define WIN_HEIGHT		32 * 16
 # define WIN_WIDTH		32 * 16
 # define SPRITE_SIZE	32
+# define BACKGROUND_COL	0x0
 # define MAPFILE_SUFFIX	".ber"
 
 # define CLOUD_COUNT		16

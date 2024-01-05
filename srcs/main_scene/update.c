@@ -6,47 +6,54 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 16:31:23 by marykman          #+#    #+#             */
-/*   Updated: 2024/01/03 21:12:57 by marykman         ###   ########.fr       */
+/*   Updated: 2024/01/05 21:02:21 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "t_sfe.h"
+#include "sfe_pixel.h"
 #include "sc_main.h"
 #include "clouds.h"
 #include "snowflakes.h"
 #include "hairs.h"
+#include "player.h"
 
-void	draw_map(t_sc_main *sc)
+static void	map_draw(t_game *game, t_img img)
 {
-	for (int y = 0; y < sc->game->map.size.y; y++)
-		for (int x = 0; x < sc->game->map.size.x; x++)
-			sfe_image_cpy(
-				sc->game->assets[sc->game->map.tab[y][x]],
-				*sc->scene.img,
-				(t_point){
-					x * sc->game->assets[0].size.x,
-					y * sc->game->assets[0].size.y}
-				);
-}
+	t_point	pos;
 
-#include "sfe_pixel.h"
+	pos.y = -1;
+	while (++pos.y < game->map.size.y)
+	{
+		pos.x = -1;
+		while (++pos.x < game->map.size.x)
+			sfe_image_cpy(
+				game->assets[game->map.tab[pos.y][pos.x]],
+				img, (t_point){
+				pos.x * game->assets[0].size.x,
+				pos.y * game->assets[0].size.y});
+	}
+}
 
 int	sc_main_update(t_sc_main *sc)
 {
-	// sfe_scene_setbg(sc->scene, 0x0);
-	sfe_pixel_fill(*sc->scene.img, (t_area){
-		{sc->game->player.pos.x, sc->game->player.pos.y},
-		{sc->game->player.pos.x + 32, sc->game->player.pos.y + 32}
-	}, 0x0);
+	// Erase
+	player_erase(sc->game, *sc->scene.img);
+	snowflakes_erase(sc->game, *sc->scene.img);
+	clouds_erase(sc->game, *sc->scene.img);
+
+	// Update
 	player_update(sc->game);
-	update_clouds(sc->game, *sc->scene.img);
-	snowflakes_update(sc->game, *sc->scene.img);
-	draw_clouds(sc->game, *sc->scene.img);
-	draw_map(sc);
+	clouds_update(sc->game);
+	snowflakes_update(sc->game);
+
+	// Draw
+	clouds_draw(sc->game, *sc->scene.img);
+	map_draw(sc->game, *sc->scene.img);
 	player_draw(&sc->game->player, sc->scene.img);
 	snowflakes_draw(sc->game, *sc->scene.img);
 	
-	// ft_printf("FPS: %d\n", sc->sfe->fps);
+	ft_printf("FPS: %d\n", sc->sfe->fps);
 	return (sc->running);
 }
