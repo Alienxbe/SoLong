@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 13:19:21 by marykman          #+#    #+#             */
-/*   Updated: 2024/01/05 21:16:36 by marykman         ###   ########.fr       */
+/*   Updated: 2024/01/06 18:54:48 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@
 # define SNOWFLAKE_COL	0xffffff
 
 void	snowflakes_init(t_game *game);
-void	snowflakes_erase(t_game *game, t_img img);
+void	snowflakes_erase(t_game *game, t_img *img);
 void	snowflakes_update(t_game *game);
-void	snowflakes_draw(t_game *game, t_img img);
+void	snowflakes_draw(t_game *game, t_img *img);
 
 t_snowflake	snowflake_new_random(int x);
 

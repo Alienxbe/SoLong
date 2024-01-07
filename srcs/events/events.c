@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 17:35:19 by marykman          #+#    #+#             */
-/*   Updated: 2023/12/20 19:53:06 by marykman         ###   ########.fr       */
+/*   Updated: 2024/01/07 13:54:44 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,6 @@ static int	on_key_up(int key, t_sc_main *sc)
 
 void	events_init(t_sfe *sfe, t_sc_main *sc)
 {
-	sfe_hook_on_keydown(sfe->win, &on_key_down, sc);
-	sfe_hook_on_keyup(sfe->win, &on_key_up, sc);
+	sfe_hook_on_keydown(&sfe->win, &on_key_down, sc);
+	sfe_hook_on_keyup(&sfe->win, &on_key_up, sc);
 }

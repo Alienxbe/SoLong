@@ -6,7 +6,7 @@
 #    By: marykman <marykman@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/17 20:20:08 by marykman          #+#    #+#              #
-#    Updated: 2024/01/05 21:18:52 by marykman         ###   ########.fr        #
+#    Updated: 2024/01/07 14:32:06 by marykman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -74,7 +74,9 @@ FILES_EVENTS		:=	convert.c \
 						events.c
 FILES_MAIN_SCENE	:=	destroy.c \
 						init.c \
-						update.c
+						update.c \
+						draw.c \
+						erase.c
 FILES_PARSING		:=	parse_content.c \
 						parse_map.c \
 						parsing.c

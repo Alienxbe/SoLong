@@ -5,24 +5,37 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/24 13:49:33 by marykman          #+#    #+#             */
-/*   Updated: 2024/01/06 18:56:21 by marykman         ###   ########.fr       */
+/*   Created: 2024/01/07 14:20:30 by marykman          #+#    #+#             */
+/*   Updated: 2024/01/07 14:35:01 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <math.h>
-#include "sfe_pixel.h"
+#include "sc_main.h"
+#include "player.h"
 #include "snowflakes.h"
+#include "clouds.h"
 
-void	snowflakes_draw(t_game *game, t_img *img)
+static void	map_draw(t_game *game, t_img *img)
 {
-	size_t	i;
+	t_point	pos;
 
-	i = -1;
-	while (++i < SNOWFLAKE_COUNT)
-		sfe_pixel_fill(img,
-			(t_area){ft_fpoint_to_point(game->snowflakes[i].pos), {
-			game->snowflakes[i].pos.x + game->snowflakes[i].size,
-			game->snowflakes[i].pos.y + game->snowflakes[i].size}},
-			SNOWFLAKE_COL);
+	pos.y = -1;
+	while (++pos.y < game->map.size.y)
+	{
+		pos.x = -1;
+		while (++pos.x < game->map.size.x)
+			sfe_image_cpy(
+				&game->assets[game->map.tab[pos.y][pos.x]],
+				img, (t_point){
+				pos.x * game->assets[0].size.x,
+				pos.y * game->assets[0].size.y});
+	}
+}
+
+void	main_draw(t_sc_main *sc)
+{
+	clouds_draw(sc->game, sc->scene.img);
+	map_draw(sc->game, sc->scene.img);
+	player_draw(&sc->game->player, sc->scene.img);
+	snowflakes_draw(sc->game, sc->scene.img);
 }

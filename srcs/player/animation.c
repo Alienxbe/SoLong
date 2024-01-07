@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/30 00:08:07 by marykman          #+#    #+#             */
-/*   Updated: 2024/01/04 10:20:01 by marykman         ###   ########.fr       */
+/*   Updated: 2024/01/07 14:05:36 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,6 @@ void	player_update_animation(t_game *game)
 	else if (!game->player.spd.x)
 		game->player.frame = 0;
 	else
-		game->player.frame = 1 + (int)spr_off%3;
+		game->player.frame = 1 + (int)spr_off % 3;
 	spr_off += 0.1;
 }

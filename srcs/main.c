@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 20:28:58 by marykman          #+#    #+#             */
-/*   Updated: 2023/12/29 19:17:49 by marykman         ###   ########.fr       */
+/*   Updated: 2024/01/07 13:57:21 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,11 @@ static void	init_window(t_sfe **sfe, t_sc_main *sc)
 {
 	*sfe = sfe_init(WIN_NAME, new_point(WIN_DIM));
 	sfe_set_max_fps(*sfe, 60);
-
 	sc->scene = sfe_new_scene(*sfe, sc);
 	sc->scene.f_init = &sc_main_init;
 	sc->scene.f_update = &sc_main_update;
 	sc->scene.f_destroy = &sc_main_destroy;
 	sc->sfe = *sfe;
-
 	sfe_set_active_scene(*sfe, &sc->scene);
 	events_init(*sfe, sc);
 }

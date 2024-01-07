@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 19:52:01 by marykman          #+#    #+#             */
-/*   Updated: 2023/12/31 13:12:29 by marykman         ###   ########.fr       */
+/*   Updated: 2024/01/07 14:01:29 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 int	player_init(t_player *player, t_point pos, t_img *assets)
 {
-	// ft_printf("pos : %d | %d\n", pos.x, pos.y);
 	if (pos.x == -1 && pos.y == -1)
 		return (0);
 	player->pos = (t_fpoint){

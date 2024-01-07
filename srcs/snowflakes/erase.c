@@ -6,14 +6,14 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 20:04:03 by marykman          #+#    #+#             */
-/*   Updated: 2024/01/05 21:01:56 by marykman         ###   ########.fr       */
+/*   Updated: 2024/01/06 18:54:37 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sfe_pixel.h"
 #include "snowflakes.h"
 
-void	snowflakes_erase(t_game *game, t_img img)
+void	snowflakes_erase(t_game *game, t_img *img)
 {
 	size_t	i;
 

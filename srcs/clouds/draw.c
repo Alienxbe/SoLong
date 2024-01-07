@@ -6,14 +6,14 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 23:13:52 by marykman          #+#    #+#             */
-/*   Updated: 2024/01/05 20:29:18 by marykman         ###   ########.fr       */
+/*   Updated: 2024/01/06 18:56:12 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sfe_pixel.h"
 #include "clouds.h"
 
-void	clouds_draw(t_game *game, t_img img)
+void	clouds_draw(t_game *game, t_img *img)
 {
 	size_t	i;
 

@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 18:13:05 by marykman          #+#    #+#             */
-/*   Updated: 2023/12/20 19:52:50 by marykman         ###   ########.fr       */
+/*   Updated: 2024/01/07 14:09:14 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ t_game_keys	sfe_to_game_key(t_sfe_keys key)
 		SFE_KEY_C,
 		SFE_KEY_X
 	};
-	t_game_keys	i;
+	t_game_keys			i;
 
 	i = -1;
 	while (++i < GAME_KEY_LEN)
