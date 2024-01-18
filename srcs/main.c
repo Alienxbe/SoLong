@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 20:28:58 by marykman          #+#    #+#             */
-/*   Updated: 2024/01/07 13:57:21 by marykman         ###   ########.fr       */
+/*   Updated: 2024/01/18 16:09:32 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	main(void)
 	sc = (t_sc_main){0};
 	game = (t_game){0};
 	sc.game = &game;
-	if (parsing(&game.map, "maps/celeste1.ber"))
+	if (parsing(&game.map, "maps/celeste0.ber"))
 		return (1);
 	ft_printf("OUIOUIOUI\n");
 	init_window(&sfe, &sc);

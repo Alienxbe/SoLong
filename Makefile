@@ -6,7 +6,7 @@
 #    By: marykman <marykman@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/17 20:20:08 by marykman          #+#    #+#              #
-#    Updated: 2024/01/07 14:32:06 by marykman         ###   ########.fr        #
+#    Updated: 2024/01/18 17:41:00 by marykman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -94,7 +94,10 @@ FILES_PLAYER		:=	init.c \
 						gravity.c \
 						jump.c \
 						wall_jump.c
-FILES_HAIRS			:=	draw.c
+FILES_HAIRS			:=	init.c \
+						draw.c \
+						erase.c \
+						update.c
 FILES_CLOUDS		:=	init.c \
 						draw.c \
 						erase.c \

@@ -1,37 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   update.c                                           :+:      :+:    :+:   */
+/*   erase.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/18 16:31:23 by marykman          #+#    #+#             */
-/*   Updated: 2024/01/18 17:41:38 by marykman         ###   ########.fr       */
+/*   Created: 2024/01/18 17:30:29 by marykman          #+#    #+#             */
+/*   Updated: 2024/01/18 17:33:39 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-#include "t_sfe.h"
 #include "sfe_pixel.h"
-#include "sc_main.h"
-#include "player.h"
 #include "hairs.h"
-#include "snowflakes.h"
-#include "clouds.h"
 
-void	main_update(t_sc_main *sc)
+void	hairs_erase(t_game *game, t_img *img)
 {
-	player_update(sc->game);
-	hairs_update(sc->game);
-	clouds_update(sc->game);
-	snowflakes_update(sc->game);
-}
+	size_t	i;
 
-int	sc_main_update(t_sc_main *sc)
-{
-	main_erase(sc);
-	main_update(sc);
-	main_draw(sc);
-	ft_printf("FPS: %d\n", sc->sfe->fps);
-	return (sc->running);
+	i = -1;
+	while (++i < HAIR_COUNT)
+		sfe_pixel_fill(img, (t_area){{
+			game->hairs[i].pos.x, game->hairs[i].pos.y}, {
+			game->hairs[i].pos.x + SPRITE_SIZE, game->hairs[i].pos.y + SPRITE_SIZE}},
+			BACKGROUND_COL);
 }

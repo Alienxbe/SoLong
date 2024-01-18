@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 20:27:42 by marykman          #+#    #+#             */
-/*   Updated: 2024/01/14 12:30:50 by marykman         ###   ########.fr       */
+/*   Updated: 2024/01/18 17:20:17 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@
 
 # define CLOUD_COUNT		16
 # define SNOWFLAKE_COUNT	24
+# define HAIR_COUNT			3
 
 # define SPECIAL_CHAR	"PCE"
 
@@ -76,10 +77,8 @@ typedef struct s_snowflake
 typedef struct s_hair
 {
 	t_fpoint	pos;
-	size_t		radius;
+	t_img		*texture;
 }	t_hair;
-
-
 
 typedef struct s_game
 {
@@ -87,6 +86,7 @@ typedef struct s_game
 	t_player	player;
 	t_cloud		clouds[CLOUD_COUNT];
 	t_snowflake	snowflakes[SNOWFLAKE_COUNT];
+	t_hair		hairs[HAIR_COUNT];
 	t_img		*assets;
 	t_keylist	active_keys;
 }	t_game;

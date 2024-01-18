@@ -6,38 +6,22 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 15:01:07 by marykman          #+#    #+#             */
-/*   Updated: 2024/01/06 18:55:59 by marykman         ###   ########.fr       */
+/*   Updated: 2024/01/18 17:27:41 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <math.h>
-#include <stdio.h>
-#include "sfe_pixel.h"
+#include "sfe_image.h"
 #include "hairs.h"
 
-// void	sfe_circfill(t_img img, t_fpoint pos, float r, t_color color)
-// {
-// 	t_fpoint	i;
-// 	float		rcalc;
-
-// 	i.y = -r;
-// 	while (i.y < r)
-// 	{
-// 		i.x = -r;
-// 		while (i.x < r)
-// 		{
-// 			rcalc = sqrt(i.x * i.x + i.y * i.y);
-// 			// printf("%f: %f\n", r, rcalc);
-// 			if (rcalc <= r)
-// 				sfe_pixel_put(img, (t_point){i.x + pos.x, i.y + pos.y}, color);
-// 			i.x++;
-// 		}
-// 		i.y++;
-// 	}
-// }
-
-void	hair_draw(t_img img, t_hair hair)
+void	hairs_draw(t_game *game, t_img *img)
 {
-	(void)img;
-	(void)hair;
+	size_t	i;
+
+	i = -1;
+	while (++i < HAIR_COUNT)
+		sfe_image_cpy(
+			game->hairs[i].texture,
+			img,
+			ft_fpoint_to_point(game->hairs[i].pos)
+			);
 }

@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 15:18:24 by marykman          #+#    #+#             */
-/*   Updated: 2024/01/07 14:33:32 by marykman         ###   ########.fr       */
+/*   Updated: 2024/01/18 17:35:50 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include "sc_main.h"
 #include "ft_printf.h"
 #include "player.h"
+#include "hairs.h"
 #include "clouds.h"
 #include "snowflakes.h"
 
@@ -44,6 +45,7 @@ int	sc_main_init(t_sc_main *sc)
 	if (!player_init(&sc->game->player, sc->game->map.player_pos,
 			sc->game->assets))
 		return (0);
+	hairs_init(sc->game);
 	clouds_init(sc->game);
 	snowflakes_init(sc->game);
 	return (1);

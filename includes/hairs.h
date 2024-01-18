@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 15:01:24 by marykman          #+#    #+#             */
-/*   Updated: 2023/12/31 15:30:27 by marykman         ###   ########.fr       */
+/*   Updated: 2024/01/18 17:41:54 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,9 @@
 
 # include "so_long.h"
 
-void	sfe_circfill(t_img img, t_fpoint pos, float r, t_color color);
-void	hair_draw(t_img img, t_hair hair);
+void	hairs_init(t_game *game);
+void	hairs_erase(t_game *game, t_img *img);
+void	hairs_update(t_game *game);
+void	hairs_draw(t_game *game, t_img *img);
 
 #endif
