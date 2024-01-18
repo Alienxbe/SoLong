@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/29 19:10:50 by marykman          #+#    #+#             */
-/*   Updated: 2023/12/31 14:22:00 by marykman         ###   ########.fr       */
+/*   Updated: 2024/01/07 14:40:57 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	player_update_wall_jump(t_game *game)
 		&& !game->player.on_ground)
 	{
 		game->player.spd.x = -(WALL_JUMP_FORCE + 0.3) * wall_dir;
-		game->player.spd.y = -WALL_JUMP_FORCE + 1;
+		game->player.spd.y = -WALL_JUMP_FORCE + 1.5;
 		game->player.jbuffer = 0;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 14:20:30 by marykman          #+#    #+#             */
-/*   Updated: 2024/01/07 14:35:01 by marykman         ###   ########.fr       */
+/*   Updated: 2024/01/07 14:57:07 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,9 @@ static void	map_draw(t_game *game, t_img *img)
 				pos.y * game->assets[0].size.y});
 	}
 }
+
+#include "mlx.h"
+#include "t_sfe.h"
 
 void	main_draw(t_sc_main *sc)
 {
