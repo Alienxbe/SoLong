@@ -155,7 +155,7 @@ player =
 		end
 
 		this.dash_effect_time -=1
-		if this.dash_time > 0 then
+		if this.dash_time > 0 then -- Dash
 			init_object(smoke,this.x,this.y)
 			this.dash_time-=1
 			this.spd.x=appr(this.spd.x,this.dash_target.x,this.dash_accel.x)
@@ -191,15 +191,15 @@ player =
 			local maxfall=2
 			local gravity=0.21
 
-		if abs(this.spd.y) <= 0.15 then
-		gravity*=0.5
+			if abs(this.spd.y) <= 0.15 then
+				gravity*=0.5
 			end
 		
 			-- wall slide
 			if input!=0 and this.is_solid(input,0) and not this.is_ice(input,0) then
-		 	maxfall=0.4
-		 	if rnd(10)<2 then
-		 		init_object(smoke,this.x+input*6,this.y)
+				maxfall=0.4
+				if rnd(10)<2 then
+					init_object(smoke,this.x+input*6,this.y)
 				end
 			end
 

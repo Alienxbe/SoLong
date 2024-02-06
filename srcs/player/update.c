@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 19:51:03 by marykman          #+#    #+#             */
-/*   Updated: 2024/02/06 15:25:29 by marykman         ###   ########.fr       */
+/*   Updated: 2024/02/06 16:08:49 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,15 @@
 
 static void	player_update_states(t_game *game)
 {
-	game->player.input = (game->active_keys[GAME_KEY_RIGHT] * 1)
+	game->player.input.x = (game->active_keys[GAME_KEY_RIGHT] * 1)
 		+ (game->active_keys[GAME_KEY_LEFT] * (-1));
+	game->player.input.y = (game->active_keys[GAME_KEY_DOWN] * 1)
+		+ (game->active_keys[GAME_KEY_UP] * (-1));
 	game->player.on_ground = player_is_solid(game, (t_fpoint){0, 1});
 	player_update_state_jump(game);
 	player_update_state_jbuffer(game);
 	player_update_state_grace(game);
 	player_update_state_dash(game);
-	// if (game->player.dash)
-	// 	printf("Dash available\n");
-	// printf("%d\n", game->player.djump);
 }
 
 void	player_update(t_game *game)
