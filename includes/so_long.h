@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 20:27:42 by marykman          #+#    #+#             */
-/*   Updated: 2024/01/18 17:20:17 by marykman         ###   ########.fr       */
+/*   Updated: 2024/01/25 14:28:58 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,10 @@ typedef struct s_player
 	t_bool		jump;
 	int			jbuffer;
 	int			grace;
+	t_bool		p_dash;
+	t_bool		dash;
+	int			djump;
+	int			max_djump;
 	int			input;
 	t_img		*assets;
 }	t_player;

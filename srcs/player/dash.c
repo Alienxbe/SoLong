@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.c                                             :+:      :+:    :+:   */
+/*   dash.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/18 17:09:09 by marykman          #+#    #+#             */
-/*   Updated: 2024/01/25 13:57:10 by marykman         ###   ########.fr       */
+/*   Created: 2024/01/25 14:00:10 by marykman          #+#    #+#             */
+/*   Updated: 2024/02/06 15:17:50 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "hairs.h"
+#include "ft_printf.h"
+#include "sfe_pixel.h"
+#include "sfe_color.h"
+#include "player.h"
 
-void	hairs_init(t_game *game)
+void	player_update_dash(t_game *game)
 {
-	size_t	i;
-
-	i = -1;
-	while (++i < HAIR_COUNT)
-	{
-		game->hairs[i].texture = game->assets + (0xe0 + i);
-		game->hairs[i].pos = (t_fpoint){
-			game->player.pos.x + 20 * i, game->player.pos.y};
-	}
+	if (game->player.djump <= 0 || !game->player.dash)
+		return ;
+	game->player.djump--;
 }

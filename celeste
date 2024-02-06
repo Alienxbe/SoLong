@@ -156,10 +156,10 @@ player =
 
 		this.dash_effect_time -=1
 		if this.dash_time > 0 then
-		init_object(smoke,this.x,this.y)
-		this.dash_time-=1
-		this.spd.x=appr(this.spd.x,this.dash_target.x,this.dash_accel.x)
-		this.spd.y=appr(this.spd.y,this.dash_target.y,this.dash_accel.y)  
+			init_object(smoke,this.x,this.y)
+			this.dash_time-=1
+			this.spd.x=appr(this.spd.x,this.dash_target.x,this.dash_accel.x)
+			this.spd.y=appr(this.spd.y,this.dash_target.y,this.dash_accel.y)  
 		else
 
 			-- move
@@ -177,7 +177,7 @@ player =
 			end
 		
 			if abs(this.spd.x) > maxrun then
-		 	this.spd.x=appr(this.spd.x,sign(this.spd.x)*maxrun,deccel)
+				this.spd.x=appr(this.spd.x,sign(this.spd.x)*maxrun,deccel)
 			else
 				this.spd.x=appr(this.spd.x,input*maxrun,accel)
 			end
@@ -209,23 +209,23 @@ player =
 
 			-- jump
 			if this.jbuffer>0 then
-		 	if this.grace>0 then
-		  	-- normal jump
-		  	psfx(1)
-		  	this.jbuffer=0
-		  	this.grace=0
+				if this.grace>0 then
+					-- normal jump
+					psfx(1)
+					this.jbuffer=0
+					this.grace=0
 					this.spd.y=-2
 					init_object(smoke,this.x,this.y+4)
 				else
 					-- wall jump
 					local wall_dir=(this.is_solid(-3,0) and -1 or this.is_solid(3,0) and 1 or 0)
 					if wall_dir!=0 then
-			 		psfx(2)
-			 		this.jbuffer=0
-			 		this.spd.y=-2
-			 		this.spd.x=-wall_dir*(maxrun+1)
-			 		if not this.is_ice(wall_dir*3,0) then
-		 				init_object(smoke,this.x+wall_dir*6,this.y)
+						psfx(2)
+						this.jbuffer=0
+						this.spd.y=-2
+						this.spd.x=-wall_dir*(maxrun+1)
+						if not this.is_ice(wall_dir*3,0) then
+							init_object(smoke,this.x+wall_dir*6,this.y)
 						end
 					end
 				end
@@ -236,49 +236,50 @@ player =
 			local d_half=d_full*0.70710678118
 		
 			if this.djump>0 and dash then
-		 	init_object(smoke,this.x,this.y)
-		 	this.djump-=1		
-		 	this.dash_time=4
-		 	has_dashed=true
-		 	this.dash_effect_time=10
-		 	local v_input=(btn(k_up) and -1 or (btn(k_down) and 1 or 0))
-		 	if input!=0 then
-		  	if v_input!=0 then
-		   	this.spd.x=input*d_half
-		   	this.spd.y=v_input*d_half
-		  	else
-		   	this.spd.x=input*d_full
-		   	this.spd.y=0
-		  	end
-		 	elseif v_input!=0 then
-		 		this.spd.x=0
-		 		this.spd.y=v_input*d_full
-		 	else
-		 		this.spd.x=(this.flip.x and -1 or 1)
-		  	this.spd.y=0
-		 	end
-		 	
-		 	psfx(3)
-		 	freeze=2
-		 	shake=6
-		 	this.dash_target.x=2*sign(this.spd.x)
-		 	this.dash_target.y=2*sign(this.spd.y)
-		 	this.dash_accel.x=1.5
-		 	this.dash_accel.y=1.5
-		 	
-		 	if this.spd.y<0 then
-		 	 this.dash_target.y*=.75
-		 	end
-		 	
-		 	if this.spd.y!=0 then
-		 	 this.dash_accel.x*=0.70710678118
-		 	end
-		 	if this.spd.x!=0 then
-		 	 this.dash_accel.y*=0.70710678118
-		 	end	 	 
+				init_object(smoke,this.x,this.y)
+				this.djump-=1
+				this.dash_time=4
+				has_dashed=true
+				this.dash_effect_time=10
+				local v_input=(btn(k_up) and -1 or (btn(k_down) and 1 or 0))
+				if input!=0 then
+					if v_input!=0 then
+						this.spd.x=input*d_half
+						this.spd.y=v_input*d_half
+					else
+						this.spd.x=input*d_full
+						this.spd.y=0
+					end
+				elseif v_input!=0 then
+					this.spd.x=0
+					this.spd.y=v_input*d_full
+				else
+					this.spd.x=(this.flip.x and -1 or 1)
+					this.spd.y=0
+				end
+				
+				psfx(3)
+				freeze=2
+				shake=6
+				this.dash_target.x=2*sign(this.spd.x)
+				this.dash_target.y=2*sign(this.spd.y)
+				this.dash_accel.x=1.5
+				this.dash_accel.y=1.5
+				
+				if this.spd.y<0 then
+					this.dash_target.y*=.75
+				end
+				
+				if this.spd.y!=0 then
+					this.dash_accel.x*=0.70710678118
+				end
+				if this.spd.x!=0 then
+					this.dash_accel.y*=0.70710678118
+				end
+			
 			elseif dash and this.djump<=0 then
-			 psfx(9)
-			 init_object(smoke,this.x,this.y)
+				psfx(9)
+				init_object(smoke,this.x,this.y)
 			end
 		
 		end
