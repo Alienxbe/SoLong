@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 19:51:03 by marykman          #+#    #+#             */
-/*   Updated: 2024/02/06 16:08:49 by marykman         ###   ########.fr       */
+/*   Updated: 2024/02/16 19:39:30 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,11 @@ void	player_update(t_game *game)
 	if (game->player.djump)
 	{
 		for (int i = 0xf0; i < 0xff; i++)
-			sfe_color_replace(game->assets + i, 0x3FF, 0xFF004D);
+			sfe_color_replace(game->assets + i, 0x29ADFF, 0xFF004D);
 	}
 	else
 		for (int i = 0xf0; i < 0xff; i++)
-			sfe_color_replace(game->assets + i, 0xFF004D, 0x3FF);
+			sfe_color_replace(game->assets + i, 0xFF004D, 0x29ADFF);
 	player_update_states(game);
 	player_update_speed(game);
 	player_update_gravity(game);

@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/29 21:50:15 by marykman          #+#    #+#             */
-/*   Updated: 2023/12/31 13:56:39 by marykman         ###   ########.fr       */
+/*   Updated: 2024/02/16 18:53:51 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,6 @@ void	player_update_speed(t_game *game)
 	else
 		game->player.spd.x = ft_appr(
 				game->player.spd.x,
-				game->player.input * PLAYER_MOVE_MAX,
+				game->player.input.x * PLAYER_MOVE_MAX,
 				get_player_state_accel(game));
 }
