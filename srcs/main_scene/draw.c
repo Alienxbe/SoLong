@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 14:20:30 by marykman          #+#    #+#             */
-/*   Updated: 2024/01/25 16:51:24 by marykman         ###   ########.fr       */
+/*   Updated: 2024/03/04 18:41:23 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,9 @@ static void	map_draw(t_game *game, t_img *img)
 
 void	main_draw(t_sc_main *sc)
 {
+	player_draw(&sc->game->player, sc->scene.img);
 	clouds_draw(sc->game, sc->scene.img);
 	map_draw(sc->game, sc->scene.img);
 	// hairs_draw(sc->game, sc->scene.img);
-	player_draw(&sc->game->player, sc->scene.img);
 	snowflakes_draw(sc->game, sc->scene.img);
 }

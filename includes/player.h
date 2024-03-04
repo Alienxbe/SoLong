@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 16:37:51 by marykman          #+#    #+#             */
-/*   Updated: 2024/01/25 14:38:17 by marykman         ###   ########.fr       */
+/*   Updated: 2024/03/04 17:25:14 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@
 # define PLAYER_MOVE_GROUND_ACCEL	2.4
 # define PLAYER_MOVE_AIR_ACCEL		0.6
 # define PLAYER_MOVE_MAX			4
+
+# define PLAYER_DASH_ACCEL			0.75
 
 # define PLAYER_MOVE_DECEL			0.6
 

@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 20:27:42 by marykman          #+#    #+#             */
-/*   Updated: 2024/02/06 15:46:28 by marykman         ###   ########.fr       */
+/*   Updated: 2024/03/04 16:53:41 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@
 # define CLOUD_COUNT		16
 # define SNOWFLAKE_COUNT	24
 # define HAIR_COUNT			3
+# define HAIR_COLOR_DASH_1	0xFF004D
+# define HAIR_COLOR_DASH_0	0x29ADFF
 
 # define SPECIAL_CHAR	"PCE"
 
@@ -58,6 +60,8 @@ typedef struct s_player
 	t_bool		dash;
 	int			djump;
 	int			max_djump;
+	int			dash_time;
+	t_fpoint	dash_target;
 	t_point		input;
 	t_img		*assets;
 }	t_player;
