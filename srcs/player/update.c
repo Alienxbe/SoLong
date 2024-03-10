@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 19:51:03 by marykman          #+#    #+#             */
-/*   Updated: 2024/03/04 18:16:23 by marykman         ###   ########.fr       */
+/*   Updated: 2024/03/05 12:02:35 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,15 +54,15 @@ static void	player_update_states(t_game *game)
 	player_update_state_dash(game);
 }
 
+#include "collisions.h"
+
 void	player_update(t_game *game)
 {
+	is_hitbox_colliding_spikes(game);
+
 	player_update_states(game);
 	if (game->player.dash_time > 0) // dash
-	{
-		game->player.dash_time--;
-		game->player.spd.x = ft_appr(game->player.spd.x, game->player.dash_target.x, PLAYER_DASH_ACCEL);
-		game->player.spd.y = ft_appr(game->player.spd.y, game->player.dash_target.y, PLAYER_DASH_ACCEL);
-	}
+		player_update_dash_speed(game);
 	else
 	{
 		player_update_speed(game);

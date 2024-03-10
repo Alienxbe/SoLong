@@ -6,7 +6,7 @@
 #    By: marykman <marykman@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/17 20:20:08 by marykman          #+#    #+#              #
-#    Updated: 2024/03/04 17:39:03 by marykman         ###   ########.fr        #
+#    Updated: 2024/03/05 11:58:48 by marykman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -81,6 +81,7 @@ FILES_PARSING		:=	parse_content.c \
 						parse_map.c \
 						parsing.c
 FILES_COLLISIONS	:=	is_hitbox_colliding.c \
+						is_hitbox_colliding_spikes.c \
 						is_type.c \
 						is_wall.c
 FILES_PLAYER		:=	init.c \

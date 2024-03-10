@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 16:37:51 by marykman          #+#    #+#             */
-/*   Updated: 2024/03/04 17:25:14 by marykman         ###   ########.fr       */
+/*   Updated: 2024/03/05 11:56:12 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ void	player_update_gravity(t_game *game);
 void	player_update_speed(t_game *game);
 void	player_update_jump(t_game *game);
 void	player_update_dash(t_game *game);
+void	player_update_dash_speed(t_game *game);
 void	player_update_wall_jump(t_game *game);
 void	player_update_animation(t_game *game);
 void	player_move(t_game *game);
