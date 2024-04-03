@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/30 00:08:07 by marykman          #+#    #+#             */
-/*   Updated: 2024/02/16 18:53:42 by marykman         ###   ########.fr       */
+/*   Updated: 2024/04/03 22:33:11 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ void	player_update_animation(t_game *game)
 	static float	spr_off;
 
 	if (game->player.spd.x < 0)
-		game->player.direction = 1;
+		game->player.direction = -1;
 	if (game->player.spd.x > 0)
-		game->player.direction = 0;
+		game->player.direction = 1;
 	if (!game->player.on_ground)
 	{
 		if (player_is_solid(game, (t_fpoint){game->player.input.x, 0}))

@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 20:28:58 by marykman          #+#    #+#             */
-/*   Updated: 2024/03/05 14:51:18 by marykman         ###   ########.fr       */
+/*   Updated: 2024/04/03 22:23:45 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static void	init_window(t_sfe **sfe, t_sc_main *sc)
 	events_init(*sfe, sc);
 }
 
-int	main(void)
+int	main(int argc, char **argv)
 {
 	t_sfe		*sfe;
 	t_sc_main	sc;
@@ -40,9 +40,8 @@ int	main(void)
 	sc = (t_sc_main){0};
 	game = (t_game){0};
 	sc.game = &game;
-	if (parsing(&game.map, "maps/celeste3.ber"))
+	if (argc != 2 || parsing(&game.map, argv[1]))
 		return (1);
-	ft_printf("OUIOUIOUI\n");
 	init_window(&sfe, &sc);
 	ft_randinit();
 	sfe_loop(sfe);

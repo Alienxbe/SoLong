@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 19:54:15 by marykman          #+#    #+#             */
-/*   Updated: 2024/01/06 18:53:53 by marykman         ###   ########.fr       */
+/*   Updated: 2024/04/03 22:33:21 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static t_point	flip_x_mod(t_point img_src, t_point i)
 
 static void	*get_mod_function(t_player *player)
 {
-	if (player->direction)
+	if (player->direction < 0)
 		return (&flip_x_mod);
 	return (NULL);
 }

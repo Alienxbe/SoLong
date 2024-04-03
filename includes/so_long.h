@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 20:27:42 by marykman          #+#    #+#             */
-/*   Updated: 2024/03/04 16:53:41 by marykman         ###   ########.fr       */
+/*   Updated: 2024/04/03 22:38:19 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,7 @@ typedef struct s_game
 	t_hair		hairs[HAIR_COUNT];
 	t_img		*assets;
 	t_keylist	active_keys;
+	int			move_count;
 }	t_game;
 
 #endif

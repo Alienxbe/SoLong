@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 14:00:10 by marykman          #+#    #+#             */
-/*   Updated: 2024/03/05 11:56:38 by marykman         ###   ########.fr       */
+/*   Updated: 2024/04/03 22:33:27 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,11 @@ void	player_update_dash(t_game *game)
 		{
 			game->player.spd.x = 0;
 			game->player.spd.y = game->player.input.y * D_FULL;
+		}
+		else
+		{
+			game->player.spd.x = game->player.direction * D_FULL;
+			game->player.spd.y = 0;
 		}
 	}
 	game->player.dash_target.x = 3 * ft_signfloat(game->player.spd.x);
