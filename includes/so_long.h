@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 20:27:42 by marykman          #+#    #+#             */
-/*   Updated: 2024/05/31 12:04:12 by marykman         ###   ########.fr       */
+/*   Updated: 2024/05/31 13:25:16 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define SO_LONG_H
 
 # include <stddef.h>
+# include "ft_dlist.h"
 # include "ft_point.h"
 # include "ft_area.h"
 # include "ft_list.h"
@@ -84,6 +85,16 @@ typedef struct s_snowflake
 	size_t		ampl;
 }	t_snowflake;
 
+typedef struct s_smoke
+{
+	t_fpoint	pos;
+	t_point		speed;
+	t_point		flip;
+	size_t		frame;
+	t_img		*assets;
+	t_dlist		*elem;
+}	t_smoke;
+
 typedef struct s_hair
 {
 	t_fpoint	pos;
@@ -97,6 +108,7 @@ typedef struct s_game
 	t_cloud		clouds[CLOUD_COUNT];
 	t_snowflake	snowflakes[SNOWFLAKE_COUNT];
 	t_hair		hairs[HAIR_COUNT];
+	t_dlist		*smokes;
 	t_img		*assets;
 	t_keylist	active_keys;
 	int			move_count;
