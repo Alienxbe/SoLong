@@ -6,13 +6,13 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 14:20:30 by marykman          #+#    #+#             */
-/*   Updated: 2024/03/05 11:17:13 by marykman         ###   ########.fr       */
+/*   Updated: 2024/05/31 14:31:20 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sc_main.h"
 #include "player.h"
-#include "hairs.h"
+#include "strawberries.h"
 #include "snowflakes.h"
 #include "clouds.h"
 
@@ -37,7 +37,7 @@ void	main_draw(t_sc_main *sc)
 {
 	clouds_draw(sc->game, sc->scene.img);
 	map_draw(sc->game, sc->scene.img);
-	// hairs_draw(sc->game, sc->scene.img);
+	strawberry_draw(sc->game, sc->scene.img);
 	player_draw(&sc->game->player, sc->scene.img);
 	snowflakes_draw(sc->game, sc->scene.img);
 }

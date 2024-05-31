@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 20:27:42 by marykman          #+#    #+#             */
-/*   Updated: 2024/05/31 13:25:16 by marykman         ###   ########.fr       */
+/*   Updated: 2024/05/31 16:14:39 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@
 # define HAIR_COLOR_DASH_1	0xFF004D
 # define HAIR_COLOR_DASH_0	0x29ADFF
 
-# define SPECIAL_CHAR	"PCE"
+# define SPECIAL_CHAR	"PCEB"
 
 # define F_SPRITE_SHEET	"assets/CelestePico8.xpm"
 

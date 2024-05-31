@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   add_coin.c                                         :+:      :+:    :+:   */
+/*   erase.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/31 12:29:26 by marykman          #+#    #+#             */
-/*   Updated: 2024/05/31 14:48:42 by marykman         ###   ########.fr       */
+/*   Created: 2024/05/31 14:23:48 by marykman          #+#    #+#             */
+/*   Updated: 2024/05/31 14:47:30 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include "parsing.h"
+#include "sfe_pixel.h"
+#include "strawberries.h"
 
-t_error	add_coin(t_map *map, t_point pos)
+void	strawberry_erase(t_game *game, t_img *img)
 {
-	t_fpoint	*content;
+	t_list	*lst;
+	t_fpoint	pos;
 
-	content = malloc(sizeof(*content));
-	if (!content)
-		return (MALLOC_ERROR);
-	*content = (t_fpoint){pos.x * SPRITE_SIZE, pos.y * SPRITE_SIZE};
-	if (!ft_lstadd_back(&map->coin_pos, ft_lstnew(content)))
+	lst = game->map.coin_pos;
+	while (lst)
 	{
-		free(content);
-		return (MALLOC_ERROR);
+		pos = *(t_fpoint *)lst->content;
+		sfe_pixel_fill(img, (t_area){
+			{pos.x, pos.y},
+			{pos.x + SPRITE_SIZE, pos.y + SPRITE_SIZE}},
+			BACKGROUND_COL);
+		lst = lst->next;
 	}
-	return (SUCCESS);
 }

@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 19:51:03 by marykman          #+#    #+#             */
-/*   Updated: 2024/04/03 22:38:35 by marykman         ###   ########.fr       */
+/*   Updated: 2024/05/31 13:56:12 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ void	player_update(t_game *game)
 		player_update_wall_jump(game);
 		player_update_dash(game);
 	}
+	// Test for getting coins;
 	player_update_hair_color(game);
 	player_update_animation(game);
 	player_move(game);

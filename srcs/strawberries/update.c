@@ -1,30 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   add_coin.c                                         :+:      :+:    :+:   */
+/*   update.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/31 12:29:26 by marykman          #+#    #+#             */
-/*   Updated: 2024/05/31 14:48:42 by marykman         ###   ########.fr       */
+/*   Created: 2024/05/31 14:41:32 by marykman          #+#    #+#             */
+/*   Updated: 2024/05/31 16:12:11 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include "parsing.h"
+#include <math.h>
+#include "strawberries.h"
 
-t_error	add_coin(t_map *map, t_point pos)
+void	strawberry_update(t_game *game)
 {
-	t_fpoint	*content;
+	static float	i;
+	t_list	*lst;
 
-	content = malloc(sizeof(*content));
-	if (!content)
-		return (MALLOC_ERROR);
-	*content = (t_fpoint){pos.x * SPRITE_SIZE, pos.y * SPRITE_SIZE};
-	if (!ft_lstadd_back(&map->coin_pos, ft_lstnew(content)))
+	lst = game->map.coin_pos;
+	while (lst)
 	{
-		free(content);
-		return (MALLOC_ERROR);
+		((t_fpoint *)lst->content)->y += sin(i) / 2;
+		lst = lst->next;
 	}
-	return (SUCCESS);
+	i += 0.1;
 }

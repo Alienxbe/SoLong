@@ -6,7 +6,7 @@
 #    By: marykman <marykman@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/17 20:20:08 by marykman          #+#    #+#              #
-#    Updated: 2024/05/31 13:12:13 by marykman         ###   ########.fr        #
+#    Updated: 2024/05/31 14:44:47 by marykman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -113,6 +113,9 @@ FILES_SNOWFLAKES	:=	init.c \
 						erase.c \
 						update.c \
 						new_random.c
+FILES_STRAWBERRIES	:=	draw.c \
+						erase.c \
+						update.c
 FILES_UTILS			:=	ft_appr.c \
 						ft_abs.c
 
@@ -125,6 +128,7 @@ SRCS				+=	$(addprefix srcs/player/, ${FILES_PLAYER})
 SRCS				+=	$(addprefix srcs/hairs/, ${FILES_HAIRS})
 SRCS				+=	$(addprefix srcs/clouds/, ${FILES_CLOUDS})
 SRCS				+=	$(addprefix srcs/snowflakes/, ${FILES_SNOWFLAKES})
+SRCS				+=	$(addprefix srcs/strawberries/, ${FILES_STRAWBERRIES})
 SRCS				+=	$(addprefix srcs/utils/, ${FILES_UTILS})
 OBJS				:=	$(patsubst srcs%.c, objs%.o, ${SRCS})
 
