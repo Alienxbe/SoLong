@@ -1,28 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw.c                                             :+:      :+:    :+:   */
+/*   smoke.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/11 20:45:20 by marykman          #+#    #+#             */
-/*   Updated: 2024/04/11 21:02:06 by marykman         ###   ########.fr       */
+/*   Created: 2024/04/11 19:45:43 by marykman          #+#    #+#             */
+/*   Updated: 2024/04/11 20:46:16 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "sfe_image.h"
-#include "smoke.h"
+#ifndef SMOKE_H
+# define SMOKE_H
 
-static void	draw(t_smoke *smoke)
-{
-	sfe_image_mod_cpy(
-		&smoke->assets[0xe0 + frame / 10],
-		
-		);
-}
+# include "so_long.h"
 
-void	smoke_draw(t_game *game, t_img *img)
-{
-	// Pour chaque smoke draw a la position
-	ft_dlstiter(game->smokes, draw);
-}
+void	smoke_init(t_game *game);
+void	smoke_erase(t_game *game, t_img *img);
+void	smoke_update(t_game *game);
+void	smoke_draw(t_game *game, t_img *img);
+
+void	smoke_new(t_game *game, t_fpoint pos); // Add a new smoke to the linked list
+void	smoke_remove(t_game *game, t_dlist *smoke); // Remove from linked list
+
+#endif
