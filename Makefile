@@ -6,7 +6,7 @@
 #    By: marykman <marykman@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/17 20:20:08 by marykman          #+#    #+#              #
-#    Updated: 2024/03/05 11:58:48 by marykman         ###   ########.fr        #
+#    Updated: 2024/05/31 13:12:13 by marykman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -77,7 +77,9 @@ FILES_MAIN_SCENE	:=	destroy.c \
 						update.c \
 						draw.c \
 						erase.c
-FILES_PARSING		:=	parse_content.c \
+FILES_PARSING		:=	add_coin.c \
+						add_player.c \
+						parse_content.c \
 						parse_map.c \
 						parsing.c
 FILES_COLLISIONS	:=	is_hitbox_colliding.c \

@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 16:08:01 by marykman          #+#    #+#             */
-/*   Updated: 2023/12/18 16:08:37 by marykman         ###   ########.fr       */
+/*   Updated: 2024/05/31 12:10:58 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ typedef enum e_error
 	PARSING_WRONG_LINE_LEN,
 	PARSING_WRONG_CHAR,
 	PARSING_MULTIPLE_PLAYER,
+	PARSING_COIN_ERROR,
 	ERROR_LEN
 }	t_error;
 

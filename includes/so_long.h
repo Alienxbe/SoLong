@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 20:27:42 by marykman          #+#    #+#             */
-/*   Updated: 2024/04/11 21:01:14 by marykman         ###   ########.fr       */
+/*   Updated: 2024/05/31 13:25:16 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include "ft_dlist.h"
 # include "ft_point.h"
 # include "ft_area.h"
+# include "ft_list.h"
 # include "events.h"
 
 # define WIN_NAME		"So long but it's actually too long"
@@ -41,6 +42,7 @@ typedef struct s_map
 {
 	int		**tab;
 	t_point	player_pos;
+	t_list	*coin_pos;
 	t_point	size;
 }	t_map;
 

@@ -1,29 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   destroy.c                                          :+:      :+:    :+:   */
+/*   add_player.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/18 15:18:20 by marykman          #+#    #+#             */
-/*   Updated: 2024/05/31 13:07:27 by marykman         ###   ########.fr       */
+/*   Created: 2024/05/31 12:12:04 by marykman          #+#    #+#             */
+/*   Updated: 2024/05/31 12:29:12 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-#include <stdlib.h>
-#include "t_sfe.h"
-#include "sc_main.h"
-#include "sfe_image.h"
+#include "parsing.h"
 
-int	sc_main_destroy(t_sc_main *sc)
+t_error	add_player(t_map *map, t_point pos)
 {
-	size_t	i;
+	static int	player_count;
 
-	i = -1;
-	while (sc->game->assets[++i].img)
-		sfe_image_destroy(sc->sfe->mlx_ptr, &sc->game->assets[i]);
-	free(sc->game->assets);
-	ft_lstclear(&sc->game->map.coin_pos, &free);
-	return (0);
+	if (player_count)
+		return (PARSING_MULTIPLE_PLAYER);
+	map->player_pos = (t_point){pos.x, pos.y};
+	player_count++;
+	return (SUCCESS);
 }

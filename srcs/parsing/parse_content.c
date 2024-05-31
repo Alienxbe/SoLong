@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 15:29:34 by marykman          #+#    #+#             */
-/*   Updated: 2024/01/07 14:00:14 by marykman         ###   ########.fr       */
+/*   Updated: 2024/05/31 12:29:09 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,6 @@
 #include "ft_string.h"
 #include "parsing.h"
 
-static t_error	add_player(t_map *map, t_point pos)
-{
-	static int	player_count;
-
-	if (player_count)
-		return (PARSING_MULTIPLE_PLAYER);
-	map->player_pos = (t_point){pos.x, pos.y};
-	player_count++;
-	return (SUCCESS);
-}
-
 static t_error	parse_special_char(t_map *map, char *line, int i)
 {
 	ft_printf("PLAYER PLAYER %d %d\n", i, map->size.y);
@@ -37,7 +26,10 @@ static t_error	parse_special_char(t_map *map, char *line, int i)
 			return (PARSING_MULTIPLE_PLAYER);
 	}
 	else if (*line == 'C')
-		;
+	{
+		if (add_coin(map, (t_point){i, map->size.y}))
+			return (PARSING_COIN_ERROR);
+	}
 	else if (*line == 'E')
 		;
 	else
