@@ -1,24 +1,15 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strawberries.h                                     :+:      :+:    :+:   */
+/*   collecting_coin.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/31 13:59:36 by marykman          #+#    #+#             */
-/*   Updated: 2024/06/11 15:18:59 by marykman         ###   ########.fr       */
+/*   Created: 2024/06/11 15:30:30 by marykman          #+#    #+#             */
+/*   Updated: 2024/06/11 15:30:46 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef STRAWBERRIES_H
-# define STRAWBERRIES_H
+#include "player.h"
 
-# include "so_long.h"
 
-# define STRAWBERRY_ASSET	0xd0
-
-void	strawberry_erase(t_game *game, t_img *img);
-void	strawberry_update(t_game *game);
-void	strawberry_draw(t_game *game, t_img *img);
-
-#endif

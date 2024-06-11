@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 19:51:03 by marykman          #+#    #+#             */
-/*   Updated: 2024/05/31 13:56:12 by marykman         ###   ########.fr       */
+/*   Updated: 2024/06/11 15:28:01 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,10 @@ static void	player_update_states(t_game *game)
 
 void	player_update(t_game *game)
 {
+	// Death
 	if (is_hitbox_colliding_spikes(game) || game->player.pos.y + game->player.hitbox.p2.y >= WIN_HEIGHT - 1)
 		player_init(&game->player, game->map.player_pos, game->assets);
+	
 
 	player_update_states(game);
 	if (game->player.dash_time > 0) // dash

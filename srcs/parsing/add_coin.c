@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 12:29:26 by marykman          #+#    #+#             */
-/*   Updated: 2024/05/31 14:48:42 by marykman         ###   ########.fr       */
+/*   Updated: 2024/06/11 15:54:51 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ t_error	add_coin(t_map *map, t_point pos)
 	if (!content)
 		return (MALLOC_ERROR);
 	*content = (t_fpoint){pos.x * SPRITE_SIZE, pos.y * SPRITE_SIZE};
-	if (!ft_lstadd_back(&map->coin_pos, ft_lstnew(content)))
+	if (!ft_dlstadd_back(&map->coin_pos, ft_dlstnew(content)))
 	{
 		free(content);
 		return (MALLOC_ERROR);

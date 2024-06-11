@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 20:27:42 by marykman          #+#    #+#             */
-/*   Updated: 2024/05/31 16:14:39 by marykman         ###   ########.fr       */
+/*   Updated: 2024/06/11 15:47:02 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ typedef struct s_map
 {
 	int		**tab;
 	t_point	player_pos;
-	t_list	*coin_pos;
+	t_dlist	*coin_pos;
 	t_point	size;
 }	t_map;
 
