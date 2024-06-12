@@ -1,30 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw.c                                             :+:      :+:    :+:   */
+/*   coins.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/31 14:04:41 by marykman          #+#    #+#             */
-/*   Updated: 2024/06/12 19:41:27 by marykman         ###   ########.fr       */
+/*   Created: 2024/06/12 19:07:01 by marykman          #+#    #+#             */
+/*   Updated: 2024/06/12 19:22:38 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "strawberries.h"
-#include "sfe_image.h"
+#ifndef COINS_H
+# define COINS_H
 
-void	strawberry_draw(t_game *game, t_img *img)
-{
-	t_dlist	*lst;
+# include "ft_dlist.h"
+# include "ft_point.h"
+# include "errors.h"
 
-	lst = game->map.strawberries;
-	while (lst)
-	{
-		sfe_image_cpy(
-			game->assets + STRAWBERRY_ASSET,
-			img,
-			ft_fpoint_to_point(*(t_fpoint *)lst->content)
-			);
-		lst = lst->next;
-	}
-}
+t_error	coin_add(t_dlist **list, t_point pos);
+void	coin_remove(t_dlist **list, t_dlist *elem);
+
+#endif

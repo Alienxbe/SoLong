@@ -6,13 +6,14 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 14:41:32 by marykman          #+#    #+#             */
-/*   Updated: 2024/06/11 16:23:15 by marykman         ###   ########.fr       */
+/*   Updated: 2024/06/12 19:42:54 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <math.h>
 #include <stdlib.h>
 #include "ft_printf.h"
+#include "coins.h"
 #include "strawberries.h"
 
 static t_bool	is_collected(t_game *game, t_fpoint sb_pos)
@@ -30,25 +31,19 @@ static t_bool	is_collected(t_game *game, t_fpoint sb_pos)
 void	strawberry_update(t_game *game)
 {
 	static float	i;
-	t_dlist		*lst;
-	t_dlist		*tmp;
-	t_fpoint	*content;
+	t_dlist			*lst;
+	t_dlist			*next;
+	t_fpoint		*content;
 
-	lst = game->map.coin_pos;
+	lst = game->map.strawberries;
 	while (lst)
 	{
-		tmp = lst->next;
+		next = lst->next;
 		content = (t_fpoint *)lst->content;
-		content->y += sin(i) / 2; //update position
+		content->y += sin(i) / 2;
 		if (is_collected(game, *content))
-		{
-			ft_printf("REMOVED : %p\n", lst);
-			if (!lst->previous)
-				game->map.coin_pos = lst->next;
-			ft_dlstdelone(ft_dlstremove(lst), &free);
-		}
-		lst = tmp;
+			coin_remove(&game->map.strawberries, lst);
+		lst = next;
 	}
-	// ft_printf("END OF LOOP\n");
 	i += 0.1;
 }

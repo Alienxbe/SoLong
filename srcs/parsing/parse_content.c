@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 15:29:34 by marykman          #+#    #+#             */
-/*   Updated: 2024/05/31 16:17:20 by marykman         ###   ########.fr       */
+/*   Updated: 2024/06/12 19:33:16 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include "ft_memory.h"
 #include "ft_math.h"
 #include "ft_string.h"
+#include "coins.h"
 #include "parsing.h"
 
 static t_error	parse_special_char(t_map *map, char *line, int i)
@@ -22,12 +23,17 @@ static t_error	parse_special_char(t_map *map, char *line, int i)
 	ft_printf("PLAYER PLAYER %d %d\n", i, map->size.y);
 	if (*++line == 'P')
 	{
-		if (add_player(map, (t_point){i, map->size.y}))
+		if (set_player(map, (t_point){i, map->size.y}))
 			return (PARSING_MULTIPLE_PLAYER);
 	}
 	else if (*line == 'C')
 	{
-		if (add_coin(map, (t_point){i, map->size.y}))
+		if (coin_add(&map->strawberries, (t_point){i, map->size.y}))
+			return (PARSING_COIN_ERROR);
+	}
+	else if (*line == 'W')
+	{
+		if (coin_add(&map->secret_walls, (t_point){i, map->size.y}))
 			return (PARSING_COIN_ERROR);
 	}
 	else if (*line == 'E')

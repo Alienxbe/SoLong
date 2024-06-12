@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 15:18:20 by marykman          #+#    #+#             */
-/*   Updated: 2024/06/11 15:54:26 by marykman         ###   ########.fr       */
+/*   Updated: 2024/06/12 19:40:05 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ int	sc_main_destroy(t_sc_main *sc)
 	while (sc->game->assets[++i].img)
 		sfe_image_destroy(sc->sfe->mlx_ptr, &sc->game->assets[i]);
 	free(sc->game->assets);
-	ft_dlstclear(&sc->game->map.coin_pos, &free);
+	ft_dlstclear(&sc->game->map.strawberries, &free);
+	ft_dlstclear(&sc->game->map.secret_walls, &free);
 	return (0);
 }

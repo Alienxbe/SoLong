@@ -6,7 +6,7 @@
 #    By: marykman <marykman@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/17 20:20:08 by marykman          #+#    #+#              #
-#    Updated: 2024/05/31 14:44:47 by marykman         ###   ########.fr        #
+#    Updated: 2024/06/12 19:23:19 by marykman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -77,8 +77,7 @@ FILES_MAIN_SCENE	:=	destroy.c \
 						update.c \
 						draw.c \
 						erase.c
-FILES_PARSING		:=	add_coin.c \
-						add_player.c \
+FILES_PARSING		:=	set_player.c \
 						parse_content.c \
 						parse_map.c \
 						parsing.c
@@ -86,6 +85,8 @@ FILES_COLLISIONS	:=	is_hitbox_colliding.c \
 						is_hitbox_colliding_spikes.c \
 						is_type.c \
 						is_wall.c
+FILES_COINS			:=	add.c \
+						remove.c
 FILES_PLAYER		:=	init.c \
 						draw.c \
 						erase.c \
@@ -124,6 +125,7 @@ SRCS				+=	$(addprefix srcs/events/, ${FILES_EVENTS})
 SRCS				+=	$(addprefix srcs/main_scene/, ${FILES_MAIN_SCENE})
 SRCS				+=	$(addprefix srcs/parsing/, ${FILES_PARSING})
 SRCS				+=	$(addprefix srcs/collisions/, ${FILES_COLLISIONS})
+SRCS				+=	$(addprefix srcs/coins/, ${FILES_COINS})
 SRCS				+=	$(addprefix srcs/player/, ${FILES_PLAYER})
 SRCS				+=	$(addprefix srcs/hairs/, ${FILES_HAIRS})
 SRCS				+=	$(addprefix srcs/clouds/, ${FILES_CLOUDS})
@@ -135,6 +137,7 @@ OBJS				:=	$(patsubst srcs%.c, objs%.o, ${SRCS})
 # header files
 FILES				:=	clouds.h \
 						collisions.h \
+						coins.h \
 						errors.h \
 						events.h \
 						hairs.h \
