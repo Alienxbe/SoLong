@@ -6,7 +6,7 @@
 #    By: marykman <marykman@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/17 20:20:08 by marykman          #+#    #+#              #
-#    Updated: 2024/06/12 19:23:19 by marykman         ###   ########.fr        #
+#    Updated: 2024/06/14 08:22:27 by marykman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -117,6 +117,9 @@ FILES_SNOWFLAKES	:=	init.c \
 FILES_STRAWBERRIES	:=	draw.c \
 						erase.c \
 						update.c
+FILES_SECRET_WALLS	:=	draw.c \
+						erase.c \
+						update.c
 FILES_UTILS			:=	ft_appr.c \
 						ft_abs.c
 
@@ -131,6 +134,7 @@ SRCS				+=	$(addprefix srcs/hairs/, ${FILES_HAIRS})
 SRCS				+=	$(addprefix srcs/clouds/, ${FILES_CLOUDS})
 SRCS				+=	$(addprefix srcs/snowflakes/, ${FILES_SNOWFLAKES})
 SRCS				+=	$(addprefix srcs/strawberries/, ${FILES_STRAWBERRIES})
+SRCS				+=	$(addprefix srcs/secret_walls/, ${FILES_SECRET_WALLS})
 SRCS				+=	$(addprefix srcs/utils/, ${FILES_UTILS})
 OBJS				:=	$(patsubst srcs%.c, objs%.o, ${SRCS})
 
@@ -144,6 +148,7 @@ FILES				:=	clouds.h \
 						parsing.h \
 						player.h \
 						sc_main.h \
+						secret_walls.h \
 						snowflakes.h \
 						so_long.h \
 						utils.h

@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 16:31:23 by marykman          #+#    #+#             */
-/*   Updated: 2024/06/12 18:35:14 by marykman         ###   ########.fr       */
+/*   Updated: 2024/06/14 08:19:00 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 #include "hairs.h"
 #include "snowflakes.h"
 #include "strawberries.h"
+#include "secret_walls.h"
 #include "clouds.h"
 
 #include "parsing.h"
@@ -29,6 +30,7 @@ void	main_update(t_sc_main *sc)
 	clouds_update(sc->game);
 	snowflakes_update(sc->game);
 	strawberry_update(sc->game);
+	secret_wall_update(sc->game);
 }
 
 int	sc_main_update(t_sc_main *sc)

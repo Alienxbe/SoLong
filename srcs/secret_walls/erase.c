@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw.c                                             :+:      :+:    :+:   */
+/*   erase.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/31 14:04:41 by marykman          #+#    #+#             */
-/*   Updated: 2024/06/14 08:11:45 by marykman         ###   ########.fr       */
+/*   Created: 2024/06/14 08:12:25 by marykman          #+#    #+#             */
+/*   Updated: 2024/06/14 08:14:27 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "sfe_image.h"
-#include "strawberries.h"
+#include "sfe_pixel.h"
+#include "secret_walls.h"
 
-void	strawberry_draw(t_game *game, t_img *img)
+void	secret_wall_erase(t_game *game, t_img *img)
 {
-	t_dlist	*lst;
+	t_dlist		*lst;
+	t_fpoint	pos;
 
-	lst = game->map.strawberries;
+	lst = game->map.secret_walls;
 	while (lst)
 	{
-		sfe_image_cpy(
-			game->assets + STRAWBERRY_ASSET,
-			img,
-			ft_fpoint_to_point(*(t_fpoint *)lst->content)
-			);
+		pos = *(t_fpoint *)lst->content;
+		sfe_pixel_fill(img, (t_area){
+			{pos.x, pos.y},
+			{pos.x + SPRITE_SIZE * 2, pos.y + SPRITE_SIZE * 2}},
+			BACKGROUND_COL);
 		lst = lst->next;
 	}
 }

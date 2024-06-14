@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 14:23:48 by marykman          #+#    #+#             */
-/*   Updated: 2024/06/12 19:41:36 by marykman         ###   ########.fr       */
+/*   Updated: 2024/06/14 08:12:42 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 void	strawberry_erase(t_game *game, t_img *img)
 {
-	t_dlist	*lst;
+	t_dlist		*lst;
 	t_fpoint	pos;
 
 	lst = game->map.strawberries;
