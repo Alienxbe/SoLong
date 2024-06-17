@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 20:27:42 by marykman          #+#    #+#             */
-/*   Updated: 2024/06/12 19:29:46 by marykman         ###   ########.fr       */
+/*   Updated: 2024/06/15 17:31:42 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@
 # define CLOUD_COUNT		16
 # define SNOWFLAKE_COUNT	24
 # define HAIR_COUNT			3
+# define HAIR_COLOR_DASH_2	0x00FF00
 # define HAIR_COLOR_DASH_1	0xFF004D
 # define HAIR_COLOR_DASH_0	0x29ADFF
 

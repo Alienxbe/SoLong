@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 14:41:32 by marykman          #+#    #+#             */
-/*   Updated: 2024/06/12 19:42:54 by marykman         ###   ########.fr       */
+/*   Updated: 2024/06/15 19:40:10 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,10 @@ void	strawberry_update(t_game *game)
 		content = (t_fpoint *)lst->content;
 		content->y += sin(i) / 2;
 		if (is_collected(game, *content))
-			coin_remove(&game->map.strawberries, lst);
+		{
+			game->player.djump = game->player.max_djump;
+			//coin_remove(&game->map.strawberries, lst);
+		}
 		lst = next;
 	}
 	i += 0.1;

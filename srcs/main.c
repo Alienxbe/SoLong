@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 20:28:58 by marykman          #+#    #+#             */
-/*   Updated: 2024/04/03 22:23:45 by marykman         ###   ########.fr       */
+/*   Updated: 2024/06/14 21:27:46 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ static void	init_window(t_sfe **sfe, t_sc_main *sc)
 	sfe_set_active_scene(*sfe, &sc->scene);
 	events_init(*sfe, sc);
 }
+
+#include "stdlib.h"
 
 int	main(int argc, char **argv)
 {

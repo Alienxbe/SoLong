@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 19:52:01 by marykman          #+#    #+#             */
-/*   Updated: 2024/04/03 22:32:58 by marykman         ###   ########.fr       */
+/*   Updated: 2024/06/15 17:30:17 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	player_init(t_player *player, t_point pos, t_img *assets)
 	player->direction = 1;
 	player->frame = 0;
 	player->assets = assets;
-	player->max_djump = 1;
+	player->max_djump = PLAYER_MAX_DJUMP;
 	player->djump = player->max_djump;
 	return (1);
 }

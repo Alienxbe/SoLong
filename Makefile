@@ -6,7 +6,7 @@
 #    By: marykman <marykman@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/17 20:20:08 by marykman          #+#    #+#              #
-#    Updated: 2024/06/14 08:22:27 by marykman         ###   ########.fr        #
+#    Updated: 2024/06/14 19:28:22 by marykman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -83,6 +83,7 @@ FILES_PARSING		:=	set_player.c \
 						parsing.c
 FILES_COLLISIONS	:=	is_hitbox_colliding.c \
 						is_hitbox_colliding_spikes.c \
+						is_hitbox_colliding_secret_wall.c \
 						is_type.c \
 						is_wall.c
 FILES_COINS			:=	add.c \

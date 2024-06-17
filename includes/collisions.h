@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 13:33:37 by marykman          #+#    #+#             */
-/*   Updated: 2024/03/05 15:17:31 by marykman         ###   ########.fr       */
+/*   Updated: 2024/06/14 20:54:21 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,6 @@ int		is_hitbox_colliding(const t_map *map, t_ftype f, t_fpoint pos,
 	t_area hitbox);
 
 t_bool	is_hitbox_colliding_spikes(t_game *game);
+t_dlist	*is_hitbox_colliding_secret_wall(t_player *player, t_fpoint offset, t_dlist *secret_walls);
 
 #endif

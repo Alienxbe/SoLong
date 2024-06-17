@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 12:29:26 by marykman          #+#    #+#             */
-/*   Updated: 2024/06/12 19:39:00 by marykman         ###   ########.fr       */
+/*   Updated: 2024/06/14 21:32:01 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ t_error	coin_add(t_dlist **list, t_point pos)
 	content = malloc(sizeof(*content));
 	if (!content)
 		return (MALLOC_ERROR);
-	*content = (t_fpoint){pos.x * SPRITE_SIZE, pos.y * SPRITE_SIZE};
+	*content = (t_fpoint){pos.x, pos.y};
 	if (!ft_dlstadd_back(list, ft_dlstnew(content)))
 	{
 		free(content);

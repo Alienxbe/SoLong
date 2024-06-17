@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 12:34:40 by marykman          #+#    #+#             */
-/*   Updated: 2024/06/14 08:31:30 by marykman         ###   ########.fr       */
+/*   Updated: 2024/06/14 19:44:18 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,14 @@ static t_bool	is_oob(int block)
 	return (block == -1);
 }
 
-// TODO: Add secret wall detection here
 t_bool	player_is_solid(t_game *game, t_fpoint pos)
 {
 	return (is_hitbox_colliding(
 			&game->map,
 			&is_wall_type, (t_fpoint)
 			{game->player.pos.x + pos.x, game->player.pos.y + pos.y},
-			game->player.hitbox));
+			game->player.hitbox)
+			|| is_hitbox_colliding_secret_wall(&game->player, pos, game->map.secret_walls));
 }
 
 t_bool	player_is_oob(t_game *game, t_fpoint pos)

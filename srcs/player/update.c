@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 19:51:03 by marykman          #+#    #+#             */
-/*   Updated: 2024/06/11 15:28:01 by marykman         ###   ########.fr       */
+/*   Updated: 2024/06/15 19:29:53 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,12 @@ static void	player_update_hair_color(t_game *game)
 
 	actual = sfe_color_get(game->assets + 0xf0, (t_point){5, 5});
 	next = actual;
-	if (actual == HAIR_COLOR_DASH_1 && game->player.djump == 0)
-		next = HAIR_COLOR_DASH_0;
-	else if (actual == HAIR_COLOR_DASH_0 && game->player.on_ground)
+	if (actual == HAIR_COLOR_DASH_2 && game->player.djump == 1)
 		next = HAIR_COLOR_DASH_1;
+	else if (actual == HAIR_COLOR_DASH_1 && game->player.djump == 0)
+		next = HAIR_COLOR_DASH_0;
+	else if ((actual == HAIR_COLOR_DASH_0 || actual == HAIR_COLOR_DASH_1) && game->player.on_ground)
+		next = (game->player.max_djump == 2) ? HAIR_COLOR_DASH_2 : HAIR_COLOR_DASH_1;
 	player_set_hair_color(game, actual, next);
 }
 

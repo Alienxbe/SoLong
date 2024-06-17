@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 16:37:51 by marykman          #+#    #+#             */
-/*   Updated: 2024/03/05 11:56:12 by marykman         ###   ########.fr       */
+/*   Updated: 2024/06/15 17:30:11 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@
 # define WALL_JUMP_FORCE			8
 # define PLAYER_JUMP_BUFFER			6
 # define PLAYER_GRACE				6
+# define PLAYER_MAX_DJUMP			2
 
 int		player_init(t_player *player, t_point pos, t_img *assets);
 void	player_erase(t_game *game, t_img *img);
