@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 14:00:10 by marykman          #+#    #+#             */
-/*   Updated: 2024/04/03 22:33:27 by marykman         ###   ########.fr       */
+/*   Updated: 2024/06/17 17:29:46 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 #include "player.h"
 #include "utils.h"
 
-#define D_FULL	10
-#define D_HALF	(D_FULL * 0.9)
+#define D_FULL	11.5
+#define D_HALF	(D_FULL * 0.85)
 
 void	player_update_dash(t_game *game)
 {
@@ -45,7 +45,7 @@ void	player_update_dash(t_game *game)
 		if (game->player.input.y) // Vertical
 		{
 			game->player.spd.x = 0;
-			game->player.spd.y = game->player.input.y * D_FULL;
+			game->player.spd.y = game->player.input.y * D_FULL * 0.9;
 		}
 		else
 		{

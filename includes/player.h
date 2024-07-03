@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 16:37:51 by marykman          #+#    #+#             */
-/*   Updated: 2024/06/15 17:30:11 by marykman         ###   ########.fr       */
+/*   Updated: 2024/06/17 17:39:56 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include "so_long.h"
 
 # define PLAYER_GRAVITY_ACCEL		0.42
-# define PLAYER_GRAVITY_MAX			6
+# define PLAYER_GRAVITY_MAX			5.6
 
 # define PLAYER_WALLSLIDE_MAX		1.5
 
@@ -31,8 +31,8 @@
 
 # define PLAYER_MOVE_DECEL			0.6
 
-# define JUMP_FORCE					8
-# define WALL_JUMP_FORCE			8
+# define JUMP_FORCE					7.5
+# define WALL_JUMP_FORCE			7.1
 # define PLAYER_JUMP_BUFFER			6
 # define PLAYER_GRACE				6
 # define PLAYER_MAX_DJUMP			2
