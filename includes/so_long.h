@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 20:27:42 by marykman          #+#    #+#             */
-/*   Updated: 2024/08/21 04:25:58 by marykman         ###   ########.fr       */
+/*   Updated: 2024/08/21 20:02:28 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,9 @@
 # define HAIR_COLOR_DASH_0	0x29ADFF
 
 # define SPECIAL_CHAR	"PCEB"
+
+# define WALL_INDEX_MIN	1
+# define WALL_INDEX_MAX	0x25
 
 # define F_SPRITE_SHEET	"assets/CelestePico8.xpm"
 

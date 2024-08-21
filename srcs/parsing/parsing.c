@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 11:54:08 by marykman          #+#    #+#             */
-/*   Updated: 2024/08/21 05:50:13 by marykman         ###   ########.fr       */
+/*   Updated: 2024/08/21 17:23:23 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,8 @@ t_error	parsing(t_map *map, const char *filename)
 	if (close(fd) < 0)
 		return (MAP_CLOSE_ERROR); // Need to free the map and coin positions
 	map->pixel_size = (t_point){map->size.x * SPRITE_SIZE, map->size.y * SPRITE_SIZE};
+	if (!ret)
+		ret = check_map(map); // checking for valid map
 	printf("Parsing : %d\n", ret);
-	printf("exit : %d %d\n", map->exit_pos.x, map->exit_pos.y);
 	return (ret);
 }

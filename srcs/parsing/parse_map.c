@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 16:06:23 by marykman          #+#    #+#             */
-/*   Updated: 2024/08/21 05:13:14 by marykman         ###   ########.fr       */
+/*   Updated: 2024/08/21 16:27:09 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include "get_next_line.h"
 #include "parsing.h"
 
+#include <stdio.h>
 static t_error	parse_line(t_map *map, t_list **lines, char *line)
 {
 	t_error	ret;

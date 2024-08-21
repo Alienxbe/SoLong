@@ -1,23 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_wall.c                                          :+:      :+:    :+:   */
+/*   pixel_to_map_pos.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/31 14:51:30 by marykman          #+#    #+#             */
-/*   Updated: 2024/08/21 19:50:02 by marykman         ###   ########.fr       */
+/*   Created: 2024/08/21 18:15:15 by marykman          #+#    #+#             */
+/*   Updated: 2024/08/21 18:25:06 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "collisions.h"
+#include "so_long.h"
 
-t_bool	is_wall_type(int block)
+t_point	pixel_to_map_pos(t_fpoint pos)
 {
-	return (block >= WALL_INDEX_MIN && block <= WALL_INDEX_MAX);
-}
-
-t_bool	is_wall(const t_map *map, t_fpoint pos)
-{
-	return (is_type(map, &is_wall_type, pos));
+	return ((t_point){
+		pos.x / SPRITE_SIZE,
+		pos.y / SPRITE_SIZE});
 }

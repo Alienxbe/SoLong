@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 16:08:01 by marykman          #+#    #+#             */
-/*   Updated: 2024/08/21 01:14:45 by marykman         ###   ########.fr       */
+/*   Updated: 2024/08/21 18:05:00 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,11 @@ typedef enum e_error
 	PARSING_WRONG_CHAR,
 	PARSING_MULTIPLE_PLAYER,
 	PARSING_MULTIPLE_EXIT,
-	PARSING_COIN_ERROR,
+	MISSING_PLAYER,
+	MISSING_EXIT,
+	MISSING_COIN,
+	UNCLOSED_MAP,
+	NO_VALID_PATH,
 	ERROR_LEN
 }	t_error;
 

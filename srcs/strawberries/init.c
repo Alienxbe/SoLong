@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 19:49:41 by marykman          #+#    #+#             */
-/*   Updated: 2024/08/20 20:13:59 by marykman         ###   ########.fr       */
+/*   Updated: 2024/08/21 18:08:38 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static void	copy_list(t_game *game)
 	while (lst)
 	{
 		content = *(t_fpoint *)lst->content;
-		coin_add(&game->strawberries, (t_point){content.x, content.y});
+		coin_add(&game->strawberries, (t_point){content.x, content.y - 5});
 		lst = lst->next;
 	}
 }

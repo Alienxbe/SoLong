@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 15:29:34 by marykman          #+#    #+#             */
-/*   Updated: 2024/08/21 05:35:45 by marykman         ###   ########.fr       */
+/*   Updated: 2024/08/21 18:04:39 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,12 @@ static t_error	parse_special_char(t_map *map, char *line, int i)
 	else if (*line == 'C')
 	{
 		if (coin_add(&map->strawberries, (t_point){i * SPRITE_SIZE, map->size.y * SPRITE_SIZE}))
-			return (PARSING_COIN_ERROR);
+			return (MALLOC_ERROR);
 	}
 	else if (*line == 'W')
 	{
 		if (coin_add(&map->secret_walls, (t_point){i * SPRITE_SIZE, map->size.y * SPRITE_SIZE}))
-			return (PARSING_COIN_ERROR);
+			return (MALLOC_ERROR);
 	}
 	else if (*line == 'E')
 	{
@@ -54,7 +54,7 @@ static t_error	parse_mandatory_char(t_map *map, int *tab, char *line, int i)
 	else if (*line == 'C')
 	{
 		if (coin_add(&map->strawberries, (t_point){i * SPRITE_SIZE, map->size.y * SPRITE_SIZE}))
-			return (PARSING_COIN_ERROR);
+			return (MALLOC_ERROR);
 	}
 	else if (*line == 'E')
 	{
@@ -73,12 +73,14 @@ static t_error	parse_mandatory_char(t_map *map, int *tab, char *line, int i)
 
 static t_error	parse_bonus_char(t_map *map, int *tab, char *line, int i)
 {
+	t_error	ret;
 	char	*endptr;
 	
 	if (*line == 'x')
 	{
-		if (parse_special_char(map, line, i))
-			return (PARSING_WRONG_CHAR);
+		ret = parse_special_char(map, line, i);
+		if (ret)
+			return (ret);
 	}
 	else
 	{
@@ -94,7 +96,7 @@ t_error	parse_content(t_map *map, int **tab, char *line)
 	t_error	ret;
 	size_t	i;
 
-	*tab = ft_calloc(sizeof(**tab), ft_strlen(line) / 2);
+	*tab = ft_calloc(sizeof(**tab), ft_strlen(line) / PARSING_MODE);
 	if (!*tab)
 		return (MALLOC_ERROR);
 	ret = SUCCESS;

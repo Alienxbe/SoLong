@@ -6,19 +6,13 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 18:41:07 by marykman          #+#    #+#             */
-/*   Updated: 2024/03/05 15:17:02 by marykman         ###   ########.fr       */
+/*   Updated: 2024/08/21 18:16:59 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "collisions.h"
 #include <stdio.h>
-
-static t_point	pixel_to_map_pos(t_fpoint pos)
-{
-	return ((t_point){
-		pos.x / SPRITE_SIZE,
-		pos.y / SPRITE_SIZE});
-}
+#include "utils.h"
+#include "collisions.h"
 
 int	get_block_type(const t_map *map, t_fpoint pos)
 {

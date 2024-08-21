@@ -6,18 +6,13 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 12:34:40 by marykman          #+#    #+#             */
-/*   Updated: 2024/08/21 04:30:15 by marykman         ###   ########.fr       */
+/*   Updated: 2024/08/21 19:46:04 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "player.h"
 #include "collisions.h"
 #include <stdio.h>
-
-static t_bool	is_wall_type(int block)
-{
-	return (block >= 1 && block <= 0x25);
-}
 
 t_bool	player_is_solid(t_game *game, t_fpoint pos)
 {

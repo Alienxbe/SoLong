@@ -6,7 +6,7 @@
 #    By: marykman <marykman@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/17 20:20:08 by marykman          #+#    #+#              #
-#    Updated: 2024/08/21 06:10:43 by marykman         ###   ########.fr        #
+#    Updated: 2024/08/21 20:21:04 by marykman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -82,6 +82,9 @@ FILES_PARSING		:=	set_exit.c \
 						set_player.c \
 						parse_content.c \
 						parse_map.c \
+						check_map.c \
+						check_path.c \
+						fill_tmp_map.c \
 						parsing.c
 FILES_COLLISIONS	:=	is_hitbox_colliding.c \
 						is_hitbox_colliding_spikes.c \
@@ -130,7 +133,8 @@ FILES_SECRET_WALLS	:=	init.c\
 						erase.c \
 						update.c
 FILES_UTILS			:=	ft_appr.c \
-						ft_abs.c
+						ft_abs.c \
+						pixel_to_map_pos.c
 
 SRCS				:=	$(addprefix srcs/, ${FILES})
 SRCS				+=	$(addprefix srcs/events/, ${FILES_EVENTS})
@@ -178,7 +182,7 @@ $(NAME):	${FT} ${MLX} ${SFE} ${OBJS} ${HEADERS}
 
 ${NAME_BONUS}:	DFLAGS += -D BONUS
 ${NAME_BONUS}:	${FT} ${MLX} ${SFE} ${OBJS} ${HEADERS}
-	${CC} ${CFLAGS} ${DFLAGS} ${OBJS} ${LIBRARIES} ${MLXFLAGS} -o $@
+	${CC} ${CFLAGS} -g -fsanitize=address ${DFLAGS} ${OBJS} ${LIBRARIES} ${MLXFLAGS} -o $@
 	@echo "${PREFIX}${NAME_BONUS} compiled!"
 
 $(FT):
