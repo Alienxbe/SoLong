@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 20:27:42 by marykman          #+#    #+#             */
-/*   Updated: 2024/06/15 17:31:42 by marykman         ###   ########.fr       */
+/*   Updated: 2024/08/21 02:06:52 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ typedef struct s_map
 {
 	int		**tab;
 	t_point	player_pos;
+	t_point	exit_pos;
 	t_dlist	*strawberries;
 	t_dlist	*secret_walls;
 	t_point	size;
@@ -70,6 +71,13 @@ typedef struct s_player
 	t_point		input;
 	t_img		*assets;
 }	t_player;
+
+typedef struct s_exit
+{
+	t_point	pos;
+	t_area	hitbox;
+	int		frame;
+}	t_exit;
 
 typedef struct s_cloud
 {
@@ -107,12 +115,16 @@ typedef struct s_game
 {
 	t_map		map;
 	t_player	player;
+	t_exit		exit;
 	t_cloud		clouds[CLOUD_COUNT];
 	t_snowflake	snowflakes[SNOWFLAKE_COUNT];
 	t_hair		hairs[HAIR_COUNT];
+	t_dlist		*strawberries;
+	t_dlist		*secret_walls;
 	t_dlist		*smokes;
 	t_img		*assets;
 	t_keylist	active_keys;
+	t_bool		*running;
 	int			move_count;
 }	t_game;
 

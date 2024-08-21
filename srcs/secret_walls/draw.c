@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 08:03:11 by marykman          #+#    #+#             */
-/*   Updated: 2024/06/14 08:25:57 by marykman         ###   ########.fr       */
+/*   Updated: 2024/08/20 21:25:12 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	secret_wall_draw(t_game *game, t_img *img)
 	t_dlist	*lst;
 	size_t	i;
 
-	lst = game->map.secret_walls;
+	lst = game->secret_walls;
 	while (lst)
 	{
 		i = -1;

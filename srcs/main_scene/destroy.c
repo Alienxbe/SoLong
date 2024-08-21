@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 15:18:20 by marykman          #+#    #+#             */
-/*   Updated: 2024/06/12 19:40:05 by marykman         ###   ########.fr       */
+/*   Updated: 2024/08/21 00:46:42 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,7 @@ int	sc_main_destroy(t_sc_main *sc)
 	free(sc->game->assets);
 	ft_dlstclear(&sc->game->map.strawberries, &free);
 	ft_dlstclear(&sc->game->map.secret_walls, &free);
+	ft_dlstclear(&sc->game->strawberries, &free);
+	ft_dlstclear(&sc->game->secret_walls, &free);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 19:51:03 by marykman          #+#    #+#             */
-/*   Updated: 2024/06/15 19:29:53 by marykman         ###   ########.fr       */
+/*   Updated: 2024/08/20 21:31:40 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 #include "ft_math.h"
 #include "utils.h"
 #include "sfe_color.h"
+#include "strawberries.h"
+#include "secret_walls.h"
 #include <stdio.h>
 
 static void	player_set_hair_color(t_game *game, t_color actual, t_color next)
@@ -61,8 +63,12 @@ static void	player_update_states(t_game *game)
 void	player_update(t_game *game)
 {
 	// Death
-	if (is_hitbox_colliding_spikes(game) || game->player.pos.y + game->player.hitbox.p2.y >= WIN_HEIGHT - 1)
+	if (is_hitbox_colliding_spikes(game) || game->player.pos.y + game->player.hitbox.p1.y >= WIN_HEIGHT - 1)
+	{
 		player_init(&game->player, game->map.player_pos, game->assets);
+		strawberry_init(game);
+		secret_wall_init(game);
+	}
 	
 
 	player_update_states(game);

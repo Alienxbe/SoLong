@@ -1,24 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   set_exit.c                                         :+:      :+:    :+:   */
+/*   erase.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/21 01:15:52 by marykman          #+#    #+#             */
-/*   Updated: 2024/08/21 01:17:39 by marykman         ###   ########.fr       */
+/*   Created: 2024/08/21 01:42:31 by marykman          #+#    #+#             */
+/*   Updated: 2024/08/21 01:49:00 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "parsing.h"
+#include "sfe_pixel.h"
+#include "exit.h"
 
-t_error	set_exit(t_map *map, t_point pos)
+void	exit_erase(t_game *game, t_img *img)
 {
-	static int	exit_count;
-	
-	if (exit_count)
-		return (PARSING_MULTIPLE_EXIT);
-	map->exit_pos = pos;
-	exit_count++;
-	return (SUCCESS);
+	sfe_pixel_fill(img, (t_area){
+			game->exit.pos,
+			{game->exit.pos.x + SPRITE_SIZE, game->exit.pos.y + SPRITE_SIZE}},
+			BACKGROUND_COL);
 }

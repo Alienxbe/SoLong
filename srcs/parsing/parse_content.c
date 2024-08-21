@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 15:29:34 by marykman          #+#    #+#             */
-/*   Updated: 2024/06/14 21:13:14 by marykman         ###   ########.fr       */
+/*   Updated: 2024/08/21 01:15:15 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,10 @@ static t_error	parse_special_char(t_map *map, char *line, int i)
 			return (PARSING_COIN_ERROR);
 	}
 	else if (*line == 'E')
-		;
+	{
+		if (set_exit(map, (t_point){i, map->size.y}))
+			return (PARSING_MULTIPLE_EXIT);
+	}
 	else
 		return (PARSING_WRONG_CHAR);
 	ft_printf("SUCCES\n");

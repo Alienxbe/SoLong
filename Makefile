@@ -6,7 +6,7 @@
 #    By: marykman <marykman@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/17 20:20:08 by marykman          #+#    #+#              #
-#    Updated: 2024/06/14 19:28:22 by marykman         ###   ########.fr        #
+#    Updated: 2024/08/21 01:45:25 by marykman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -77,7 +77,8 @@ FILES_MAIN_SCENE	:=	destroy.c \
 						update.c \
 						draw.c \
 						erase.c
-FILES_PARSING		:=	set_player.c \
+FILES_PARSING		:=	set_exit.c \
+						set_player.c \
 						parse_content.c \
 						parse_map.c \
 						parsing.c
@@ -105,6 +106,10 @@ FILES_HAIRS			:=	init.c \
 						draw.c \
 						erase.c \
 						update.c
+FILES_EXIT			:=	init.c \
+						draw.c \
+						erase.c \
+						update.c
 FILES_CLOUDS		:=	init.c \
 						draw.c \
 						erase.c \
@@ -115,10 +120,12 @@ FILES_SNOWFLAKES	:=	init.c \
 						erase.c \
 						update.c \
 						new_random.c
-FILES_STRAWBERRIES	:=	draw.c \
+FILES_STRAWBERRIES	:=	init.c\
+						draw.c \
 						erase.c \
 						update.c
-FILES_SECRET_WALLS	:=	draw.c \
+FILES_SECRET_WALLS	:=	init.c\
+						draw.c \
 						erase.c \
 						update.c
 FILES_UTILS			:=	ft_appr.c \
@@ -132,6 +139,7 @@ SRCS				+=	$(addprefix srcs/collisions/, ${FILES_COLLISIONS})
 SRCS				+=	$(addprefix srcs/coins/, ${FILES_COINS})
 SRCS				+=	$(addprefix srcs/player/, ${FILES_PLAYER})
 SRCS				+=	$(addprefix srcs/hairs/, ${FILES_HAIRS})
+SRCS				+=	$(addprefix srcs/exit/, ${FILES_EXIT})
 SRCS				+=	$(addprefix srcs/clouds/, ${FILES_CLOUDS})
 SRCS				+=	$(addprefix srcs/snowflakes/, ${FILES_SNOWFLAKES})
 SRCS				+=	$(addprefix srcs/strawberries/, ${FILES_STRAWBERRIES})
@@ -146,6 +154,7 @@ FILES				:=	clouds.h \
 						errors.h \
 						events.h \
 						hairs.h \
+						exit.h \
 						parsing.h \
 						player.h \
 						sc_main.h \

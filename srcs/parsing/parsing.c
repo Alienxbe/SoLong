@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 11:54:08 by marykman          #+#    #+#             */
-/*   Updated: 2024/05/31 13:10:34 by marykman         ###   ########.fr       */
+/*   Updated: 2024/08/21 02:13:47 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ t_error	parsing(t_map *map, const char *filename)
 	if (fd < 0)
 		return (MAP_FILE_NOT_FOUND);
 	map->player_pos = (t_point){-1, -1};
+	map->exit_pos = (t_point){-1, -1};
 	ret = parse_map(map, fd);
 	if (close(fd) < 0)
 		return (MAP_CLOSE_ERROR); // Need to free the map and coin positions

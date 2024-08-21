@@ -1,31 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   erase.c                                            :+:      :+:    :+:   */
+/*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/14 08:12:25 by marykman          #+#    #+#             */
-/*   Updated: 2024/08/20 21:25:25 by marykman         ###   ########.fr       */
+/*   Created: 2024/08/20 21:20:50 by marykman          #+#    #+#             */
+/*   Updated: 2024/08/20 21:29:27 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "sfe_pixel.h"
+#include <stdlib.h>
+#include "coins.h"
 #include "secret_walls.h"
 
-void	secret_wall_erase(t_game *game, t_img *img)
+static void	copy_list(t_game *game)
 {
-	t_dlist		*lst;
-	t_fpoint	pos;
+	t_dlist *lst;
+	t_fpoint	content;
 
-	lst = game->secret_walls;
+	lst = game->map.secret_walls;
 	while (lst)
 	{
-		pos = *(t_fpoint *)lst->content;
-		sfe_pixel_fill(img, (t_area){
-			{pos.x, pos.y},
-			{pos.x + SPRITE_SIZE * 2, pos.y + SPRITE_SIZE * 2}},
-			BACKGROUND_COL);
+		content = *(t_fpoint *)lst->content;
+		coin_add(&game->secret_walls, (t_point){content.x, content.y});
 		lst = lst->next;
 	}
+}
+
+void	secret_wall_init(t_game *game)
+{
+	ft_dlstclear(&game->secret_walls, &free);
+	copy_list(game);
 }

@@ -1,24 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   set_exit.c                                         :+:      :+:    :+:   */
+/*   exit.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/21 01:15:52 by marykman          #+#    #+#             */
-/*   Updated: 2024/08/21 01:17:39 by marykman         ###   ########.fr       */
+/*   Created: 2024/08/21 01:22:55 by marykman          #+#    #+#             */
+/*   Updated: 2024/08/21 02:14:37 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "parsing.h"
+#ifndef EXIT_H
+# define EXIT_H
 
-t_error	set_exit(t_map *map, t_point pos)
-{
-	static int	exit_count;
-	
-	if (exit_count)
-		return (PARSING_MULTIPLE_EXIT);
-	map->exit_pos = pos;
-	exit_count++;
-	return (SUCCESS);
-}
+# include "so_long.h"
+
+# define EXIT_ASSET	0xc0
+
+int		exit_init(t_game *game, t_point pos);
+void	exit_erase(t_game *game, t_img *img);
+void	exit_update(t_game *game);
+void	exit_draw(t_game *game, t_img *img);
+
+#endif

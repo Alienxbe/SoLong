@@ -6,12 +6,13 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/07 14:20:30 by marykman          #+#    #+#             */
-/*   Updated: 2024/06/14 08:17:28 by marykman         ###   ########.fr       */
+/*   Updated: 2024/08/21 01:38:15 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sc_main.h"
 #include "player.h"
+#include "exit.h"
 #include "strawberries.h"
 #include "secret_walls.h"
 #include "snowflakes.h"
@@ -40,6 +41,7 @@ void	main_draw(t_sc_main *sc)
 	map_draw(sc->game, sc->scene.img);
 	strawberry_draw(sc->game, sc->scene.img);
 	secret_wall_draw(sc->game, sc->scene.img);
+	exit_draw(sc->game, sc->scene.img);
 	player_draw(&sc->game->player, sc->scene.img);
 	snowflakes_draw(sc->game, sc->scene.img);
 }

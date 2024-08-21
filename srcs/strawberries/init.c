@@ -1,24 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   set_exit.c                                         :+:      :+:    :+:   */
+/*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/21 01:15:52 by marykman          #+#    #+#             */
-/*   Updated: 2024/08/21 01:17:39 by marykman         ###   ########.fr       */
+/*   Created: 2024/08/20 19:49:41 by marykman          #+#    #+#             */
+/*   Updated: 2024/08/20 20:13:59 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "parsing.h"
+#include <stdlib.h>
+#include "coins.h"
+#include "strawberries.h"
 
-t_error	set_exit(t_map *map, t_point pos)
+static void	copy_list(t_game *game)
 {
-	static int	exit_count;
-	
-	if (exit_count)
-		return (PARSING_MULTIPLE_EXIT);
-	map->exit_pos = pos;
-	exit_count++;
-	return (SUCCESS);
+	t_dlist *lst;
+	t_fpoint	content;
+
+	lst = game->map.strawberries;
+	while (lst)
+	{
+		content = *(t_fpoint *)lst->content;
+		coin_add(&game->strawberries, (t_point){content.x, content.y});
+		lst = lst->next;
+	}
+}
+
+void	strawberry_init(t_game *game)
+{
+	ft_dlstclear(&game->strawberries, &free);
+	copy_list(game);
 }

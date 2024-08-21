@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 13:59:36 by marykman          #+#    #+#             */
-/*   Updated: 2024/06/12 19:42:32 by marykman         ###   ########.fr       */
+/*   Updated: 2024/08/20 19:59:35 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 
 # define STRAWBERRY_ASSET	0xd0
 
+void	strawberry_init(t_game *game);
 void	strawberry_erase(t_game *game, t_img *img);
 void	strawberry_update(t_game *game);
 void	strawberry_draw(t_game *game, t_img *img);
