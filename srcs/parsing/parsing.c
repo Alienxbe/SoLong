@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 11:54:08 by marykman          #+#    #+#             */
-/*   Updated: 2024/08/21 02:13:47 by marykman         ###   ########.fr       */
+/*   Updated: 2024/08/21 05:50:13 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ t_error	parsing(t_map *map, const char *filename)
 	t_error	ret;
 	int		fd;
 
+	printf("Mode : %d\n", PARSING_MODE);
 	if (!ft_strendwith(filename, MAPFILE_SUFFIX))
 		return (MAP_WRONG_EXTENSION);
 	fd = open(filename, O_RDONLY);
@@ -39,6 +40,8 @@ t_error	parsing(t_map *map, const char *filename)
 	ret = parse_map(map, fd);
 	if (close(fd) < 0)
 		return (MAP_CLOSE_ERROR); // Need to free the map and coin positions
-	printf("%d\n", ret);
+	map->pixel_size = (t_point){map->size.x * SPRITE_SIZE, map->size.y * SPRITE_SIZE};
+	printf("Parsing : %d\n", ret);
+	printf("exit : %d %d\n", map->exit_pos.x, map->exit_pos.y);
 	return (ret);
 }

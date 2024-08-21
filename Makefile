@@ -6,7 +6,7 @@
 #    By: marykman <marykman@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/17 20:20:08 by marykman          #+#    #+#              #
-#    Updated: 2024/08/21 01:45:25 by marykman         ###   ########.fr        #
+#    Updated: 2024/08/21 06:10:43 by marykman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -68,6 +68,7 @@ LIBRARIES			:=	-L./${SFE_FOLDER} -lsfe \
 # --------------------------------Source files---------------------------------
 
 NAME				:=	so_long
+NAME_BONUS			:=	so_long_bonus
 
 FILES				:=	main.c
 FILES_EVENTS		:=	convert.c \
@@ -175,6 +176,11 @@ $(NAME):	${FT} ${MLX} ${SFE} ${OBJS} ${HEADERS}
 	${CC} ${CFLAGS} ${DFLAGS} ${OBJS} ${LIBRARIES} ${MLXFLAGS} -o $@
 	@echo "${PREFIX}${NAME} compiled!"
 
+${NAME_BONUS}:	DFLAGS += -D BONUS
+${NAME_BONUS}:	${FT} ${MLX} ${SFE} ${OBJS} ${HEADERS}
+	${CC} ${CFLAGS} ${DFLAGS} ${OBJS} ${LIBRARIES} ${MLXFLAGS} -o $@
+	@echo "${PREFIX}${NAME_BONUS} compiled!"
+
 $(FT):
 	${MAKE_FT}
 
@@ -187,7 +193,7 @@ $(SFE):
 
 all:	${NAME}
 
-bonus:
+bonus:	${NAME_BONUS}
 
 clean:
 	${MAKE_FT} clean
@@ -199,10 +205,10 @@ fclean:
 	${MAKE_FT} fclean
 	${MAKE_MLX} clean
 	${MAKE_SFE} fclean
-	@rm -f ${NAME} ${OBJS}
+	@rm -f ${NAME} ${NAME_BONUS} ${OBJS}
 
 re:		fclean all
 
 # -----------------------------------.PHONY------------------------------------
 
-.PHONY:	all clean fclean re
+.PHONY:	all clean fclean re bonus

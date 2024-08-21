@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 19:51:03 by marykman          #+#    #+#             */
-/*   Updated: 2024/08/20 21:31:40 by marykman         ###   ########.fr       */
+/*   Updated: 2024/08/21 04:33:40 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,8 @@ static void	player_update_states(t_game *game)
 void	player_update(t_game *game)
 {
 	// Death
-	if (is_hitbox_colliding_spikes(game) || game->player.pos.y + game->player.hitbox.p1.y >= WIN_HEIGHT - 1)
+	if (is_hitbox_colliding_spikes(game)
+		|| game->player.pos.y + game->player.hitbox.p1.y >= game->map.pixel_size.y - 1)
 	{
 		player_init(&game->player, game->map.player_pos, game->assets);
 		strawberry_init(game);
@@ -82,7 +83,6 @@ void	player_update(t_game *game)
 		player_update_wall_jump(game);
 		player_update_dash(game);
 	}
-	// Test for getting coins;
 	player_update_hair_color(game);
 	player_update_animation(game);
 	player_move(game);

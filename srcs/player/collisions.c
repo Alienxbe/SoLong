@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 12:34:40 by marykman          #+#    #+#             */
-/*   Updated: 2024/08/20 21:30:53 by marykman         ###   ########.fr       */
+/*   Updated: 2024/08/21 04:30:15 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,5 @@ t_bool	player_is_oob(t_game *game, t_fpoint pos)
 
 	p[0] = game->player.pos.x + game->player.hitbox.p1.x + pos.x;
 	p[1] = game->player.pos.x + game->player.hitbox.p2.x + pos.x;
-	return (p[0] <= 0 || p[1] >= WIN_WIDTH);
+	return (p[0] <= 0 || p[1] >= game->map.pixel_size.x);
 }

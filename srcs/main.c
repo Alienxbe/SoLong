@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 20:28:58 by marykman          #+#    #+#             */
-/*   Updated: 2024/08/20 19:43:58 by marykman         ###   ########.fr       */
+/*   Updated: 2024/08/21 04:27:16 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 
 static void	init_window(t_sfe **sfe, t_sc_main *sc)
 {
-	*sfe = sfe_init(WIN_NAME, new_point(WIN_DIM));
+	*sfe = sfe_init(WIN_NAME, sc->game->map.pixel_size);
 	sfe_set_max_fps(*sfe, 60);
 	sc->scene = sfe_new_scene(*sfe, sc);
 	sc->scene.f_init = &sc_main_init;
@@ -42,6 +42,7 @@ int	main(int argc, char **argv)
 	sc.game = &game;
 	if (argc != 2 || parsing(&game.map, argv[1]))
 		return (1);
+	ft_printf("%d, %d\n", game.map.size.x, game.map.size.y);
 	init_window(&sfe, &sc);
 	ft_randinit();
 	sfe_loop(sfe);

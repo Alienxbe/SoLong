@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 16:06:23 by marykman          #+#    #+#             */
-/*   Updated: 2023/12/18 16:28:43 by marykman         ###   ########.fr       */
+/*   Updated: 2024/08/21 05:13:14 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ static t_error	parse_line(t_map *map, t_list **lines, char *line)
 	if (!line)
 		return (MALLOC_ERROR);
 	if (!map->size.y)
-		map->size.x = ft_strlen(line) / 2;
-	if (map->size.x != (int)ft_strlen(line) / 2 || map->size.x % 2 || !*line)
+		map->size.x = ft_strlen(line) / PARSING_MODE;
+	if (map->size.x != (int)ft_strlen(line) / PARSING_MODE || map->size.x % PARSING_MODE || !*line)
 		return (PARSING_WRONG_LINE_LEN);
 	ret = parse_content(map, &content, line);
 	if (ret)

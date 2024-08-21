@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 01:42:11 by marykman          #+#    #+#             */
-/*   Updated: 2024/08/21 02:07:42 by marykman         ###   ########.fr       */
+/*   Updated: 2024/08/21 02:27:06 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,8 @@ static t_bool	on_exit(t_game *game)
 
 void	exit_update(t_game *game)
 {
-	if (on_exit(game) && game->player.on_ground)
+	if (on_exit(game) && game->player.on_ground
+		&& !game->strawberries && !game->secret_walls)
 		*game->running = false; // Finish the game
 	update_animation(game);
 }

@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 20:27:42 by marykman          #+#    #+#             */
-/*   Updated: 2024/08/21 02:06:52 by marykman         ###   ########.fr       */
+/*   Updated: 2024/08/21 04:25:58 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ typedef struct s_map
 	t_dlist	*strawberries;
 	t_dlist	*secret_walls;
 	t_point	size;
+	t_point	pixel_size;
 }	t_map;
 
 typedef struct s_player
