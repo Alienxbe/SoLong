@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 20:27:42 by marykman          #+#    #+#             */
-/*   Updated: 2024/08/22 13:58:52 by marykman         ###   ########.fr       */
+/*   Updated: 2024/08/22 15:46:56 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@
 
 # define CLOUD_COUNT		16
 # define SNOWFLAKE_COUNT	24
-# define HAIR_COUNT			3
 # define HAIR_COLOR_DASH_2	0x00FF00
 # define HAIR_COLOR_DASH_1	0xFF004D
 # define HAIR_COLOR_DASH_0	0x29ADFF
@@ -107,22 +106,6 @@ typedef struct s_snowflake
 	size_t		ampl;
 }	t_snowflake;
 
-typedef struct s_smoke
-{
-	t_fpoint	pos;
-	t_point		speed;
-	t_point		flip;
-	size_t		frame;
-	t_img		*assets;
-	t_dlist		*elem;
-}	t_smoke;
-
-typedef struct s_hair
-{
-	t_fpoint	pos;
-	t_img		*texture;
-}	t_hair;
-
 typedef struct s_game
 {
 	t_map		map;
@@ -130,7 +113,6 @@ typedef struct s_game
 	t_exit		exit;
 	t_cloud		clouds[CLOUD_COUNT];
 	t_snowflake	snowflakes[SNOWFLAKE_COUNT];
-	t_hair		hairs[HAIR_COUNT];
 	t_dlist		*strawberries;
 	t_dlist		*secret_walls;
 	t_dlist		*smokes;

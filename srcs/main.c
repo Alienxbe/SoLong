@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 20:28:58 by marykman          #+#    #+#             */
-/*   Updated: 2024/08/22 15:17:10 by marykman         ###   ########.fr       */
+/*   Updated: 2024/08/22 16:23:46 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,9 +97,12 @@ int	main(int argc, char **argv)
 	if (!error)
 		error = parsing(&game.map, argv[1]);
 	if (error)
+	{
+		sc_main_destroy(&sc);
 		return (print_error(error));
+	}
 	init_window(&sfe, &sc);
 	ft_randinit();
 	sfe_loop(sfe);
-	return (0);
+	return (SUCCESS);
 }

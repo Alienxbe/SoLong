@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.h                                            :+:      :+:    :+:   */
+/*   free_tab.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/29 23:11:46 by marykman          #+#    #+#             */
-/*   Updated: 2024/08/22 16:16:22 by marykman         ###   ########.fr       */
+/*   Created: 2024/08/22 16:07:14 by marykman          #+#    #+#             */
+/*   Updated: 2024/08/22 16:21:39 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef UTILS_H
-# define UTILS_H
+#include <stdlib.h>
+#include "utils.h"
 
-# include "so_long.h"
+void	free_tab(int **tab, int max)
+{
+	int	i;
 
-float	ft_appr(float val, float target, float amount);
-float	ft_abs(float a);
-t_point	pixel_to_map_pos(t_fpoint pos);
-void	draw_string(t_game *game, t_img *img, t_point pos, const char *s);
-void	free_tab(int **tab, int max);
-
-#endif
+	i = -1;
+	while (++i < max)
+		free(tab[i]);
+	free(tab);
+}

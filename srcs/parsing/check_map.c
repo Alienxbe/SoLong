@@ -6,29 +6,25 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 17:06:35 by marykman          #+#    #+#             */
-/*   Updated: 2024/08/22 14:57:45 by marykman         ###   ########.fr       */
+/*   Updated: 2024/08/22 16:20:58 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "stdlib.h"
+#include <stdlib.h>
 #include "ft_memory.h"
+#include "utils.h"
 #include "collisions.h"
 #include "parsing.h"
 
 static int	**free_ret(int **tab, int max)
 {
-	int	i;
-
-	i = -1;
-	while (++i < max)
-		free(tab[i]);
-	free(tab);
+	free_tab(tab, max);
 	return (NULL);
 }
 
 static int	**create_tmp_map(t_map *map)
 {
-	int	**tab;
+	int		**tab;
 	int	i;
 
 	tab = ft_calloc(map->size.y, sizeof(*tab));
@@ -83,6 +79,6 @@ t_error	check_map(t_map *map)
 		|| !check_coin_path(map, tmp_tab, map->strawberries)
 		|| !check_coin_path(map, tmp_tab, map->secret_walls))
 		ret = NO_VALID_PATH;
-	free_ret(tmp_tab, map->size.y);
+	free_tab(tmp_tab, map->size.y);
 	return (ret);
 }

@@ -6,7 +6,7 @@
 #    By: marykman <marykman@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/17 20:20:08 by marykman          #+#    #+#              #
-#    Updated: 2024/08/22 15:28:56 by marykman         ###   ########.fr        #
+#    Updated: 2024/08/22 16:16:38 by marykman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -132,7 +132,8 @@ FILES_SECRET_WALLS	:=	init.c\
 FILES_UTILS			:=	ft_appr.c \
 						ft_abs.c \
 						pixel_to_map_pos.c \
-						draw_string.c
+						draw_string.c \
+						free_tab.c
 
 SRCS				:=	$(addprefix srcs/, ${FILES})
 SRCS				+=	$(addprefix srcs/events/, ${FILES_EVENTS})
