@@ -6,10 +6,11 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 01:42:11 by marykman          #+#    #+#             */
-/*   Updated: 2024/08/22 04:00:48 by marykman         ###   ########.fr       */
+/*   Updated: 2024/08/22 18:36:46 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_printf.h"
 #include "exit.h"
 
 static void	update_animation(t_game *game)
@@ -38,6 +39,9 @@ void	exit_update(t_game *game)
 {
 	if (on_exit(game)
 		&& !game->strawberries && !game->secret_walls)
+	{
 		*game->running = false;
+		ft_printf("You win ! Score: %d\n", game->player.steps);
+	}
 	update_animation(game);
 }
