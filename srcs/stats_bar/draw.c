@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 02:18:55 by marykman          #+#    #+#             */
-/*   Updated: 2024/08/22 18:17:37 by marykman         ###   ########.fr       */
+/*   Updated: 2024/08/22 18:25:10 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,18 +56,9 @@ static void	draw_step_counter(t_game *game, t_img *img)
 		free(steps_string);
 }
 
-static void	draw_coin_counter(t_game *game, t_img *img)
-{
-	t_point	pos;
-
-	pos = (t_point){game->map.pixel_size.x / 2 - 8, game->map.pixel_size.y + 2};
-	draw_string(game, img, pos, ":");
-}
-
 void	stats_bar_draw(t_game *game, t_img *img, unsigned int fps)
 {
 	draw_background(game, img);
 	draw_fps_counter(game, img, fps);
 	draw_step_counter(game, img);
-	draw_coin_counter(game, img);
 }

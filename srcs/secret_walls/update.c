@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 08:14:03 by marykman          #+#    #+#             */
-/*   Updated: 2024/08/22 17:56:43 by marykman         ###   ########.fr       */
+/*   Updated: 2024/08/22 18:29:39 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 #include "collisions.h"
 #include "coins.h"
 #include "secret_walls.h"
-#include "ft_printf.h"
 
 static t_dlist	*is_player_breaking_wall(t_game *game)
 {

@@ -6,11 +6,10 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/03 18:41:07 by marykman          #+#    #+#             */
-/*   Updated: 2024/08/21 18:16:59 by marykman         ###   ########.fr       */
+/*   Updated: 2024/08/22 18:30:40 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "utils.h"
 #include "collisions.h"
 

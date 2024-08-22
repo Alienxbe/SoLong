@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 11:54:08 by marykman          #+#    #+#             */
-/*   Updated: 2024/08/22 17:00:51 by marykman         ###   ########.fr       */
+/*   Updated: 2024/08/22 18:30:47 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #include <unistd.h>
 #include "ft_string.h"
 #include "parsing.h"
-#include <stdio.h>
 
 /**
  * @brief This function take a file as parameter. Reads and then parses it

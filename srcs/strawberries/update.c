@@ -6,13 +6,12 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 14:41:32 by marykman          #+#    #+#             */
-/*   Updated: 2024/08/22 17:58:20 by marykman         ###   ########.fr       */
+/*   Updated: 2024/08/22 18:29:47 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <math.h>
 #include <stdlib.h>
-#include "ft_printf.h"
 #include "coins.h"
 #include "strawberries.h"
 

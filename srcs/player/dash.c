@@ -6,11 +6,10 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 14:00:10 by marykman          #+#    #+#             */
-/*   Updated: 2024/08/22 17:15:48 by marykman         ###   ########.fr       */
+/*   Updated: 2024/08/22 18:29:22 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
 #include "ft_math.h"
 #include "sfe_pixel.h"
 #include "sfe_color.h"

@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 20:27:42 by marykman          #+#    #+#             */
-/*   Updated: 2024/08/22 16:43:40 by marykman         ###   ########.fr       */
+/*   Updated: 2024/08/22 18:20:55 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,7 +112,7 @@ typedef struct s_game
 	t_snowflake	snowflakes[SNOWFLAKE_COUNT];
 	t_dlist		*strawberries;
 	t_dlist		*secret_walls;
-	t_dlist		*smokes;
+	int			coin_count;
 	t_img		*assets;
 	t_img		*alphabet;
 	t_bool		active_keys[GAME_KEY_LEN];

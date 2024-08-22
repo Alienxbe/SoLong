@@ -6,12 +6,11 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 11:46:43 by marykman          #+#    #+#             */
-/*   Updated: 2024/08/22 16:53:40 by marykman         ###   ########.fr       */
+/*   Updated: 2024/08/22 18:28:23 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "collisions.h"
-#include "ft_printf.h"
 
 static t_bool	is_spike_type(int block)
 {

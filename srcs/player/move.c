@@ -6,14 +6,13 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 15:04:27 by marykman          #+#    #+#             */
-/*   Updated: 2024/08/22 17:16:02 by marykman         ###   ########.fr       */
+/*   Updated: 2024/08/22 18:30:58 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_math.h"
 #include "utils.h"
 #include "player.h"
-#include <stdio.h>
 
 static void	player_move_x(t_game *game, float x)
 {

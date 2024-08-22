@@ -6,11 +6,10 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 15:29:34 by marykman          #+#    #+#             */
-/*   Updated: 2024/08/22 16:59:37 by marykman         ###   ########.fr       */
+/*   Updated: 2024/08/22 18:29:11 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
 #include <stdlib.h>
 #include "ft_memory.h"
 #include "ft_math.h"

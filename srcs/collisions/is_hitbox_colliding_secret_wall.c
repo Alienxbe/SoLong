@@ -6,12 +6,11 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 18:52:36 by marykman          #+#    #+#             */
-/*   Updated: 2024/08/20 19:45:29 by marykman         ###   ########.fr       */
+/*   Updated: 2024/08/22 18:28:08 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "collisions.h"
-#include "ft_printf.h"
 
 static t_area	get_player_area(t_player *player, t_fpoint offset)
 {
