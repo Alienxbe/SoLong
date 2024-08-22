@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.h                                            :+:      :+:    :+:   */
+/*   stats_bar.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/29 23:11:46 by marykman          #+#    #+#             */
-/*   Updated: 2024/08/22 03:11:04 by marykman         ###   ########.fr       */
+/*   Created: 2024/08/22 02:20:05 by marykman          #+#    #+#             */
+/*   Updated: 2024/08/22 03:36:28 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef UTILS_H
-# define UTILS_H
+#ifndef STATS_BAR_H
+# define STATS_BAR_H
 
 # include "so_long.h"
 
-float	ft_appr(float val, float target, float amount);
-float	ft_abs(float a);
-t_point	pixel_to_map_pos(t_fpoint pos);
-void	draw_string(t_game *game, t_img *img, t_point pos, const char *s);
+# define STATS_BAR_SIZE			20
+# define STATS_BAR_BACKGROUND	0x808080
+
+void	stats_bar_draw(t_game *game, t_img *img, unsigned int fps);
 
 #endif

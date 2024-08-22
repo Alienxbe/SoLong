@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 20:28:58 by marykman          #+#    #+#             */
-/*   Updated: 2024/08/21 04:27:16 by marykman         ###   ########.fr       */
+/*   Updated: 2024/08/22 03:49:00 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,15 @@
 #include "events.h"
 #include "parsing.h"
 #include "ft_math.h"
+#include "stats_bar.h"
 
 static void	init_window(t_sfe **sfe, t_sc_main *sc)
 {
-	*sfe = sfe_init(WIN_NAME, sc->game->map.pixel_size);
+	t_point	win_size;
+
+	win_size = (t_point){sc->game->map.pixel_size.x,
+		sc->game->map.pixel_size.y + STATS_BAR_SIZE};
+	*sfe = sfe_init(WIN_NAME, win_size);
 	sfe_set_max_fps(*sfe, 60);
 	sc->scene = sfe_new_scene(*sfe, sc);
 	sc->scene.f_init = &sc_main_init;

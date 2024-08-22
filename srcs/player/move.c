@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 15:04:27 by marykman          #+#    #+#             */
-/*   Updated: 2024/06/14 20:10:59 by marykman         ###   ########.fr       */
+/*   Updated: 2024/08/22 03:31:31 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static void	player_move_x(t_game *game, float x)
 			&& !player_is_oob(game, (t_fpoint){step, 0}))
 		{
 			game->player.pos.x += step;
-			game->move_count++;
+			game->player.steps++;
 			// printf("Move count : %d\n", game->move_count);
 		}
 		else

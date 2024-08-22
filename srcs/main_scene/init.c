@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 15:18:24 by marykman          #+#    #+#             */
-/*   Updated: 2024/08/21 02:14:54 by marykman         ###   ########.fr       */
+/*   Updated: 2024/08/22 02:09:36 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,11 @@ int	sc_main_init(t_sc_main *sc)
 	ft_printf("Init scene main\n");
 	sc->running = true;
 	sc->game->running = &sc->running;
-	sc->game->assets = sfe_load_sprite_sheet(sc->sfe, F_SPRITE_SHEET, (t_point)
-		{16, 16}, filter);
-	if (!sc->game->assets)
+	sc->game->assets = sfe_load_sprite_sheet(sc->sfe, F_SPRITE_SHEET,
+		(t_point){16, 16}, filter);
+	sc->game->alphabet = sfe_load_sprite_sheet(sc->sfe, F_ALPHABET_SHEET,
+		(t_point){16, 16}, NULL);
+	if (!sc->game->assets || !sc->game->alphabet)
 		return (0);
 	if (!player_init(&sc->game->player, sc->game->map.player_pos,
 			sc->game->assets))

@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 20:27:42 by marykman          #+#    #+#             */
-/*   Updated: 2024/08/21 20:02:28 by marykman         ###   ########.fr       */
+/*   Updated: 2024/08/22 03:31:49 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,8 @@
 # define WALL_INDEX_MIN	1
 # define WALL_INDEX_MAX	0x25
 
-# define F_SPRITE_SHEET	"assets/CelestePico8.xpm"
+# define F_SPRITE_SHEET		"assets/CelestePico8.xpm"
+# define F_ALPHABET_SHEET	"assets/alphabet.xpm"
 
 typedef struct s_map
 {
@@ -72,6 +73,7 @@ typedef struct s_player
 	int			max_djump;
 	int			dash_time;
 	t_fpoint	dash_target;
+	int			steps;
 	t_point		input;
 	t_img		*assets;
 }	t_player;
@@ -127,9 +129,9 @@ typedef struct s_game
 	t_dlist		*secret_walls;
 	t_dlist		*smokes;
 	t_img		*assets;
+	t_img		*alphabet;
 	t_keylist	active_keys;
 	t_bool		*running;
-	int			move_count;
 }	t_game;
 
 #endif

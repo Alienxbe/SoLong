@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 16:31:23 by marykman          #+#    #+#             */
-/*   Updated: 2024/08/21 01:50:58 by marykman         ###   ########.fr       */
+/*   Updated: 2024/08/22 03:51:19 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,6 @@ int	sc_main_update(t_sc_main *sc)
 	main_update(sc);
 	main_draw(sc);
 	// ft_printf("FPS: %d\n", sc->sfe->fps);
+	ft_printf("\n");
 	return (sc->running);
 }

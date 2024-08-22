@@ -6,7 +6,7 @@
 #    By: marykman <marykman@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/17 20:20:08 by marykman          #+#    #+#              #
-#    Updated: 2024/08/21 20:21:04 by marykman         ###   ########.fr        #
+#    Updated: 2024/08/22 03:10:12 by marykman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -78,6 +78,7 @@ FILES_MAIN_SCENE	:=	destroy.c \
 						update.c \
 						draw.c \
 						erase.c
+FILES_STATS_BAR		:=	draw.c
 FILES_PARSING		:=	set_exit.c \
 						set_player.c \
 						parse_content.c \
@@ -134,11 +135,13 @@ FILES_SECRET_WALLS	:=	init.c\
 						update.c
 FILES_UTILS			:=	ft_appr.c \
 						ft_abs.c \
-						pixel_to_map_pos.c
+						pixel_to_map_pos.c \
+						draw_string.c
 
 SRCS				:=	$(addprefix srcs/, ${FILES})
 SRCS				+=	$(addprefix srcs/events/, ${FILES_EVENTS})
 SRCS				+=	$(addprefix srcs/main_scene/, ${FILES_MAIN_SCENE})
+SRCS				+=	$(addprefix srcs/stats_bar/, ${FILES_STATS_BAR})
 SRCS				+=	$(addprefix srcs/parsing/, ${FILES_PARSING})
 SRCS				+=	$(addprefix srcs/collisions/, ${FILES_COLLISIONS})
 SRCS				+=	$(addprefix srcs/coins/, ${FILES_COINS})
@@ -166,6 +169,7 @@ FILES				:=	clouds.h \
 						secret_walls.h \
 						snowflakes.h \
 						so_long.h \
+						stats_bar.h \
 						utils.h
 HEADERS				:=	$(addprefix includes/, ${FILES});
 
