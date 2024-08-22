@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 01:42:11 by marykman          #+#    #+#             */
-/*   Updated: 2024/08/21 02:27:06 by marykman         ###   ########.fr       */
+/*   Updated: 2024/08/22 04:00:48 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static void	update_animation(t_game *game)
 	if (frame < 0)
 		frame = 0;
 }
-#include <stdio.h>
+
 static t_bool	on_exit(t_game *game)
 {
 	t_area		p_hitbox;
@@ -36,8 +36,8 @@ static t_bool	on_exit(t_game *game)
 
 void	exit_update(t_game *game)
 {
-	if (on_exit(game) && game->player.on_ground
+	if (on_exit(game)
 		&& !game->strawberries && !game->secret_walls)
-		*game->running = false; // Finish the game
+		*game->running = false;
 	update_animation(game);
 }
