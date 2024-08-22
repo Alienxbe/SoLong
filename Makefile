@@ -6,7 +6,7 @@
 #    By: marykman <marykman@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/17 20:20:08 by marykman          #+#    #+#              #
-#    Updated: 2024/08/22 16:16:38 by marykman         ###   ########.fr        #
+#    Updated: 2024/08/22 18:00:43 by marykman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -106,7 +106,8 @@ FILES_PLAYER		:=	init.c \
 						gravity.c \
 						jump.c \
 						dash.c \
-						wall_jump.c
+						wall_jump.c \
+						death.c
 FILES_EXIT			:=	init.c \
 						draw.c \
 						erase.c \

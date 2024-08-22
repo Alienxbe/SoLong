@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 01:15:52 by marykman          #+#    #+#             */
-/*   Updated: 2024/08/21 01:17:39 by marykman         ###   ########.fr       */
+/*   Updated: 2024/08/22 17:01:01 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 t_error	set_exit(t_map *map, t_point pos)
 {
 	static int	exit_count;
-	
+
 	if (exit_count)
 		return (PARSING_MULTIPLE_EXIT);
 	map->exit_pos = pos;

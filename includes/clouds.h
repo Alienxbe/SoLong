@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 22:21:45 by marykman          #+#    #+#             */
-/*   Updated: 2024/01/06 18:55:13 by marykman         ###   ########.fr       */
+/*   Updated: 2024/08/22 16:41:23 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,6 @@ void	clouds_erase(t_game *game, t_img *img);
 void	clouds_update(t_game *game);
 void	clouds_draw(t_game *game, t_img *img);
 
-t_cloud	clouds_new_random(int x);
+t_cloud	clouds_new_random(int x, int max_height);
 
 #endif

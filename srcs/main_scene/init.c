@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 15:18:24 by marykman          #+#    #+#             */
-/*   Updated: 2024/08/22 15:29:09 by marykman         ###   ########.fr       */
+/*   Updated: 2024/08/22 18:20:01 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,9 @@ int	sc_main_init(t_sc_main *sc)
 	sc->running = true;
 	sc->game->running = &sc->running;
 	sc->game->assets = sfe_load_sprite_sheet(sc->sfe, F_SPRITE_SHEET,
-		(t_point){16, 16}, filter);
+			(t_point){16, 16}, filter);
 	sc->game->alphabet = sfe_load_sprite_sheet(sc->sfe, F_ALPHABET_SHEET,
-		(t_point){16, 16}, NULL);
+			(t_point){16, 16}, NULL);
 	if (!sc->game->assets || !sc->game->alphabet)
 		return (0);
 	if (!player_init(&sc->game->player, sc->game->map.player_pos,
@@ -51,6 +51,7 @@ int	sc_main_init(t_sc_main *sc)
 		return (0);
 	if (!exit_init(sc->game, sc->game->map.exit_pos))
 		return (0);
+	sc->game.coin_count = ft_dlstsize(sc->game->strawberries, sc->game->strawberries->next);
 	clouds_init(sc->game);
 	snowflakes_init(sc->game);
 	strawberry_init(sc->game);

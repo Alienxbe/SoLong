@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 20:27:42 by marykman          #+#    #+#             */
-/*   Updated: 2024/08/22 15:46:56 by marykman         ###   ########.fr       */
+/*   Updated: 2024/08/22 16:43:40 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,9 @@
 #  define PARSING_MODE 2
 # else
 #  define PARSING_MODE 1
-#endif
+# endif
 
 # define WIN_NAME		"So long but it's actually too long"
-# define WIN_DIM		(16 * 2) * 16, (16 * 2) * 16
-# define WIN_HEIGHT		32 * 16
-# define WIN_WIDTH		32 * 16
 # define SPRITE_SIZE	32
 # define BACKGROUND_COL	0x0
 # define MAPFILE_SUFFIX	".ber"
@@ -118,7 +115,7 @@ typedef struct s_game
 	t_dlist		*smokes;
 	t_img		*assets;
 	t_img		*alphabet;
-	t_keylist	active_keys;
+	t_bool		active_keys[GAME_KEY_LEN];
 	t_bool		*running;
 }	t_game;
 

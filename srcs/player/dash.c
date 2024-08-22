@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 14:00:10 by marykman          #+#    #+#             */
-/*   Updated: 2024/06/17 17:29:46 by marykman         ###   ########.fr       */
+/*   Updated: 2024/08/22 17:15:48 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,33 @@
 #include "player.h"
 #include "utils.h"
 
-#define D_FULL	11.5
-#define D_HALF	(D_FULL * 0.85)
+static void	player_update_dash_input_x(t_game *game)
+{
+	if (game->player.input.y)
+	{
+		game->player.spd.x = game->player.input.x * D_HALF;
+		game->player.spd.y = game->player.input.y * D_HALF;
+	}
+	else
+	{
+		game->player.spd.x = game->player.input.x * D_FULL;
+		game->player.spd.y = 0;
+	}
+}
+
+static void	player_update_dash_no_input_x(t_game *game)
+{
+	if (game->player.input.y)
+	{
+		game->player.spd.x = 0;
+		game->player.spd.y = game->player.input.y * D_FULL * 0.9;
+	}
+	else
+	{
+		game->player.spd.x = game->player.direction * D_FULL;
+		game->player.spd.y = 0;
+	}
+}
 
 void	player_update_dash(t_game *game)
 {
@@ -26,33 +51,10 @@ void	player_update_dash(t_game *game)
 		return ;
 	game->player.djump--;
 	game->player.dash_time = 5;
-	
 	if (game->player.input.x)
-	{
-		if (game->player.input.y) // Diagonals
-		{
-			game->player.spd.x = game->player.input.x * D_HALF;
-			game->player.spd.y = game->player.input.y * D_HALF;
-		}
-		else //Horizontal
-		{
-			game->player.spd.x = game->player.input.x * D_FULL;
-			game->player.spd.y = 0;
-		}
-	}
+		player_update_dash_input_x(game);
 	else
-	{
-		if (game->player.input.y) // Vertical
-		{
-			game->player.spd.x = 0;
-			game->player.spd.y = game->player.input.y * D_FULL * 0.9;
-		}
-		else
-		{
-			game->player.spd.x = game->player.direction * D_FULL;
-			game->player.spd.y = 0;
-		}
-	}
+		player_update_dash_no_input_x(game);
 	game->player.dash_target.x = 3 * ft_signfloat(game->player.spd.x);
 	game->player.dash_target.y = 3 * ft_signfloat(game->player.spd.y);
 }
@@ -60,6 +62,8 @@ void	player_update_dash(t_game *game)
 void	player_update_dash_speed(t_game *game)
 {
 	game->player.dash_time--;
-	game->player.spd.x = ft_appr(game->player.spd.x, game->player.dash_target.x, PLAYER_DASH_ACCEL);
-	game->player.spd.y = ft_appr(game->player.spd.y, game->player.dash_target.y, PLAYER_DASH_ACCEL);
+	game->player.spd.x = ft_appr(game->player.spd.x,
+			game->player.dash_target.x, PLAYER_DASH_ACCEL);
+	game->player.spd.y = ft_appr(game->player.spd.y,
+			game->player.dash_target.y, PLAYER_DASH_ACCEL);
 }

@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 08:12:25 by marykman          #+#    #+#             */
-/*   Updated: 2024/08/20 21:25:25 by marykman         ###   ########.fr       */
+/*   Updated: 2024/08/22 17:55:37 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ void	secret_wall_erase(t_game *game, t_img *img)
 	while (lst)
 	{
 		pos = *(t_fpoint *)lst->content;
-		sfe_pixel_fill(img, (t_area){
-			{pos.x, pos.y},
-			{pos.x + SPRITE_SIZE * 2, pos.y + SPRITE_SIZE * 2}},
+		sfe_pixel_fill(img,
+			(t_area){{pos.x, pos.y},
+		{pos.x + SPRITE_SIZE * 2, pos.y + SPRITE_SIZE * 2}},
 			BACKGROUND_COL);
 		lst = lst->next;
 	}

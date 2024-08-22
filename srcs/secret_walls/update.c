@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/14 08:14:03 by marykman          #+#    #+#             */
-/*   Updated: 2024/08/20 21:27:08 by marykman         ###   ########.fr       */
+/*   Updated: 2024/08/22 17:56:43 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,16 @@
 static t_dlist	*is_player_breaking_wall(t_game *game)
 {
 	if (game->player.dash_time > 1)
-		return (is_hitbox_colliding_secret_wall(&game->player, game->player.dash_target, game->secret_walls));
+		return (is_hitbox_colliding_secret_wall(
+				&game->player,
+				game->player.dash_target,
+				game->secret_walls));
 	return (NULL);
 }
 
 void	secret_wall_update(t_game *game)
 {
-	t_dlist	*broken_wall;
+	t_dlist		*broken_wall;
 	t_fpoint	*content;
 
 	broken_wall = is_player_breaking_wall(game);

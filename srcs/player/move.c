@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 15:04:27 by marykman          #+#    #+#             */
-/*   Updated: 2024/08/22 03:31:31 by marykman         ###   ########.fr       */
+/*   Updated: 2024/08/22 17:16:02 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ static void	player_move_x(t_game *game, float x)
 		{
 			game->player.pos.x += step;
 			game->player.steps++;
-			// printf("Move count : %d\n", game->move_count);
 		}
 		else
 		{

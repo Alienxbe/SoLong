@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 16:06:23 by marykman          #+#    #+#             */
-/*   Updated: 2024/08/21 16:27:09 by marykman         ###   ########.fr       */
+/*   Updated: 2024/08/22 17:00:15 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 #include "get_next_line.h"
 #include "parsing.h"
 
-#include <stdio.h>
 static t_error	parse_line(t_map *map, t_list **lines, char *line)
 {
 	t_error	ret;
@@ -27,7 +26,8 @@ static t_error	parse_line(t_map *map, t_list **lines, char *line)
 		return (MALLOC_ERROR);
 	if (!map->size.y)
 		map->size.x = ft_strlen(line) / PARSING_MODE;
-	if (map->size.x != (int)ft_strlen(line) / PARSING_MODE || map->size.x % PARSING_MODE || !*line)
+	if (map->size.x != (int)ft_strlen(line) / PARSING_MODE
+		|| map->size.x % PARSING_MODE || !*line)
 		return (PARSING_WRONG_LINE_LEN);
 	ret = parse_content(map, &content, line);
 	if (ret)

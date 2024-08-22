@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 01:42:31 by marykman          #+#    #+#             */
-/*   Updated: 2024/08/21 01:49:00 by marykman         ###   ########.fr       */
+/*   Updated: 2024/08/22 16:56:23 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 void	exit_erase(t_game *game, t_img *img)
 {
 	sfe_pixel_fill(img, (t_area){
-			game->exit.pos,
-			{game->exit.pos.x + SPRITE_SIZE, game->exit.pos.y + SPRITE_SIZE}},
-			BACKGROUND_COL);
+		game->exit.pos, {
+		game->exit.pos.x + SPRITE_SIZE, game->exit.pos.y + SPRITE_SIZE}},
+		BACKGROUND_COL);
 }

@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 21:20:50 by marykman          #+#    #+#             */
-/*   Updated: 2024/08/20 21:29:27 by marykman         ###   ########.fr       */
+/*   Updated: 2024/08/22 17:56:05 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 static void	copy_list(t_game *game)
 {
-	t_dlist *lst;
+	t_dlist		*lst;
 	t_fpoint	content;
 
 	lst = game->map.secret_walls;

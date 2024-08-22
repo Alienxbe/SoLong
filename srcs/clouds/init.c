@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 23:16:50 by marykman          #+#    #+#             */
-/*   Updated: 2024/01/05 21:16:48 by marykman         ###   ########.fr       */
+/*   Updated: 2024/08/22 16:43:04 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,7 @@ void	clouds_init(t_game *game)
 
 	i = -1;
 	while (++i < CLOUD_COUNT)
-		game->clouds[i] = clouds_new_random(ft_randint(-300, WIN_WIDTH));
+		game->clouds[i] = clouds_new_random(
+				ft_randint(-300, game->map.pixel_size.y),
+				game->map.pixel_size.y);
 }

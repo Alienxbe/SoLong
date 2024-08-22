@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 17:06:35 by marykman          #+#    #+#             */
-/*   Updated: 2024/08/22 16:20:58 by marykman         ###   ########.fr       */
+/*   Updated: 2024/08/22 17:00:32 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static int	**free_ret(int **tab, int max)
 
 static int	**create_tmp_map(t_map *map)
 {
-	int		**tab;
+	int	**tab;
 	int	i;
 
 	tab = ft_calloc(map->size.y, sizeof(*tab));

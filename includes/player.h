@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 16:37:51 by marykman          #+#    #+#             */
-/*   Updated: 2024/08/22 14:17:45 by marykman         ###   ########.fr       */
+/*   Updated: 2024/08/22 17:25:39 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@
 # define PLAYER_JUMP_BUFFER			6
 # define PLAYER_GRACE				6
 # define PLAYER_MAX_DJUMP			1
+# define D_FULL						11.5
+# define D_HALF						9.775
 
 int		player_init(t_player *player, t_point pos, t_img *assets);
 void	player_erase(t_game *game, t_img *img);
@@ -53,6 +55,9 @@ void	player_update_dash_speed(t_game *game);
 void	player_update_wall_jump(t_game *game);
 void	player_update_animation(t_game *game);
 void	player_move(t_game *game);
+
+t_bool	player_isdead(t_game *game);
+void	player_death(t_game *game);
 
 t_bool	player_is_solid(t_game *game, t_fpoint pos);
 t_bool	player_is_oob(t_game *game, t_fpoint pos);
