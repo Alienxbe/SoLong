@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 15:29:34 by marykman          #+#    #+#             */
-/*   Updated: 2024/08/21 18:04:39 by marykman         ###   ########.fr       */
+/*   Updated: 2024/08/22 14:57:55 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@
 
 static t_error	parse_special_char(t_map *map, char *line, int i)
 {
-	ft_printf("Special char '%c%c' (%d,%d)\n", line[0], line[1], i, map->size.y);
 	if (*++line == 'P')
 	{
 		if (set_player(map, (t_point){i, map->size.y}))

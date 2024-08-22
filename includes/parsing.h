@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 16:06:32 by marykman          #+#    #+#             */
-/*   Updated: 2024/08/21 20:22:32 by marykman         ###   ########.fr       */
+/*   Updated: 2024/08/22 13:58:48 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,6 @@
 
 # include "so_long.h"
 # include "errors.h"
-
-# ifdef BONUS
-#  define PARSING_MODE 2
-# else
-#  define PARSING_MODE 1
-#endif
 
 t_error	set_player(t_map *map, t_point pos);
 t_error	set_exit(t_map *map, t_point pos);

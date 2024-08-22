@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 20:27:42 by marykman          #+#    #+#             */
-/*   Updated: 2024/08/22 03:31:49 by marykman         ###   ########.fr       */
+/*   Updated: 2024/08/22 13:58:52 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,12 @@
 # include "ft_area.h"
 # include "ft_list.h"
 # include "events.h"
+
+# ifdef BONUS
+#  define PARSING_MODE 2
+# else
+#  define PARSING_MODE 1
+#endif
 
 # define WIN_NAME		"So long but it's actually too long"
 # define WIN_DIM		(16 * 2) * 16, (16 * 2) * 16

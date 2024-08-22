@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 11:54:08 by marykman          #+#    #+#             */
-/*   Updated: 2024/08/21 17:23:23 by marykman         ###   ########.fr       */
+/*   Updated: 2024/08/22 14:55:45 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ t_error	parsing(t_map *map, const char *filename)
 	t_error	ret;
 	int		fd;
 
-	printf("Mode : %d\n", PARSING_MODE);
 	if (!ft_strendwith(filename, MAPFILE_SUFFIX))
 		return (MAP_WRONG_EXTENSION);
 	fd = open(filename, O_RDONLY);
@@ -43,6 +42,5 @@ t_error	parsing(t_map *map, const char *filename)
 	map->pixel_size = (t_point){map->size.x * SPRITE_SIZE, map->size.y * SPRITE_SIZE};
 	if (!ret)
 		ret = check_map(map); // checking for valid map
-	printf("Parsing : %d\n", ret);
 	return (ret);
 }

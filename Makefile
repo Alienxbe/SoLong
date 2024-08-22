@@ -6,7 +6,7 @@
 #    By: marykman <marykman@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/17 20:20:08 by marykman          #+#    #+#              #
-#    Updated: 2024/08/22 03:10:12 by marykman         ###   ########.fr        #
+#    Updated: 2024/08/22 15:28:56 by marykman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -107,10 +107,6 @@ FILES_PLAYER		:=	init.c \
 						jump.c \
 						dash.c \
 						wall_jump.c
-FILES_HAIRS			:=	init.c \
-						draw.c \
-						erase.c \
-						update.c
 FILES_EXIT			:=	init.c \
 						draw.c \
 						erase.c \
@@ -146,7 +142,6 @@ SRCS				+=	$(addprefix srcs/parsing/, ${FILES_PARSING})
 SRCS				+=	$(addprefix srcs/collisions/, ${FILES_COLLISIONS})
 SRCS				+=	$(addprefix srcs/coins/, ${FILES_COINS})
 SRCS				+=	$(addprefix srcs/player/, ${FILES_PLAYER})
-SRCS				+=	$(addprefix srcs/hairs/, ${FILES_HAIRS})
 SRCS				+=	$(addprefix srcs/exit/, ${FILES_EXIT})
 SRCS				+=	$(addprefix srcs/clouds/, ${FILES_CLOUDS})
 SRCS				+=	$(addprefix srcs/snowflakes/, ${FILES_SNOWFLAKES})
@@ -161,7 +156,6 @@ FILES				:=	clouds.h \
 						coins.h \
 						errors.h \
 						events.h \
-						hairs.h \
 						exit.h \
 						parsing.h \
 						player.h \
@@ -186,7 +180,7 @@ $(NAME):	${FT} ${MLX} ${SFE} ${OBJS} ${HEADERS}
 
 ${NAME_BONUS}:	DFLAGS += -D BONUS
 ${NAME_BONUS}:	${FT} ${MLX} ${SFE} ${OBJS} ${HEADERS}
-	${CC} ${CFLAGS} -g -fsanitize=address ${DFLAGS} ${OBJS} ${LIBRARIES} ${MLXFLAGS} -o $@
+	${CC} ${CFLAGS} ${DFLAGS} ${OBJS} ${LIBRARIES} ${MLXFLAGS} -o $@
 	@echo "${PREFIX}${NAME_BONUS} compiled!"
 
 $(FT):

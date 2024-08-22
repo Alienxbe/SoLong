@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 15:18:24 by marykman          #+#    #+#             */
-/*   Updated: 2024/08/22 02:09:36 by marykman         ###   ########.fr       */
+/*   Updated: 2024/08/22 15:29:09 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 #include "ft_printf.h"
 #include "player.h"
 #include "exit.h"
-#include "hairs.h"
 #include "clouds.h"
 #include "snowflakes.h"
 #include "strawberries.h"
@@ -39,7 +38,6 @@ static t_img	filter(t_sfe *sfe, t_img *img, size_t i)
 
 int	sc_main_init(t_sc_main *sc)
 {
-	ft_printf("Init scene main\n");
 	sc->running = true;
 	sc->game->running = &sc->running;
 	sc->game->assets = sfe_load_sprite_sheet(sc->sfe, F_SPRITE_SHEET,
@@ -53,7 +51,6 @@ int	sc_main_init(t_sc_main *sc)
 		return (0);
 	if (!exit_init(sc->game, sc->game->map.exit_pos))
 		return (0);
-	hairs_init(sc->game);
 	clouds_init(sc->game);
 	snowflakes_init(sc->game);
 	strawberry_init(sc->game);

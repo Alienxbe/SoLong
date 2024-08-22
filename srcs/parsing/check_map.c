@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 17:06:35 by marykman          #+#    #+#             */
-/*   Updated: 2024/08/21 20:38:13 by marykman         ###   ########.fr       */
+/*   Updated: 2024/08/22 14:57:45 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,13 +48,11 @@ static t_error	check_closed_map(t_map *map)
 {
 	int	i;
 
-	// Horizontal
 	i = -1;
 	while (++i < map->size.x)
 		if (!is_wall_type(map->tab[0][i])
 			|| !is_wall_type(map->tab[map->size.y - 1][i]))
 			return (UNCLOSED_MAP);
-	// Vertical
 	i = -1;
 	while (++i < map->size.y)
 		if (!is_wall_type(map->tab[i][0])

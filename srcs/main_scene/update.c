@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 16:31:23 by marykman          #+#    #+#             */
-/*   Updated: 2024/08/22 03:51:19 by marykman         ###   ########.fr       */
+/*   Updated: 2024/08/22 15:29:29 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 #include "sfe_pixel.h"
 #include "sc_main.h"
 #include "player.h"
-#include "hairs.h"
 #include "exit.h"
 #include "snowflakes.h"
 #include "strawberries.h"
@@ -27,7 +26,6 @@
 void	main_update(t_sc_main *sc)
 {
 	player_update(sc->game);
-	hairs_update(sc->game);
 	exit_update(sc->game);
 	clouds_update(sc->game);
 	snowflakes_update(sc->game);
@@ -40,7 +38,5 @@ int	sc_main_update(t_sc_main *sc)
 	main_erase(sc);
 	main_update(sc);
 	main_draw(sc);
-	// ft_printf("FPS: %d\n", sc->sfe->fps);
-	ft_printf("\n");
 	return (sc->running);
 }
