@@ -6,7 +6,7 @@
 #    By: marykman <marykman@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/17 20:20:08 by marykman          #+#    #+#              #
-#    Updated: 2024/08/22 18:00:43 by marykman         ###   ########.fr        #
+#    Updated: 2024/08/23 18:19:15 by marykman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -176,14 +176,9 @@ objs/%.o:	srcs/%.c ${HEADERS}
 	@echo "${PREFIX}Compilation of $<..."
 	
 
-$(NAME):	${FT} ${MLX} ${SFE} ${OBJS} ${HEADERS}
+$(NAME):	clean ${FT} ${MLX} ${SFE} ${OBJS} ${HEADERS}
 	${CC} ${CFLAGS} ${DFLAGS} ${OBJS} ${LIBRARIES} ${MLXFLAGS} -o $@
 	@echo "${PREFIX}${NAME} compiled!"
-
-${NAME_BONUS}:	DFLAGS += -D BONUS
-${NAME_BONUS}:	${FT} ${MLX} ${SFE} ${OBJS} ${HEADERS}
-	${CC} ${CFLAGS} ${DFLAGS} ${OBJS} ${LIBRARIES} ${MLXFLAGS} -o $@
-	@echo "${PREFIX}${NAME_BONUS} compiled!"
 
 $(FT):
 	${MAKE_FT}
@@ -197,7 +192,9 @@ $(SFE):
 
 all:	${NAME}
 
-bonus:	${NAME_BONUS}
+bonus:	NAME = ${NAME_BONUS}
+bonus:	DFLAGS += -D BONUS
+bonus:	${NAME}
 
 clean:
 	${MAKE_FT} clean
