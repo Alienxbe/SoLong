@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 16:31:23 by marykman          #+#    #+#             */
-/*   Updated: 2024/08/22 18:29:02 by marykman         ###   ########.fr       */
+/*   Updated: 2024/08/23 15:56:57 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 #include "strawberries.h"
 #include "secret_walls.h"
 #include "clouds.h"
-#include "parsing.h"
 
 void	main_update(t_sc_main *sc)
 {

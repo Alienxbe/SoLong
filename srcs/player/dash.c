@@ -6,15 +6,15 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/25 14:00:10 by marykman          #+#    #+#             */
-/*   Updated: 2024/08/22 18:29:22 by marykman         ###   ########.fr       */
+/*   Updated: 2024/08/23 15:59:15 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_math.h"
 #include "sfe_pixel.h"
 #include "sfe_color.h"
-#include "player.h"
 #include "utils.h"
+#include "player.h"
 
 static void	player_update_dash_input_x(t_game *game)
 {

@@ -6,12 +6,12 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/31 12:34:40 by marykman          #+#    #+#             */
-/*   Updated: 2024/08/22 18:30:53 by marykman         ###   ########.fr       */
+/*   Updated: 2024/08/23 15:59:09 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "player.h"
 #include "collisions.h"
+#include "player.h"
 
 t_bool	player_is_solid(t_game *game, t_fpoint pos)
 {

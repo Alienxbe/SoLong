@@ -6,13 +6,13 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 19:37:51 by marykman          #+#    #+#             */
-/*   Updated: 2024/08/21 20:23:01 by marykman         ###   ########.fr       */
+/*   Updated: 2024/08/23 15:57:47 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils.h"
-#include "parsing.h"
 #include "collisions.h"
+#include "parsing.h"
 
 static t_bool	is_spike_type(int block)
 {

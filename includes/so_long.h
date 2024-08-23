@@ -6,7 +6,7 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 20:27:42 by marykman          #+#    #+#             */
-/*   Updated: 2024/08/22 18:20:55 by marykman         ###   ########.fr       */
+/*   Updated: 2024/08/23 15:53:51 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,6 @@
 # define HAIR_COLOR_DASH_2	0x00FF00
 # define HAIR_COLOR_DASH_1	0xFF004D
 # define HAIR_COLOR_DASH_0	0x29ADFF
-
-# define SPECIAL_CHAR	"PCEB"
 
 # define WALL_INDEX_MIN	1
 # define WALL_INDEX_MAX	0x25

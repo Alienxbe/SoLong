@@ -6,15 +6,15 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 15:29:34 by marykman          #+#    #+#             */
-/*   Updated: 2024/08/22 18:29:11 by marykman         ###   ########.fr       */
+/*   Updated: 2024/08/23 15:58:00 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include "ft_ctype.h"ß
 #include "ft_memory.h"
 #include "ft_math.h"
 #include "ft_string.h"
-#include "ft_ctype.h"
 #include "coins.h"
 #include "parsing.h"
 
