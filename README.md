@@ -233,3 +233,23 @@ While the `mandatory` maps are part of the project requirements, I highly recomm
 
 > ⚠️ some maps are impossible with only one dash
 
+## Future updates
+
+Due to the pace system I had to go back to common core and finish this project but I have many idea's I would like to implement in a near future such as:
+
+- Pause menu
+	- control settings
+- replace step counter with timer
+- Adding particles
+- Death animation
+- Adding new mechanics
+	- Dash refill
+	- Bouncer
+	- moving platform
+- Map transitioning
+- Including map editor to be able to edit live (debug mode)
+
+## Thanks
+
+I would really like to thanks Matt Thorson and Noel Berry for creating this game and all the team that worked on the final Celeste game. It really had a huge impact on me and after more than 500h spent on this masterclass I'm still enjoying it with the lovely community maps
+
