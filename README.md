@@ -203,7 +203,9 @@ Since the project uses git submodules, you must clone the repository with the `-
 ```sh
 git clone --recurse-submodules https://github.com/Alienxbe/SoLong
 cd SoLong        # Move to the project directory
-make build       # Build both executables
+make             # Compile mandatory
+make clean       # We have to clean before compiling bonys
+make bonus       # Compiling bonus
 ```
 
 Once compiled, you can run the appropriate version of the game with the following commands:

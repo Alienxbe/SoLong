@@ -6,7 +6,7 @@
 #    By: marykman <marykman@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/17 20:20:08 by marykman          #+#    #+#              #
-#    Updated: 2024/08/24 15:16:21 by marykman         ###   ########.fr        #
+#    Updated: 2024/09/05 18:21:12 by marykman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -195,8 +195,6 @@ all:	${NAME}
 bonus:	NAME=${NAME_BONUS}
 bonus:	DFLAGS += -D BONUS
 bonus:	${NAME}
-
-build:	all clean bonus
 
 clean:
 	${MAKE_FT} clean
