@@ -176,7 +176,7 @@ objs/%.o:	srcs/%.c ${HEADERS}
 	@echo "${PREFIX}Compilation of $<..."
 	
 
-$(NAME):	clean ${FT} ${MLX} ${SFE} ${OBJS} ${HEADERS}
+$(NAME):	${FT} ${MLX} ${SFE} ${OBJS} ${HEADERS}
 	${CC} ${CFLAGS} ${DFLAGS} ${OBJS} ${LIBRARIES} ${MLXFLAGS} -o ${NAME}
 	@echo "${PREFIX}${NAME} compiled!"
 
@@ -195,6 +195,8 @@ all:	${NAME}
 bonus:	NAME=${NAME_BONUS}
 bonus:	DFLAGS += -D BONUS
 bonus:	${NAME}
+
+build:	all clean bonus
 
 clean:
 	${MAKE_FT} clean
