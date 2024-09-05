@@ -16,7 +16,7 @@
 
 `so_long` is the first graphical project created at 42. The goal is to build a basic 2D game using the school's graphical library, `minilibx`.
 
-As Celeste is my favorite game of all time, I decided to recreate it for this project. However, to simplify things, I focused on recreating the [Pico-8 version](https://www.lexaloffle.com/bbs/?tid=2145) of the game, which was made by Matt Thorson and Noel Berry in just 4 days!
+As Celeste is my favorite game of all time, I decided to recreate it for this project. However, to simplify things, I focused on recreating the [Pico-8 version](https://www.lexaloffle.com/bbs/?tid=2145) of the game, which was made by Maddy Thorson and Noel Berry in just 4 days!
 
 ![Basic gameplay](assets/git/Gameplay_0.gif)
 
@@ -252,5 +252,5 @@ Due to the pace system I had to go back to common core and finish this project b
 
 ## Thanks
 
-I would really like to thanks Matt Thorson and Noel Berry for creating this game and all the team that worked on the final Celeste game. It really had a huge impact on me and after more than 500h spent on this masterclass I'm still enjoying it with the lovely community maps
+I would really like to thanks Maddy Thorson and Noel Berry for creating this game and all the team that worked on the final Celeste game. It really had a huge impact on me and after more than 500h spent on this masterclass I'm still enjoying it with the lovely community maps
 
