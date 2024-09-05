@@ -1,1 +1,14 @@
-* Norme
+* Finishing README
+* Pause menu
+	* controls settings
+* replace step counter with timer
+* Adding particles
+* Death animation
+* Adding new mechanics
+	* Dash refill
+	* Bouncer
+	* moving platform
+* Map transitioning
+	* Idea : Add new file type (.lvl) wich contain all the filepath of maps
+	* Transitioning when getting to y = 0
+* Including map editor to be able to edit live (debug mode)

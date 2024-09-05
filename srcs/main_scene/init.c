@@ -6,13 +6,14 @@
 /*   By: marykman <marykman@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 15:18:24 by marykman          #+#    #+#             */
-/*   Updated: 2024/08/22 18:28:31 by marykman         ###   ########.fr       */
+/*   Updated: 2024/09/05 13:04:39 by marykman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "t_sfe.h"
 #include "sfe_color.h"
 #include "sfe_image.h"
+#include "sfe_pixel.h"
 #include "sc_main.h"
 #include "player.h"
 #include "exit.h"
@@ -54,5 +55,6 @@ int	sc_main_init(t_sc_main *sc)
 	snowflakes_init(sc->game);
 	strawberry_init(sc->game);
 	secret_wall_init(sc->game);
+	sfe_pixel_fill(sc->scene.img, (t_area){{0, 0}, sc->scene.size}, BACKGROUND_COL);
 	return (1);
 }
