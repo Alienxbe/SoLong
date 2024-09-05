@@ -18,6 +18,8 @@
 
 As Celeste is my favorite game of all time, I decided to recreate it for this project. However, to simplify things, I focused on recreating the [Pico-8 version](https://www.lexaloffle.com/bbs/?tid=2145) of the game, which was made by Matt Thorson and Noel Berry in just 4 days!
 
+![Basic gameplay](assets/git/Gameplay_0.gif)
+
 ## Gameplay
 
 Celeste is a hardcore platformer that requires quick reflexes and precision. Given its difficulty, the controls are simple—just six keys: the four arrow keys for movement, a jump key, and a [dash](#dash) key.
@@ -34,6 +36,8 @@ Some levels contain one or more strawberries to collect. These are completely op
 > "Strawberries will impress your friends, but that's about it. Only collect them if you really want to!"
 
 ### Secret Walls
+
+![Secret walls](assets/git/SecretBlock.gif)
 
 > Some walls seem a bit suspicious—what might they be hiding?
 
@@ -106,7 +110,7 @@ static void	init_window(t_sfe **sfe, t_sc_main *sc)
 
 	win_size = (t_point){sc->game->map.pixel_size.x,
 		sc->game->map.pixel_size.y + STATS_BAR_SIZE};
-	*sfe = sfe_init(WIN_NAME, win_size);	// Call the init fun
+	*sfe = sfe_init(WIN_NAME, win_size);	// Call the init function
 	sfe_set_max_fps(*sfe, 60);
 	sc->scene = sfe_new_scene(*sfe, sc);
 	sc->scene.f_init = &sc_main_init;
@@ -148,6 +152,46 @@ void	main_draw()
 ```
 
 
+### Map configuration
+
+Maps in this project are configured using a specific format. Each map file should be a `.ber` file and consists of characters representing different elements:
+
+- `P`: Player's starting position
+- `C`: Coin (collectible)
+- `E`: Exit point
+- `1`: Wall
+- `0`: Empty space
+
+#### Bonus
+
+In the bonus version, each block in the game map is represented by two characters rather than one. Special characters are prefixed with an `x`, for example, `xP` for the player's starting position.
+
+Other blocks are represented by a 2-digit hexadecimal number, allowing for up to 256 different tiles to be drawn from the tile sheet. This system provides greater flexibility and variety in map design.
+
+However, this format makes the maps less readable for humans. To address this, I’ve created a basic map builder tool. In the future, I plan to implement a debug mode that will allow for live map editing.
+
+Here’s an example of what a map might look like in the bonus version:
+
+```
+090a15151415150e0e0e0e0e0b23220c
+15090a0e0e0e0b2900002d2900001c0c
+151509012f2d2e000000280000xE360c
+0e0e0b2d2d2d2900000000003501010c
+09xW262e2d29262d2700000002030f15
+0d2d2d2d2d2f2d290000000000000a15
+15090303042d2d000000000000262d0c
+150b2e2d2d29000000000000002d2e0c
+0d0000282d00000000262d262d2d2d0c
+0b0000002d2a2b00002d2f2d2d020f15
+000000262d2d2e34262d2d2d2e2d0c15
+0000002d2e2d2d08092d0000282d0c15
+00xP2608092d280a0b29003030300c15
+0f0f0f150d290008093030080f0f1515
+151415150d30300c150f0f1515151415
+15151515150f0f151515151515151515
+```
+
+
 ## How to Play
 
 ### Installation
@@ -173,7 +217,7 @@ Once compiled, you can run the appropriate version of the game with the followin
 
 ### The Maps
 
-The project includes a `maps/` folder divided into two sections: `bonus` and `mandatory`. It's important to note that the `bonus` maps can only be used with the bonus version (`./so_long_bonus`), and the `mandatory` maps must be played with the standard version (`./so_long`). More details on why can be found in the [How it Works section](#how-it-works).
+The project includes a `maps/` folder divided into two sections: `bonus` and `mandatory`. It's important to note that the `bonus` maps can only be used with the bonus version (`./so_long_bonus`), and the `mandatory` maps must be played with the standard version (`./so_long`). More details on why can be found in the [Map configuration](#map-configuration) section.
 
 ```
 ├── maps
