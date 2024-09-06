@@ -204,14 +204,14 @@ Since the project uses git submodules, you must clone the repository with the `-
 git clone --recurse-submodules https://github.com/Alienxbe/SoLong
 cd SoLong        # Move to the project directory
 make             # Compile mandatory
-make clean       # We have to clean before compiling bonys
+make clean       # We have to clean before compiling bonus
 make bonus       # Compiling bonus
 ```
 
 Once compiled, you can run the appropriate version of the game with the following commands:
  >The second argument for the bonus version is optional and defaults to 1.
 ```sh
-./so_long <map_path>           # Run the standard version
+./so_long <map_path>                     # Run the standard version
 ./so_long_bonus <map_path> [dash_count]  # Run the bonus version
 
 ```
@@ -233,6 +233,15 @@ The project includes a `maps/` folder divided into two sections: `bonus` and `ma
 While the `mandatory` maps are part of the project requirements, I highly recommend playing the `bonus` maps to experience all the features of the game. For the best experience, play the bonus maps in sequence (`maps/bonus/celeste[0->6].ber`).
 
 > ⚠️ some maps are impossible with only one dash
+
+### Controls
+
+Until I add the option to change keybinds in game, here are the control keys:
+
+- `arrow keys`: movement
+- `c`:          jump
+- `x`:          dash
+- `esc`:        exit the game
 
 ## Future updates
 
