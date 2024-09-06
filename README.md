@@ -84,11 +84,11 @@ typedef struct s_map
 
 ### Part 2: Game initialisation
 
-Most of the 'hard' stuff with the minilibx is done by my `SnowFlakeEngine` so this part is pretty easy. To understand of it works, I have to explain you the logic of my game engine.
+Most of the 'hard' stuff with the minilibx is done by my `SnowFlakeEngine` so this part is pretty easy. To understand how it works, I have to explain you the logic of my game engine.
 
-It works with a system of scenes called `t_scene`. We don't have to know what's inside this structure because it's automaticly created with `sfe_new_scene()` except that there is 3 important functions pointer called `f_init`, `f_update` and `f_destroy`. This `t_scene` works a little bit like a parent in OOB, so that's why you have to create a new structure that will *inherit* from it (here `t_sc_main`). As you can see in the code below, I also have to set my new scene (`t_sc_main`) as the new active scene with `sfe_set_active_scene`. When this function is called it will also call the `f_init` function passed to my scene, and a little bit latter I will start my main loop using the `sfe_loop()` function and it will call every time the `f_update()` function. This loop also calculate my fps and can also limit it using the `usleep()` function to make it constent. Once the function `f_update` return `0` the loop will end and call `sfe_exit()` wich finally call the `f_destroy` function.
+It works with a system of scenes called `t_scene`. We don't have to know what's inside this structure because it's automatically created with `sfe_new_scene()` except that there are 3 important function pointers called `f_init`, `f_update` and `f_destroy`. This `t_scene` works a little bit like a parent in OOB, so that's why you have to create a new structure that will *inherit* from it (here `t_sc_main`). As you can see in the code below, I also have to set my new scene (`t_sc_main`) as the new active scene with `sfe_set_active_scene`. When this function is called it will also call the `f_init` function passed to my scene, and a little bit later I will start my main loop using the `sfe_loop()` function and it will call every time the `f_update()` function. This loop also calculates my fps and can also limit it using the `usleep()` function to make it constant. Once the function `f_update` returns `0` the loop will end and call `sfe_exit()` wich finally calls the `f_destroy` function.
 
-The scene from SFE also create an image (`t_img`) when it's initialised. An upgarded version of the minilibx image, where I can draw / copy sprite on. This image is the only on that is called with the `sfe_put_img_to_window()`, my equivalent of the `mlx_put_img_to_window()`.
+The scene from SFE also creates an image (`t_img`) when it's initialised. An upgraded version of the minilibx image, where I can draw / copy sprite on. This image is the only one that is called with the `sfe_put_img_to_window()`, my equivalent of the `mlx_put_img_to_window()`.
 
 
 ```C
@@ -122,7 +122,7 @@ static void	init_window(t_sfe **sfe, t_sc_main *sc)
 }
 ```
 
-In the `sc_main_init()` function I set some variables, load the sprite sheets that are divided in a list of `t_img` with my very usefull `sfe_load_sprite_sheet()` function, and call the init function of every *item* of the game (player, exit, strawberries, ...)
+In the `sc_main_init()` function I set some variables, load the sprite sheets that are divided in a list of `t_img` with my very useful `sfe_load_sprite_sheet()` function, and call the init function of every *item* of the game (player, exit, strawberries, ...)
 
 ### Part 3: Game Loop
 
@@ -204,7 +204,7 @@ Since the project uses git submodules, you must clone the repository with the `-
 git clone --recurse-submodules https://github.com/Alienxbe/SoLong
 cd SoLong        # Move to the project directory
 make             # Compile mandatory
-make clean       # We have to clean before compiling bonys
+make clean       # We have to clean before compiling bonus
 make bonus       # Compiling bonus
 ```
 
@@ -236,21 +236,21 @@ While the `mandatory` maps are part of the project requirements, I highly recomm
 
 ## Future updates
 
-Due to the pace system I had to go back to common core and finish this project but I have many idea's I would like to implement in a near future such as:
+Due to the pace system I had to go back to common core and finish this project but I have many ideas I would like to implement in a near future such as:
 
 - Pause menu
 	- control settings
-- replace step counter with timer
+- Replace step counter with timer
 - Adding particles
 - Death animation
 - Adding new mechanics
 	- Dash refill
 	- Bouncer
-	- moving platform
+	- Moving platforms
 - Map transitioning
 - Including map editor to be able to edit live (debug mode)
 
 ## Thanks
 
-I would really like to thanks Maddy Thorson and Noel Berry for creating this game and all the team that worked on the final Celeste game. It really had a huge impact on me and after more than 500h spent on this masterclass I'm still enjoying it with the lovely community maps
+I would really like to thank Maddy Thorson and Noel Berry for creating this game and all the team that worked on the final Celeste game. It really had a huge impact on me and after more than 500h spent on this masterclass I'm still enjoying it with the lovely community maps.
 
