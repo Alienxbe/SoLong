@@ -252,5 +252,5 @@ Due to the pace system I had to go back to common core and finish this project b
 
 ## Thanks
 
-I would really like to thank Maddy Thorson and Noel Berry for creating this game and all the team that worked on the final Celeste game. It really had a huge impact on me and after more than 500h spent on this masterclass I'm still enjoying it with the lovely community maps.
+I would really like to thank Maddy Thorson and Noel Berry for creating this game and all the team that worked on the final Celeste game. It really had a huge impact on me and after more than 500h spent on this masterpiece I'm still enjoying it with the lovely community maps.
 
